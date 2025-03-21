@@ -1,0 +1,32 @@
+{% assign slider_pages = site.pages['/ads/tops'].children_in_list | order_by: '-created_at' | limit:  5 %}
+
+<!-- Swiper -->
+<section class="relative overflow-hidden">
+  <div class="swiper-container" data-controller="swiper">
+      <div class="swiper-wrapper">
+        {% for item in slider_pages %}
+          <div class="swiper-slide flex flex-col space-y-2">
+              {% if item.settings.external_url %}
+                <a href="{{ item.settings.external_url }}" class="text-base" target="_blank">
+              {% else %}
+                  <a href="{{ item.path }}" class="text-base">
+              {% endif %}
+                <img src="{{ item.settings.thumb_image_url }}" class="aspect-video h-64 w-full"/>
+              </a>
+              
+              {% if item.settings.external_url %}
+                <a href="{{ item.settings.external_url }}" class="text-lg font-semibold" target="_blank">
+              {% else %}
+                  <a href="{{ item.path }}" class="text-lg font-semibold">
+              {% endif %}
+                {{ item.settings.title }}
+              </a>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="mt-12">
+        <div class="swiper-pagination"></div>
+      </div>
+  </div>
+  <!-- Swiper end -->
+</section>

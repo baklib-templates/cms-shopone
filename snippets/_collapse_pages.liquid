@@ -1,0 +1,28 @@
+{% # 折叠列表 %}
+{% # 常用于：TOP热门文章、常见问题，最近更新 %}
+{% # 参数： title: 列表标题, pages: 页面列表 %}
+
+<ul class="space-y-3 list-none">
+{% for page in pages %}
+    <li x-data="{ expanded: false }">
+        <button
+            class="flex items-center w-full text-left"
+            @click="expanded = !expanded"
+            :aria-expanded="expanded"
+        >
+            <div class="mr-3 shrink-0">
+                <svg class="fill-slate-400 dark:fill-slate-500" :class="{ 'rotate-90': expanded }" xmlns="http://www.w3.org/2000/svg" width="8" height="12">
+                    <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z" />
+                </svg>
+            </div>
+            <span>{{ page.link_text | highlight: tag_name }}</span>
+        </button>
+        <div :class="{ 'hidden': !expanded }" x-cloak>
+            <div class="pl-5 mt-2 text-slate-500 ProseMirror">
+                {{ page.settings.content | strip_html | highlight: tag_name, 100 }}
+                <p><a href="{{ page.path }}" class="text-blue-600">{{ 'generic.read_more' | t}}</a></p>
+            </div>
+        </div>
+    </li>
+{% endfor %}
+</ul>

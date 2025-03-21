@@ -1,0 +1,148 @@
+{%  assign pages = page.children_in_nav_menu %}
+{% for item in page.children_in_nav_menu | limit: 1 %}
+  {%  assign first_page =  item %}
+{% endfor %}
+
+<!-- Blog post -->
+<section class="relative max-w-6xl mx-auto px-4">
+    <!-- Article hero thumb -->
+    <header class="py-0">
+      <img src="{{ page.settings.thumb_image_url | default: 'images/theme/page-product.png' | asset_url }}" alt="{{ page.settings.title }}" class="w-full object-cover">
+    </header>
+
+    <!-- Article header -->
+    <div class="relative max-w-6xl mx-auto px-4 my-6 md:my-12">
+      <div class="mb-4">
+        {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="col-span-2 md:col-span-1">
+          <h1 class="text-3xl md:text-5xl font-bold text-gray-900">{{ page.settings.title }}</h1>
+          <p class="mt-2 text-sm text-gray-500">{{ page.settings.description }}</p>
+        </div>
+        <div class="col-span-2 md:col-span-1 gap-2">
+          <div class="flex items-center justify-end">
+            <a href="{{ page.settings.external_url }}" class="w-20 bg-secondary text-white rounded-md px-4 py-2" target="_blank" rel="noopener noreferrer">Learn more</a>
+          </div>
+          <div class="flex items-center justify-end">
+            <a href="{{ site.settings.contact_us_url }}" class="mt-2 w-20 bg-gray-100 rounded-md px-1 py-1.5 text-xs text-center" target="_blank" rel="noopener noreferrer">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section x-data="{ activeTab: '{{ first_page.id }}' }" class="relative max-w-6xl mx-auto px-4 my-4 md:my-8">
+    <!-- Article Navigation -->
+    <div class="bg-gray-100 rounded-md px-4 py-0 my-4">
+      <div class="max-w-3xl mx-auto">
+        <nav class="flex justify-between space-x-4" aria-label="Tabs">
+          <!-- Current: "bg-gray-200 text-gray-800", Default: "text-gray-600 hover:text-gray-800" -->
+          {% for item in pages %}
+            <a href="#" data-product="{{ item.id }}" @click.prevent="activeTab = '{{ item.id }}'" :class="{ 'bg-gray-800 text-white': activeTab === '{{ item.id }}' }"  class="rounded-md px-3 py-2 text-lg font-semibold">
+              {{ item.link_text}}
+            </a>
+          {% endfor %}
+        </nav>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    {% for item in pages %}
+      <div x-show="activeTab === '{{ item.id }}'" x-data="{ activeTab2: '{{ item.id }}' }" class="relative px-4">
+        <div class="flex flex-row items-start">
+          <div class="flex-none w-64">
+            <ul class="space-y-3">
+              <li>
+                <a href="#" data-product="{{ item.id }}" @click.prevent="activeTab2 = '{{ item.id }}'" :class="{ 'bg-gray-800 text-white': activeTab2 === '{{ item.id }}' }" class="relative rounded-md bg-gray-800 border border-gray-800 text-white px-3 py-2 text-md w-52 font-semibold" aria-current="page">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="absolute right-2 top-3 w-4 h-4 text-white">
+                      <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
+                    </svg>
+                    <span>{{ item.link_text }}</span>
+                </a>
+              </li>
+              {% for sub_item in item.children_in_nav_menu %}
+                <li>
+                  <a hef="#" data-product="{{ sub_item.id }}" @click.prevent="activeTab2 = '{{ sub_item.id }}'" :class="{ 'bg-gray-800 text-white': activeTab2 === '{{ sub_item.id }}' }" class="relative rounded-md bg-gray-800 border border-gray-800 text-white px-3 py-2 text-md w-52 font-semibold" aria-current="page">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="absolute right-2 top-3 w-4 h-4 text-white">
+                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
+                      </svg>
+                      <span>{{ sub_item.link_text }}</span>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          
+          <article x-show="activeTab2 === '{{ item.id }}'" class="flex-1">
+            <div class="ProseMirror">
+              {{ item.settings.content }}
+            </div>
+          </article>
+          {% for sub_item in item.children_in_nav_menu %}
+            <article x-show="activeTab2 === '{{ sub_item.id }}'" class="flex-1">
+              <div class="ProseMirror">
+                {{ sub_item.settings.content }}
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+
+</section>
+
+
+
+<!--/ article-->
+{% schema %}
+  {
+    "name": "详情页-产品/项目页面",
+    "description": "产品/项目/案例详情页面模板",
+    "thumb_url": "images/theme/page-product.webp",
+    "sub_page_templates": ["post"],
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "标题"
+      },
+      {
+        "id": "description",
+        "type": "textarea",
+        "label": "摘要"
+      },
+      {
+        "id": "content",
+        "type": "richtext",
+        "label": "内容"
+      },
+      {
+        "id": "thumb_image_url",
+        "type": "image_picker",
+        "ratio": "4:3",
+        "width": 300,
+        "label": "封面图"
+      },
+      {
+        "id": "tags",
+        "type": "tag_picker",
+        "multiple": true,
+        "label": "标签"
+      },
+      {
+        "id": "recommend",
+        "type": "checkbox",
+        "label": "推荐",
+        "default": true
+      },
+      {
+          "id": "external_url",
+          "type": "text",
+          "placeholder": "https://",
+          "label": "外部链接",
+          "info": "如果添加了外链，点击会跳转到该链接，以下的内容就可以补充"
+      }
+    ]
+  }
+{% endschema%}

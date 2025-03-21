@@ -1,0 +1,60 @@
+{% assign footer_menus = site.settings.footer_menu | newline_to_br | split: '<br />' %}
+{% assign friend_links = site.settings.friend_links | newline_to_br | split: '<br />' %}
+
+<footer class="bg-primary border-t border-gray-900/10 text-white">
+  <div class="mx-auto max-w-6xl px-4 pb-8 pt-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gag-4 xl:gap-8">
+        {% for menu_line in footer_menus %}
+          {%  assign p_menu_arr = menu_line | split: '{' %}
+          {%  assign parent_menu = p_menu_arr[0] | split: '[' %}
+          {%  assign sub_menus = p_menu_arr[1] | split: '|' %}
+          {%  assign sub_menus_count =  sub_menus | size %}
+
+          {% if sub_menus_count > 0 %}
+            <div class="flex flex-col" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                <a class="font-semibold" href="{{ parent_menu[1] | default: 'javascript:void(0);' }}" :aria-expanded="open">{{ parent_menu[0] }}</a>
+                <!-- 2nd level menu -->
+                <ul class="">
+                  {% for second_menu in sub_menus %}
+                    {%  assign second_menu_arr = second_menu | split: '[' %}
+                    <li>
+                        <a class="text-sm" href="{{ second_menu_arr[1] | default: '#'}}">
+                            <span class="whitespace-nowrap">{{ second_menu_arr[0] }}</span>
+                        </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+            </div>
+          {% else %}
+            <div class="">
+              <a class="" href="{{ parent_menu[1] | default: '#'}}">{{ parent_menu[0] }}</a>
+            </div>
+          {% endif %}
+        {% endfor %}
+    </div>
+    <div class="my-4 md:my-8">
+      <h3 class="text-sm/6 font-semibold mb-4">友情链接</h3>
+      <div class="grid grid-cols-2 lg:grid-cols-6 gap-0 text-xs">
+        {% for link in friend_links %}
+          {%  assign link_arr = link | split: '[' %}
+          <a href="{{ link_arr[1] | default: '#' }}" class="hover:underline">{{ link_arr[0] }}</a>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <div class="flex justify-between mt-2 border-t border-primary-500/80 pt-4 sm:mt-4 lg:mt-8">
+      <p class=""> {{ site.settings.company_info }}</p>
+      <p class=""> {{ site.settings.contact_info }}</p>
+      <div class="flex space-x-2">
+        {% if false %}
+          {% comment %} 社交账号链接 {% endcomment %}
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+            </svg>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</footer>

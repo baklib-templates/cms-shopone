@@ -1,0 +1,177 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "shopone",
+    "theme_label": "t:theme_label",
+    "theme_description": "t:theme_description",
+    "theme_version": "1.0.0",
+    "theme_scope": "cms",
+    "theme_author": "Baklib",
+    "theme_documentation_url": "https://help.baklib.cn/cms/",
+    "theme_support_url": "https://help.baklib.cn/cms/",
+    "theme_thumb_url": "images/theme/index.webp",
+    "theme_preview_images": [
+      "images/theme/index.webp",
+      "images/theme/channel-products.webp",
+      "images/theme/channel-news.webp",
+      "images/theme/page.webp"
+    ],
+    "theme_languages": [
+      {
+        "name": "中文简体",
+        "value": "zh-CN"
+      },
+      {
+        "name": "English",
+        "value": "en-US"
+      }
+    ],
+    "recommendations": {
+      "color_schemas": {
+        "fashion": {
+          "name": "时尚",
+          "colors": {
+            "--theme-color-primary": "#3D50E0",
+            "--theme-color-secondary": "#E91E63",
+            "--theme-color-accent": "#AAAAAA",
+            "--theme-color-info": "#2196F3",
+            "--theme-color-success": "#4CAF50",
+            "--theme-color-warning": "#FFC107"
+          }
+        },
+        "old_school": {
+          "name": "复古",
+          "colors": {
+            "--theme-color-primary": "#9C27B0",
+            "--theme-color-secondary": "#673AB7",
+            "--theme-color-accent": "#AAAAAA",
+            "--theme-color-info": "#418CC8",
+            "--theme-color-success": "#29B52F",
+            "--theme-color-warning": "#FFC107"
+          }
+        }
+      },
+      "initial_pages": {
+        "default": {
+          "name": "Shop one",
+          "default": true,
+          "pages": [
+            {
+              "name": "产品中心",
+              "slug": "products",
+              "template": "channel"
+            },
+            {
+              "name": "新闻中心",
+              "slug": "news",
+              "template": "channel"
+            },
+            {
+              "name": "视频中心",
+              "slug": "videos",
+              "template": "channel"
+            },
+            {
+              "name": "话题中心",
+              "slug": "topics",
+              "template": "channel"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "name": "主题默认值设置",
+    "settings": [
+      {
+        "id": "logo_url",
+        "type": "image_picker",
+        "ratio": "6:2",
+        "width": 200,
+        "label": "站点Logo",
+        "info": "放在站点顶部导航栏位置"
+      },
+      {
+        "id": "email",
+        "type": "text",
+        "label": "Email",
+        "default": "some@example.com"
+      },
+      {
+        "id": "phone",
+        "type": "text",
+        "label": "Phone",
+        "default": "1234567890"
+      },
+      {
+        "id": "contact_us_url",
+        "type": "text",
+        "label": "Contact Us 链接",
+        "default": "/contact"
+      },
+      {
+        "id": "chat_url",
+        "type": "text",
+        "label": "Chat 链接",
+        "default": "#"
+      },
+      {
+        "id": "company_info",
+        "type": "text",
+        "label": "公司信息",
+        "default": "&copy; 2025 Google Inc. All Rights Reserved."
+      }
+    ]
+  },
+  {
+    "name": "导航菜单设计",
+    "settings": [
+      {
+        "id": "product_categories",
+        "type": "text",
+        "label": "产品大分类设置",
+        "info": "格式：电子产品|医疗器械|工业设备|厨房电器；同时在[标签管理]中添加对应的标签。",
+        "default": "电子产品|医疗器械|工业设备|厨房电器"
+      },
+      {
+        "id": "product_sub_categories",
+        "type": "textarea",
+        "label": "产品子分类设置",
+        "rows": 10,
+        "info": "格式：大类名称:小类名称1|小类名称2|小类名称3，每行一个分类。",
+        "default": "电子产品:手机|电脑|平板电脑\n家用电器:电视机|冰箱|洗衣机"
+      },
+      {
+        "id": "header_menu",
+        "type": "textarea",
+        "label": "页头导航菜单设置",
+        "rows": 10,
+        "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个分栏。",
+        "default": "首页[/\n新闻中心[/news\n视频中心[/videos\n产品中心[/products{产品分类1[/products/pro1|产品分类2[/products/pro2\n关于我们[https://www.baidu.com/"
+      },
+      {
+        "id": "footer_menu",
+        "type": "textarea",
+        "label": "页脚菜单设置",
+        "rows": 10,
+        "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个分栏。",
+        "default": "产品中心:/products[产品分类1:/products/pro1|产品分类2:/products/pro2\n新闻中心:/news[新闻分类1:/news/news1|新闻分类2:/news/news2"
+      },
+      {
+        "id": "friend_links",
+        "type": "textarea",
+        "label": "页脚友情链接/社交媒体",
+        "rows": 10,
+        "info": "格式：链接名称[链接地址，每行一个链接。",
+        "default": "百度[https://www.baidu.com\n[谷歌[https://www.google.com"
+      },
+      {
+        "id": "head_html",
+        "type": "html",
+        "label": "<head>标签内 HTML 代码",
+        "rows": 10
+      }
+    ]
+  }
+]

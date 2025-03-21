@@ -1,0 +1,210 @@
+{% assign default_logo = 'images/logo.png' | asset_url %}
+{% assign header_menus = site.settings.header_menu | newline_to_br | split: '<br />' %}
+
+{% comment %} 
+site.settings.header_menu 格式如下：
+  首页[/
+  产品中心[/products{产品分类1[/products/pro1|产品分类2[/products/pro2|产品分类2[/products/pro2
+  新闻中心[/videos{新闻类1[/news/pro1|新闻类2[/news/pro2 
+{% endcomment %}
+
+<header class="bg-primary shadow-md sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-2">
+    <div class="flex items-center">
+      <a href="/" class="flex items-center space-x-2">
+        <img src="{{ site.settings.logo_url | default: site.icon }}" alt="{{ site.name }}" class="h-8 md:h-10 w-auto" />
+      </a>
+    </div>
+
+    <!-- PC menu -->
+    <nav class="hidden md:flex justify-center">
+      <ul class="flex flex-wrap items-center font-medium text-sm text-white space-x-2 md:space-x-4 gap-4">
+        {% for menu_line in header_menus %}
+          {%  assign p_menu_arr = menu_line | split: '{' %}
+          {%  assign parent_menu = p_menu_arr[0] | split: '[' %}
+          {%  assign sub_menus = p_menu_arr[1] | split: '|' %}
+          {%  assign sub_menus_count =  sub_menus | size %}
+
+          {% if sub_menus_count > 0 %}
+            <li class="relative flex items-center space-x-1" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                <a class="" href="{{ parent_menu[1] | default: '#' }}" :aria-expanded="open">{{ parent_menu[0] }}</a>
+                <button class="shrink-0 p-1" :aria-expanded="open" @click.prevent="open = !open">
+                    <span class="sr-only">Show submenu for "Flyout Menu"</span>
+                    <svg class="w-3 h-3 fill-white" xmlns="http://www.w3.org/2000/svg" width="12" height="12">
+                        <path d="M10 2.586 11.414 4 6 9.414.586 4 2 2.586l4 4z" />
+                    </svg>
+                </button>
+                <!-- 2nd level menu -->
+                <ul
+                    class="origin-top-right absolute top-full left-1/2 -translate-x-1/2 min-w-[240px] bg-white border border-slate-200 p-2 rounded-lg shadow-xl [&[x-cloak]]:hidden"
+                    x-show="open"
+                    x-transition:enter="transition ease-out duration-200 transform"
+                    x-transition:enter-start="opacity-0 -translate-y-2"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:leave="transition ease-out duration-200"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    x-cloak
+                    @focusout="await $nextTick();!$el.contains($focus.focused()) && (open = false)"
+                >
+                  {% for second_menu in sub_menus %}
+                    {%  assign second_menu_arr = second_menu | split: '[' %}
+                    <li>
+                        <a class="text-slate-800 hover:bg-slate-50 flex items-center p-2" href="{{ second_menu_arr[1] | default: '#'}}">
+                            <div class="flex items-center justify-center h-7 w-7 shrink-0 mr-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 text-primary w-4 h-4">
+                                <path fill-rule="evenodd" d="M4.5 7.5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9Z" clip-rule="evenodd" />
+                              </svg>
+                            </div>
+                            <span class="whitespace-nowrap">{{ second_menu_arr[0] }}</span>
+                        </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+            </li>
+          {% else %}
+            <li class="">
+              <a class="" href="{{ parent_menu[1] | default: '#'}}">{{ parent_menu[0] }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+    
+    <!-- Mobile menu -->
+		<div class="inline-flex md:hidden" x-data="{ expanded: false }">
+
+      <!-- Mobile lights switch -->
+      <div data-controller="theme" class="flex flex-col justify-center mr-2">
+        <input
+            type="checkbox"
+            name="light-switch"
+            id="light-switch"
+            class="sr-only light-switch"
+            data-theme-target="checkbox"
+            data-action="change->theme#toggle"
+        >
+        <label class="relative p-2 cursor-pointer rounded-full btn hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25" for="light-switch">
+            <svg x-transition:enter="transition-transform duration-200 ease-out absolute origin-top" x-transition:enter-start="scale-75" x-transition:enter-end="scale-100 static" class="text-primary w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M11.75 3.412a.818.818 0 01-.07.917 6.332 6.332 0 00-1.4 3.971c0 3.564 2.98 6.494 6.706 6.494a6.86 6.86 0 002.856-.617.818.818 0 011.1 1.047C19.593 18.614 16.218 21 12.283 21 7.18 21 3 16.973 3 11.956c0-4.563 3.46-8.31 7.925-8.948a.818.818 0 01.826.404z"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" x-transition:enter="transition-transform duration-200 ease-out absolute origin-top" x-transition:enter-start="scale-75" x-transition:enter-end="scale-100 static" class="w-6 h-6 text-primary dark:hidden" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="sr-only">Switch to light / dark version</span>
+        </label>
+      </div>
+
+      <!-- Hamburger button -->
+      <button
+        class="hamburger"
+        :class="{ 'active': expanded }"
+        @click.stop="expanded = !expanded"
+        aria-controls="mobile-nav"
+        :aria-expanded="expanded"
+      >
+        <span class="sr-only">Menu</span>
+        <svg class="w-6 h-6 fill-current text-slate-300 hover:text-slate-100 transition duration-150 ease-in-out" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect y="4" width="24" height="2" rx="1" />
+          <rect y="11" width="24" height="2" rx="1" />
+          <rect y="18" width="24" height="2" rx="1" />
+        </svg>
+      </button>
+
+      <!-- Mobile navigation -->
+      <nav
+        id="mobile-nav"
+        class="fixed top-0 h-screen z-20 left-0 w-full max-w-sm -ml-16 overflow-scroll bg-slate-900 shadow-lg no-scrollbar"
+        @click.outside="expanded = false"
+        @keydown.escape.window="expanded = false"
+        x-show="expanded"
+        x-transition:enter="transition ease-out duration-200 transform"
+        x-transition:enter-start="opacity-0 -translate-x-full"
+        x-transition:enter-end="opacity-100 translate-x-0"
+        x-transition:leave="transition ease-out duration-200"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        x-cloak
+      >
+        <div class="py-6 pr-4 pl-20">
+          <!-- Logo -->
+          <a class="inline-block mb-4" href="/" aria-label="Dagle">
+            <img src="{{ site.settings.logo_url | default: logo }}" class="h-8 w-auto" alt="{{ site.name | escape }}" />
+          </a>
+          <!-- Links -->
+          <ul class="space-y-4 text-white">
+            {% for menu_line in header_menus %}
+              {%  assign p_menu_arr = menu_line | split: '{' %}
+              {%  assign parent_menu = p_menu_arr[0] | split: '[' %}
+              {%  assign sub_menus = p_menu_arr[1] | split: '|' %}
+              {%  assign sub_menus_count =  sub_menus | size %}
+
+              {% if sub_menus_count > 0 %}
+                <li class="relative flex items-center space-x-1" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                    <a class="" href="{{ parent_menu[1] | default: '#' }}" :aria-expanded="open">{{ parent_menu[0] }}</a>
+                    <button class="shrink-0 p-1" :aria-expanded="open" @click.prevent="open = !open">
+                        <span class="sr-only">Show submenu for "Flyout Menu"</span>
+                        <svg class="w-3 h-3 fill-white" xmlns="http://www.w3.org/2000/svg" width="12" height="12">
+                            <path d="M10 2.586 11.414 4 6 9.414.586 4 2 2.586l4 4z" />
+                        </svg>
+                    </button>
+                    <!-- 2nd level menu -->
+                    <ul
+                        class="origin-top-right absolute top-full left-1/2 -translate-x-1/2 min-w-[240px] bg-white border border-slate-200 p-2 rounded-lg shadow-xl [&[x-cloak]]:hidden"
+                        x-show="open"
+                        x-transition:enter="transition ease-out duration-200 transform"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        x-transition:leave="transition ease-out duration-200"
+                        x-transition:leave-start="opacity-100"
+                        x-transition:leave-end="opacity-0"
+                        x-cloak
+                        @focusout="await $nextTick();!$el.contains($focus.focused()) && (open = false)"
+                    >
+                      {% for second_menu in sub_menus %}
+                        {%  assign second_menu_arr = second_menu | split: '[' %}
+                        <li>
+                            <a class="text-slate-800 hover:bg-slate-50 flex items-center p-2" href="{{ second_menu_arr[1] | default: '#'}}">
+                                <div class="flex items-center justify-center h-7 w-7 shrink-0 mr-2">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 text-primary w-4 h-4">
+                                    <path fill-rule="evenodd" d="M4.5 7.5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9Z" clip-rule="evenodd" />
+                                  </svg>
+                                </div>
+                                <span class="whitespace-nowrap">{{ second_menu_arr[0] }}</span>
+                            </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                </li>
+              {% else %}
+                <li class="">
+                  <a class="" href="{{ parent_menu[1] | default: '#'}}">{{ parent_menu[0] }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Search -->
+    <div class="hidden sm:flex items-center space-x-4">
+      {% form_tag 'search' %}
+        <label for="default-search" class="mb-2 font-medium text-gray-900 sr-only dark:text-white">Search</label>
+        <div class="relative bg-transparent">
+          <input type="search" name="{{form.keywords_field_name}}" value="{{ search.keywords | escape }}"
+            id="default-search" class="md:w-64 text-sm md:text-base p-1 md:p-2 text-gray-900 border opacity-50 focus:opacity-100 border-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+            placeholder="searching..." required />
+          <div class="absolute inset-y-0 end-0 flex items-center p-2 bg-primary  pointer-events-none text-white rounded-r-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-5.2-5.2M15 11a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg> 
+          </div>
+        </div>
+      {% endform_tag %}
+    </div>
+  </div>
+</header>
+

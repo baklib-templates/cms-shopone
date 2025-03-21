@@ -1,0 +1,15 @@
+{% comment %} 文章下级文章列表 {% endcomment %}
+<ul class="list-none space-y-1 overflow-hidden my-8 lg:my-12">
+  {% for item in page.children_in_list %}
+    <li class="group hover:bg-primary/10 bg-gray-100">
+        {% if item.settings.external_url %}
+          <a href="{{ item.settings.external_url }}" class="flex items-center py-2 px-2 space-x-2" target="_blank">
+        {% else %}
+            <a href="{{ item.path }}" class="flex items-center py-2 px-2 space-x-2">
+        {% endif %}
+        <span class="inline-block w-0 h-0 border-[5px] border-l-primary border-t-transparent border-r-transparent border-b-transparent flex-shrink-0"></span>
+        <h3 class="w-0 flex-grow group-hover:text-primary text-base truncate">{{ item.link_text }}</h3>
+      </a>
+    </li>
+  {% endfor %}
+</ul>

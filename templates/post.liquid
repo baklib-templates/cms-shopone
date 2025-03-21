@@ -1,0 +1,96 @@
+
+<!-- Blog post -->
+
+<section class="">
+  <div class="relative max-w-6xl mx-auto pt-4 md:pt-6 px-4 dark:bg-slate-900">
+    <div>
+      {% # 面包屑导航 %}
+      <div class="mb-4">
+        {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
+      </div>
+      <!-- Article header -->
+      <header class="py-2">
+          <!-- Title and excerpt -->
+          <div class="">
+            <h1 class="text-3xl md:text-4xl mb-4 text-gray-700">
+                {{ page.settings.title }}
+            </h1>
+          </div>
+          <!-- Article meta -->
+          <div class="md:flex md:items-center md:justify-between mt-5 border-t-4 border-primary pt-4">
+              <div>&nbsp;</div>
+              <div class="">
+                  <div class="space-x-2">
+                    <span class="text-gray-500 dark:text-slate-400"> 来源：{{ page.settings.published_from }} </span>
+                    <span class="text-gray-500 dark:text-slate-400"> ·  时间：{{ page.settings.published_at | date: "%Y-%m-%d" }}</span>
+                  </div>
+              </div>
+          </div>
+      </header>
+    </div>
+  </div>
+</section>
+
+<div class="relative max-w-6xl mx-auto">
+  <div class="pt-4 px-4 pb-4">
+    <article >
+      <!-- Article content -->
+      <div class="ProseMirror text-lg text-gray-700 md:leading-8">
+        {{ page.settings.content }}
+      </div>
+
+      <!-- Sub Post Section -->
+      {%# render 'sub_page_list', page: page %}
+    </article>
+  </div>
+</div>
+
+<!-- Related posts -->
+{% render 'related_pages', page: page.parent %}
+
+
+<!--/ article-->
+{% schema %}
+  {
+    "name": "详情页-Post文章页",
+    "description": "文章类页面模板",
+    "thumb_url": "images/theme/page.webp",
+    "sub_page_templates": ["post"],
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "标题"
+      },
+      {
+        "id": "description",
+        "type": "textarea",
+        "label": "摘要"
+      },
+      {
+        "id": "content",
+        "type": "richtext",
+        "label": "内容"
+      },
+      {
+        "id": "thumb_image_url",
+        "type": "image_picker",
+        "ratio": "16:9",
+        "width": 300,
+        "label": "封面图"
+      },
+      {
+        "id": "tags",
+        "type": "tag_picker",
+        "multiple": true,
+        "label": "标签"
+      },
+      {
+        "id": "recommend",
+        "type": "checkbox",
+        "label": "推荐",
+        "default": true
+      }
+    ]
+  }
+{% endschema%}

@@ -1,0 +1,145 @@
+{% assign tag_pages = tag.pages | order_by: '-created_at' %}
+<!-- Page wrapper -->
+<div class="flex flex-col min-h-screen overflow-hidden">
+    <!-- Page content -->
+    <main class="grow">
+
+        <!-- Page illustration -->
+        <div class="relative max-w-6xl mx-auto h-0 pointer-events-none -z-1" aria-hidden="true">
+            <svg class="absolute top-0 right-0 transform translate-x-1/2 -mr-16 dark:opacity-40" width="800" height="502" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="400" cy="102" r="400" fill="url(#heroglow_paint0_radial)" fill-opacity=".6" />
+                <circle cx="209" cy="289" r="170" fill="url(#heroglow_paint1_radial)" fill-opacity=".4" />
+                <defs>
+                    <radialGradient id="heroglow_paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90 149 251) scale(315.089)">
+                        <stop stop-color="#3ABAB4" />
+                        <stop offset="1" stop-color="#3ABAB4" stop-opacity=".01" />
+                    </radialGradient>
+                    <radialGradient id="heroglow_paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90 -40 249) scale(133.913)">
+                        <stop stop-color="#667EEA" />
+                        <stop offset="1" stop-color="#667EEA" stop-opacity=".01" />
+                    </radialGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <!-- Hero -->
+        <section class="relative">
+            <!-- Background gradient (light version only) -->
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-100 to-white opacity-50 pointer-events-none dark:hidden" aria-hidden="true"></div>
+            <!-- End background gradient (light version only) -->
+            <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="pt-4 pb-4 md:pt-8 md:pb-8">
+                    <div class="max-w-3xl mx-auto text-center">
+                        <h1 class="h4 sm:text-3xl lg:text-4xl font-red-hat-display mb-4" data-aos="fade-down">
+                            <i class="px-2 py-1 rounded text-white" style="background-color: {{ tag.color }}">#{{ tag.name }}</i>
+                        </h1>
+
+                        <div class="max-w-2xl mx-auto md:px-4">
+                            {% form_tag 'search', class: 'relative flex items-center mt-8', 'data-aso': 'fade-down', 'data-aso-delay': '300' %}
+                                <input type="search" name="{{form.keywords_field_name}}" value="{{ search.keywords | escape }}" placeholder="输入搜索关键词"  class="bg-white border border-slate-300 focus:border-slate-400 rounded leading-snug py-3 px-4 placeholder-slate-500 dark:placeholder-slate-400 dark:bg-slate-800 dark:border dark:border-slate-600 dark:focus:border-slate-500  w-full pl-12" aria-label="Search anything" />
+                                <button type="submit" class="absolute inset-0 right-auto" aria-label="Search">
+                                    <svg class="w-4 h-4 shrink-0 ml-4 mr-3" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                        <path class="fill-current text-slate-400" d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5zm8.707 12.293a.999.999 0 11-1.414 1.414L11.9 13.314a8.019 8.019 0 001.414-1.414l2.393 2.393z" />
+                                    </svg>
+                                </button>
+                            {% endform_tag %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- List -->
+        <section class="relative border-t border-transparent dark:border-slate-800">
+            <!-- Background gradient (dark version only) -->
+            <div class="absolute inset-0 opacity-25 bg-gradient-to-b from-slate-800 to-slate-900 pointer-events-none hidden dark:block" aria-hidden="true"></div>
+            <!-- End background gradient (dark version only) -->
+            <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="py-8 md:py-12">
+                  {% paginate_tag tag_pages, as: 'items', per: 15 %}
+                    <div x-data="{ category: '' }" data-aos="fade-up" data-aos-delay="450">
+
+                        <!-- Category buttons -->
+                        {% if false %}
+                          <div class="mb-10">
+                              <div class="flex flex-wrap justify-center -m-1">
+                                  <button
+                                      class="font-medium px-4 py-2 bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 shadow transition duration-150 ease-in-out rounded-full inline-flex items-center justify-center m-1"
+                                      @click="category = ''"
+                                  >
+                                      <svg class="w-4 h-4 shrink-0 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                          <path class="fill-current text-slate-400" d="M11 7H1a1 1 0 000 2h10v3l5-4-5-4v3zM8 3H1a1 1 0 010-2h7a1 1 0 010 2zM8 15H1a1 1 0 010-2h7a1 1 0 010 2z" />
+                                      </svg>
+                                      <span class="text-slate-600 dark:text-slate-300 transition duration-150 ease-in-out">View All</span>
+                                  </button>
+                                  <button
+                                      class="font-medium px-4 py-2 bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 shadow transition duration-150 ease-in-out rounded-full inline-flex items-center justify-center m-1"
+                                      :class="{ 'bg-teal-500 hover:bg-teal-500 dark:bg-teal-600 dark:hover:bg-teal-600 dark:bg-opacity-25 dark:hover:bg-opacity-25': category === '1' }"
+                                      @click="category = '1'"
+                                  >
+                                      <svg class="w-4 h-4 shrink-0 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                          <path class="fill-current" :class="category === '1' ? 'text-teal-200 dark:text-teal-400' : 'text-teal-500'" d="M5 16H4a4 4 0 01-4-4v-1h2v1a2 2 0 002 2h1v2zM13 10h-1.686l-1.207-1.207L14.37 4.63a2.121 2.121 0 00-3-3L7.207 5.793 5.99 4.576 5.98 3.02 3.038.079 0 3.117 3 6h1.586l1.207 1.207L4 9l3 3 1.793-1.793L10 11.414V13l3.01 3.01 2.98-2.979L13 10z" />
+                                      </svg>
+                                      <span class="transition duration-150 ease-in-out" :class="category === '1' ? 'text-white dark:text-teal-400' : 'text-slate-600 dark:text-slate-300'">Getting Started</span>
+                                  </button>
+                                  <button
+                                      class="font-medium px-4 py-2 bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 shadow transition duration-150 ease-in-out rounded-full inline-flex items-center justify-center m-1"
+                                      :class="{ 'bg-purple-500 hover:bg-purple-500 dark:bg-purple-600 dark:hover:bg-purple-600 dark:bg-opacity-25 dark:hover:bg-opacity-25': category === '2' }"
+                                      @click="category = '2'"
+                                  >
+                                      <svg class="w-4 h-4 shrink-0 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                          <path class="fill-current" :class="category === '2' ? 'text-purple-200 dark:text-purple-400' : 'text-purple-500'" d="M12.071 0L15 2.929v4.142L12.071 10H12V7.101L7.9 3H5v-.071L7.929 0h4.142zm-5 5L10 7.929v4.142L7.071 15H2.929L0 12.071V7.929L2.929 5h4.142z" />
+                                      </svg>
+                                      <span class="transition duration-150 ease-in-out" :class="category === '2' ? 'text-white dark:text-purple-400' : 'text-slate-600 dark:text-slate-300'">Layout & Design</span>
+                                  </button>
+                                  <button
+                                      class="font-medium px-4 py-2 bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 shadow transition duration-150 ease-in-out rounded-full inline-flex items-center justify-center m-1"
+                                      :class="{ 'bg-indigo-500 hover:bg-indigo-500 dark:bg-indigo-600 dark:hover:bg-indigo-600 dark:bg-opacity-25 dark:hover:bg-opacity-25': category === '3' }"
+                                      @click="category = '3'"
+                                  >
+                                      <svg class="w-4 h-4 shrink-0 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                          <path class="fill-current" :class="category === '3' ? 'text-indigo-200 dark:text-indigo-400' : 'text-indigo-500'" d="M1 0h8a1 1 0 011 1v10a1 1 0 01-1 1H1a1 1 0 01-1-1V1a1 1 0 011-1zm14.124 4.085v-.001a1 1 0 01.868 1.116l-1.243 9.932a1 1 0 01-1.117.868l-7.938-1 .248-1.988 6.946.871.995-7.938-2.007-.251.248-1.984 3 .375z" />
+                                      </svg>
+                                      <span class="transition duration-150 ease-in-out" :class="category === '3' ? 'text-white dark:text-indigo-400' : 'text-slate-600 dark:text-slate-300'">Templates</span>
+                                  </button>
+                                  <button
+                                      class="font-medium px-4 py-2 bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 shadow transition duration-150 ease-in-out rounded-full inline-flex items-center justify-center m-1"
+                                      :class="{ 'bg-pink-500 hover:bg-pink-500 dark:bg-pink-600 dark:hover:bg-pink-600 dark:bg-opacity-25 dark:hover:bg-opacity-25': category === '4' }"
+                                      @click="category = '4'"
+                                  >
+                                      <svg class="w-4 h-4 shrink-0 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                          <path class="fill-current" :class="category === '4' ? 'text-pink-200 dark:text-pink-400' : 'text-pink-500'" d="M13.172 5.178l-2.39-2.39 2.39-2.39C12.674.1 12.076 0 11.479 0a4.462 4.462 0 00-4.481 4.48c0 .499.1.897.199 1.395l-6.572 4.88c-.797.597-.797 1.692-.2 2.389l2.291 2.39c.697.697 1.792.597 2.39-.2l4.88-6.571c.497.1.995.199 1.493.199 2.49 0 4.48-1.992 4.48-4.481 0-.598-.099-1.195-.298-1.693l-2.49 2.39z" />
+                                      </svg>
+                                      <span class="transition duration-150 ease-in-out" :class="category === '4' ? 'text-white dark:text-pink-400' : 'text-slate-600 dark:text-slate-300'">Project Settings</span>
+                                  </button>
+                              </div>
+                          </div>
+                        {% endif %}
+
+                        <!-- Articles -->
+                        <div class="-mb-2">
+
+                          {% for page in items %}
+                            <!-- 1st Article -->
+                            {% render 'item', item: page, title: page.link_text, content: page.settings.description %}
+                          {% else %}
+                            <div class="w-full mx-auto my-8">内容为空</div>
+                          {% endfor %}
+
+                        </div>
+
+                        <!-- Pagination -->
+                        <nav class="flex justify-center sm:justify-between mt-12">
+                          {% render 'paginate', paginate: paginate %}
+                        </nav>
+
+                    </div>
+                  {% endpaginate_tag %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Related links -->
+
+    </main>
+</div>
