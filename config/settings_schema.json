@@ -156,7 +156,7 @@
         "label": "页脚菜单设置",
         "rows": 10,
         "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个分栏。",
-        "default": "产品中心:/products[产品分类1:/products/pro1|产品分类2:/products/pro2\n新闻中心:/news[新闻分类1:/news/news1|新闻分类2:/news/news2"
+        "default": "产品中心[/products{产品分类1[/products/pro1|产品分类2[/products/pro2\n视频中心[/videos\n新闻中心[/news"
       },
       {
         "id": "friend_links",
@@ -164,7 +164,7 @@
         "label": "页脚友情链接/社交媒体",
         "rows": 10,
         "info": "格式：链接名称[链接地址，每行一个链接。",
-        "default": "百度[https://www.baidu.com\n[谷歌[https://www.google.com"
+        "default": "百度[https://www.baidu.com\n谷歌[https://www.google.com"
       },
       {
         "id": "head_html",
