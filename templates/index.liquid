@@ -64,7 +64,7 @@ site.settings.product_sub_categories 格式如下：
         <section class="my-4">
             <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
                 {% for item in topic_page.children_in_list | order_by: '-created_at' | limit: 9 %}
-                    <div class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400">
+                    <div class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:border-gray-400">
                         <div class="min-w-0 flex-1">
                             <a href="{{ item.path }}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
@@ -73,7 +73,7 @@ site.settings.product_sub_categories 格式如下：
                             </a>
                         </div>
                         <div>
-                            <button type="button" class="inline-flex items-center px-1.5 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <button type="button" class="inline-flex items-center px-1.5 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-primary hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 w-4 h-4">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                 </svg>
