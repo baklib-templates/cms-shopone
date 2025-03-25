@@ -27,9 +27,9 @@ site.settings.product_sub_categories 格式如下：
 
         <!-- Cards Container -->
         <section class="my-4" x-data="{ activeTab: 'all' }">
-            <div class="flex justify-center gap-4">
+            <div class="flex justify-center gap-4 min-w-3xl overflow-x-auto">
                 {% for item in product_categories %}
-                    <button @click="activeTab = '{{ item }}'" :class="{ 'bg-primary text-white': activeTab === '{{ item }}' }" class="px-4 py-1 text-sm font-medium  border border-gray-300 rounded-md focus:outline-none">{{ item }}</button>
+                    <button @click="activeTab = '{{ item }}'" :class="{ 'bg-primary text-white': activeTab === '{{ item }}' }" class="px-4 py-1 text-sm text-nowrap font-medium  border border-gray-300 rounded-md focus:outline-none">{{ item }}</button>
                 {% endfor %}
             </div>
             <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 mt-4">
@@ -38,14 +38,13 @@ site.settings.product_sub_categories 格式如下：
                     <a x-show="activeTab === 'all' {% for tag in item.settings.tags %} || activeTab === '{{ tag.name }}' {% endfor %}" href="{{ item.path }}" class="group bg-white shadow-md rounded-lg overflow-hidden max-w-64 flex flex-col hover:no-underline">
                         <img src="{{ item.settings.thumb_image_url }}" alt="Card Image 4" class="w-full h-48 object-cover transition duration-700 ease-out group-hover:scale-105">
                         <div class="p-4">
-                            <h2 class="text-lg font-semibold text-gray-800">{{ item.link_text }}</h2>
-                            <p class="text-gray-600 mt-2">{{ item.settings.description }}</p>
+                            <h2 class="text-base lg:text-lg font-semibold text-gray-800 text-center">{{ item.link_text }}</h2>
                         </div>
                     </a>
                 {% endfor %}
             </div>
             <div class="flex justify-center mt-4">
-                <a href="{{ product_page.path }}" class="text-sm text-gray-500 hover:text-gray-700">View all products</a>
+                <a href="{{ product_page.path }}" class="text-sm border border-gray-300 rounded-full px-3 py-1 text-gray-500 hover:text-gray-700">View all products</a>
             </div>
         </section>
     </div>

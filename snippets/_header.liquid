@@ -1,11 +1,11 @@
 {% assign default_logo = 'images/logo.png' | asset_url %}
 {% assign header_menus = site.settings.header_menu | newline_to_br | split: '<br />' %}
 
-{% comment %} 
+{% comment %}
 site.settings.header_menu 格式如下：
   首页[/
   产品中心[/products{产品分类1[/products/pro1|产品分类2[/products/pro2|产品分类2[/products/pro2
-  新闻中心[/videos{新闻类1[/news/pro1|新闻类2[/news/pro2 
+  新闻中心[/videos{新闻类1[/news/pro1|新闻类2[/news/pro2
 {% endcomment %}
 
 <header class="bg-primary shadow-md sticky top-0 z-50">
@@ -70,7 +70,7 @@ site.settings.header_menu 格式如下：
         {% endfor %}
       </ul>
     </nav>
-    
+
     <!-- Mobile menu -->
 		<div class="inline-flex md:hidden" x-data="{ expanded: false }">
 
@@ -200,7 +200,7 @@ site.settings.header_menu 格式如下：
               class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M21 21l-5.2-5.2M15 11a4 4 0 11-8 0 4 4 0 018 0z" />
-            </svg> 
+            </svg>
           </div>
         </div>
       {% endform_tag %}
