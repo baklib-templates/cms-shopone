@@ -1,7 +1,9 @@
 {% assign product_page = site.pages['/products'] %}
-{% assign topic_page = site.pages['/topics'] %}
-{% assign product_categories = site.settings.product_categories | split: '|' %}
-{% assign product_sub_categories = site.settings.product_sub_categories | newline_to_br | split: '<br />' %}
+{% assign product_pages = product_page.children_in_list | order_by: '-created_at' | limit: 40 %} 
+
+{% assign topics_menu = site.settings.topics_menu | newline_to_br | split: '<br />' %}
+
+{%# assign product_sub_categories = site.settings.product_sub_categories | newline_to_br | split: '<br />' %}
 {% comment %} 
 site.settings.product_categories 格式如下：
     电子产品|医疗器械|工业设备|厨房电器
@@ -21,32 +23,11 @@ site.settings.product_sub_categories 格式如下：
     <div class="mx-auto max-w-6xl px-4">
         <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
             <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
-                {{ product_page.settings.title }}</h2>
-            <p class="mt-2 ml-2 text-sm text-gray-500">{{ product_page.settings.description }}</p>
+                Browse by Product</h2>
         </div>
 
         <!-- Cards Container -->
-        <section class="my-4" x-data="{ activeTab: 'all' }">
-            <div class="flex justify-center gap-4 min-w-3xl overflow-x-auto">
-                {% for item in product_categories %}
-                    <button @click="activeTab = '{{ item }}'" :class="{ 'bg-primary text-white': activeTab === '{{ item }}' }" class="px-4 py-1 text-sm text-nowrap font-medium  border border-gray-300 rounded-md focus:outline-none">{{ item }}</button>
-                {% endfor %}
-            </div>
-            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 mt-4">
-                {% for item in product_page.children_in_list | order_by: '-created_at' | limit: 40 %}
-                    <!-- Card product -->
-                    <a x-show="activeTab === 'all' {% for tag in item.settings.tags %} || activeTab === '{{ tag.name }}' {% endfor %}" href="{{ item.path }}" class="group bg-white shadow-md rounded-lg overflow-hidden max-w-64 flex flex-col hover:no-underline">
-                        <img src="{{ item.settings.thumb_image_url }}" alt="Card Image 4" class="w-full h-48 object-cover transition duration-700 ease-out group-hover:scale-105">
-                        <div class="p-4">
-                            <h2 class="text-base lg:text-lg font-semibold text-gray-800 text-center">{{ item.link_text }}</h2>
-                        </div>
-                    </a>
-                {% endfor %}
-            </div>
-            <div class="flex justify-center mt-4">
-                <a href="{{ product_page.path }}" class="text-sm border border-gray-300 rounded-full px-3 py-1 text-gray-500 hover:text-gray-700">View all products</a>
-            </div>
-        </section>
+        {% render 'content_products', page: page, pages: product_pages %}
     </div>
 </section>
 
@@ -55,21 +36,19 @@ site.settings.product_sub_categories 格式如下：
     <div class="mx-auto max-w-6xl px-4">
         <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
             <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
-                {{ topic_page.settings.title }}</h2>
-            <p class="mt-2 ml-2 text-sm text-gray-500">{{ topic_page.settings.description }}</p>
+                Browse by Topic</h2>
         </div>
 
         <!-- Cards Container -->
         <section class="my-4">
             <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
-                {% for item in topic_page.children_in_list | order_by: '-created_at' | limit: 9 %}
-                    <div class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:border-gray-400">
+                {% for menu_line in topics_menu %}
+                    {%  assign arr = menu_line | split: '[' %}
+                    <a href="{{ arr[1] }}" class="relative group flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:bg-secondary/10 hover:no-underline hover:border-gray-400">
                         <div class="min-w-0 flex-1">
-                            <a href="{{ item.path }}" class="focus:outline-none">
-                                <span class="absolute inset-0" aria-hidden="true"></span>
-                                <p class="text-sm font-medium text-gray-900">{{ item.link_text }}</p>
-                                <p class="truncate text-sm text-gray-500">{{ item.settings.description }}</p>
-                            </a>
+                            <span class="absolute inset-0" aria-hidden="true"></span>
+                            <p class="text-sm font-medium text-gray-900">{{ arr[0] }}</p>
+                            <p class="truncate text-sm text-gray-500">{{ arr[2] }}</p>
                         </div>
                         <div>
                             <button type="button" class="inline-flex items-center px-1.5 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-primary hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
@@ -78,12 +57,10 @@ site.settings.product_sub_categories 格式如下：
                                 </svg>
                             </button>
                         </div>
-                    </div>
+                    </a>
                 {% endfor %}
             </div>
-            <div class="flex justify-center mt-4">
-                <a href="{{ topic_page.path }}" class="text-sm text-gray-500 hover:text-gray-700">View all topics</a>
-            </div>
+
         </section>
     </div>
 </section>
@@ -143,7 +120,7 @@ site.settings.product_sub_categories 格式如下：
         "name": "index",
         "description": "首页模板",
         "thumb_url": "images/theme/index.png",
-        "sub_page_templates": ["channel"],
+        "sub_page_templates": ["products","news","faqs","videos"],
         "settings": [
             {
                 "id": "tags",

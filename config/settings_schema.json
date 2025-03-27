@@ -57,24 +57,24 @@
           "default": true,
           "pages": [
             {
-              "name": "产品中心",
+              "name": "Products",
               "slug": "products",
-              "template": "channel"
+              "template": "products"
             },
             {
-              "name": "新闻中心",
+              "name": "News",
               "slug": "news",
-              "template": "channel"
+              "template": "news"
             },
             {
-              "name": "视频中心",
+              "name": "Videos",
               "slug": "videos",
-              "template": "channel"
+              "template": "videos"
             },
             {
-              "name": "话题中心",
-              "slug": "topics",
-              "template": "channel"
+              "name": "FAQs",
+              "slug": "faqs",
+              "template": "faqs"
             }
           ]
         }
@@ -132,15 +132,15 @@
         "type": "text",
         "label": "产品大分类设置",
         "info": "格式：电子产品|医疗器械|工业设备|厨房电器；同时在[标签管理]中添加对应的标签。",
-        "default": "电子产品|医疗器械|工业设备|厨房电器"
+        "default": "Eyes|Lips|Face & Body|Sets & Kits|Pencils|Brushes|Accessories & Tools"
       },
       {
         "id": "product_sub_categories",
         "type": "textarea",
         "label": "产品子分类设置",
         "rows": 10,
-        "info": "格式：大类名称:小类名称1|小类名称2|小类名称3，每行一个分类。",
-        "default": "电子产品:手机|电脑|平板电脑\n家用电器:电视机|冰箱|洗衣机"
+        "info": "格式：大类名称[小类名称1|小类名称2|小类名称3，每行一个分类。",
+        "default": "Coverage[high|light|medium|opaque|translucent\nConsistency[cream|fluid|gel|liquid|powder|solid|waxy"
       },
       {
         "id": "header_menu",
@@ -148,7 +148,7 @@
         "label": "页头导航菜单设置",
         "rows": 10,
         "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个分栏。",
-        "default": "首页[/\n新闻中心[/news\n视频中心[/videos\n产品中心[/products{产品分类1[/products/pro1|产品分类2[/products/pro2\n关于我们[https://www.baidu.com/"
+        "default": "Home[/\nNews[/news\nVideos[/videos\nProducts[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nFAQs[/faqs\nSitemap[/s/sitemap"
       },
       {
         "id": "footer_menu",
@@ -156,15 +156,22 @@
         "label": "页脚菜单设置",
         "rows": 10,
         "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个分栏。",
-        "default": "产品中心[/products{产品分类1[/products/pro1|产品分类2[/products/pro2\n视频中心[/videos\n新闻中心[/news"
+        "default": "Products[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nVideos[/videos\nNews[/news"
+      },
+      {
+        "id": "topics_menu",
+        "type": "textarea",
+        "label": "首页话题导航设置",
+        "rows": 10,
+        "info": "格式：name[slug[description，每行一个分栏。",
+        "default": "FAQs[/faqs[some Q&A for all products\nVideos[/videos[the how-to video manuals\nNews[/news[the company news&events"
       },
       {
         "id": "friend_links",
-        "type": "textarea",
-        "label": "页脚友情链接/社交媒体",
+        "type": "html",
+        "label": "页脚社交媒体",
         "rows": 10,
-        "info": "格式：链接名称[链接地址，每行一个链接。",
-        "default": "百度[https://www.baidu.com\n谷歌[https://www.google.com"
+        "info": "格式：<a href=''>svg icon</a>; ICON图标下载地址： https://www.bootstrapmb.com/icon"
       },
       {
         "id": "head_html",

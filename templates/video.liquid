@@ -1,0 +1,186 @@
+{%- if page.parent.settings.video_type.value == "1" -%}
+  {%  assign thumb_class = "aspect-[9/16] mx-auto h-full rounded-xl bg-gray-100 object-cover" %}
+{%- else -%}
+  {%  assign thumb_class = "aspect-[16/9] mx-auto h-full rounded-xl bg-gray-100 object-cover" %}
+{%- endif -%}
+
+<!-- Blog post -->
+<section class="relative">
+
+    <section class="bg-repeat bg-[url('{{ 'images/bg.png' | asset_url}}')] bg-blend-darken dark:bg-slate-900">
+      <div class="relative max-w-6xl mx-auto pt-4 md:pt-6 px-4">
+        <div>
+          {% # 面包屑导航 %}
+          <div class="mb-4">
+            {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
+          </div>
+          <!-- Article header -->
+          <header class="py-2">
+              <!-- Title and excerpt -->
+              <div class="">
+                <h1 class="text-3xl md:text-4xl mb-4 text-gray-700">
+                    {{ page.settings.title }}
+                </h1>
+              </div>
+              <!-- Article meta -->
+              <div class="md:flex md:items-center md:justify-between mt-5 border-t-4 border-primary pt-4">
+                <div>&nbsp;</div>
+                <div class="">
+                    <div class="space-x-2">
+                      <span class="text-gray-500 dark:text-slate-400"> {{ 'generic.published_at' | t}}：{{ page.published_at | date: "%Y-%m-%d" }}</span>
+                      <span class="text-gray-500 dark:text-slate-400"> ·  {{ 'generic.visits' | t }}：{{ page.visits_count  }}</span>
+                    </div>
+                </div>
+            </div>
+          </header>
+        </div>
+      </div>
+    </section>
+
+    <div class="relative max-w-6xl mx-auto px-4">
+        <div class="relative w-full flex flex-col {{ thumb_class }} max-h-[640px] items-center justify-center">
+          {% render 'play_video', page: page, thumb: page.settings.thumb_url %}
+        </div>
+
+        <article class="p-4 md:py-8 ProseMirror">
+          {{ page.settings.content }}
+        </article>
+
+        <div class="flex justify-between">
+          <!--Tags-->
+          {% if page.settings.tags.size > 0 %}
+            <div class="flex items-center py-4 mt-4 space-x-2 text-xs font-light md:mt-8 shrink-0 ">
+                <p>{{ 'generic.tags' | t }}： </p>
+                {% for tag in page.settings.tags %}
+                    <a href="{{ tag.path }}" style="background-color: {{ tag.color }}" class="px-2 py-1 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2">
+                    {{ tag.name }}
+                    </a>
+                {% endfor %}
+            </div>
+          {% endif %}
+
+          <!-- Feedback -->
+          <div class="max-w-2xl mx-auto mt-8">
+            {% render "feedback_form", page: page %}
+          </div>
+        </div>
+
+        <!-- Sub Post Section -->
+        {% render 'sub_page_list', page: page, show_header: false %}
+
+        <!-- Post Section -->
+        <div class="items-center text-center print:hidden">
+          <!-- 上下页 -->
+          <div class="items-center justify-between py-8 space-y-3 lg:flex lg:space-y-0 lg:space-x-4">
+            <!-- Prev link -->
+            {% if page.prev_page %}
+              <a
+                href="{{ page.prev_page.path }}"
+                data-turbo="false"
+                class="block w-full p-3 text-left border rounded-md lg:w-1/2 border-slate-200"
+              >
+                <div class="mb-2">{{ 'generic.prev_page' | t }}</div>
+                <div class="text-primary dark:text-slate-200">
+                  <div
+                    class="flex items-center space-x-2 line-clamp-1"
+                  >
+                    <svg
+                      t="1697772474680"
+                      class="w-4 h-4 icon"
+                      viewBox="0 0 1024 1024"
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      p-id="13457"
+                    >
+                      <path d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9 0.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z" p-id="13458" fill="currentColor"></path>
+                    </svg>
+                    <span class="line-clamp-1">{{ page.prev_page.link_text }}</span>
+                  </div>
+                </div>
+              </a>
+            {% endif %}
+            <!-- Next link -->
+            {% if page.next_page %}
+              <a
+                href="{{ page.next_page.path }}"
+                data-turbo="false"
+                class="block w-full p-3 text-left border rounded-md lg:text-right lg:w-1/2 border-slate-200"
+              >
+                <div class="mb-2">{{ 'generic.next_page' | t }}</div>
+                <div class="text-primary dark:text-slate-200">
+                  <div
+                    class="flex items-center space-x-2 lg:justify-end line-clamp-1"
+                  >
+                    <span class="line-clamp-1">{{ page.next_page.link_text }}</span>
+                    <svg
+                      t="1697772474680"
+                      class="w-4 h-4 rotate-180 icon"
+                      viewBox="0 0 1024 1024"
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      p-id="13457"
+                    >
+                      <path d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9 0.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z" p-id="13458" fill="currentColor"></path>
+                    </svg>
+                  </div>
+                </div>
+              </a>
+              {% # else %}
+              {% comment %} <div class="flex w-1/2 text-sm border border-slate-200">暂无内容</div> {% endcomment %}
+            {% endif %}
+          </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related posts -->
+{% render 'related_pages', page: page.parent %}
+
+
+<!--/ article-->
+{% schema %}
+  {
+    "name": "视频页-视频详情页面",
+    "description": "视频详情页面模板",
+    "thumb_url": "images/theme/video.webp",
+    "sub_page_templates": [],
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "标题"
+      },
+      {
+        "id": "description",
+        "type": "textarea",
+        "label": "摘要"
+      },
+      {
+        "id": "content",
+        "type": "richtext",
+        "label": "内容"
+      },
+      {
+        "id": "thumb_image_url",
+        "type": "image_picker",
+        "ratio": "4:3",
+        "width": 300,
+        "label": "封面图"
+      },
+      {
+        "id": "video_url",
+        "type": "video_picker",
+        "ratio": "4:3",
+        "width": 300,
+        "label": "选择视频源"
+      },
+      {
+        "id": "third_party_video_url",
+        "type": "text",
+        "placeholder": "https://",
+        "label": "或Youtube视频链接",
+        "info": "Youtube->分享->嵌入->复制embed链接。如： https://www.youtube.com/embed/w7UzwO673Gg?si=5K9JPc4skBzOujvk"
+      }
+    ]
+  }
+{% endschema%}

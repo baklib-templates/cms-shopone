@@ -17,12 +17,12 @@
             </h1>
           </div>
           <!-- Article meta -->
-          <div class="md:flex md:items-center md:justify-between mt-5 border-t-4 border-primary pt-4">
+          <div class="md:flex md:items-center md:justify-between mt-5 border-t-2 border-primary pt-4">
               <div>&nbsp;</div>
               <div class="">
                   <div class="space-x-2">
-                    <span class="text-gray-500 dark:text-slate-400"> 来源：{{ page.settings.published_from }} </span>
-                    <span class="text-gray-500 dark:text-slate-400"> ·  时间：{{ page.settings.published_at | date: "%Y-%m-%d" }}</span>
+                    <span class="text-gray-500 dark:text-slate-400"> {{ 'generic.published_at' | t}}：{{ page.published_at | date: "%Y-%m-%d" }}</span>
+                    <span class="text-gray-500 dark:text-slate-400"> ·  {{ 'generic.visits' | t }}：{{ page.visits_count  }}</span>
                   </div>
               </div>
           </div>
@@ -38,7 +38,6 @@
       <div class="ProseMirror text-lg text-gray-700 md:leading-8">
         {{ page.settings.content }}
       </div>
-
       <!-- Sub Post Section -->
       {%# render 'sub_page_list', page: page %}
     </article>
@@ -52,10 +51,10 @@
 <!--/ article-->
 {% schema %}
   {
-    "name": "详情页-Post文章页",
+    "name": "详情页-文章详情页",
     "description": "文章类页面模板",
-    "thumb_url": "images/theme/page.webp",
-    "sub_page_templates": ["post"],
+    "thumb_url": "images/theme/post.webp",
+    "sub_page_templates": [],
     "settings": [
       {
         "id": "title",
@@ -66,18 +65,6 @@
         "id": "content",
         "type": "richtext",
         "label": "内容"
-      },
-      {
-        "id": "related_pages",
-        "type": "textarea",
-        "label": "关联文章",
-        "info": "填写关联文章的path，每行 1 个"
-      },
-      {
-        "id": "related_videos",
-        "type": "textarea",
-        "label": "关联视频",
-        "info": "填写关联视频文章的path路径，每行 1 个"
       }
     ]
   }

@@ -12,7 +12,7 @@ site.settings.header_menu 格式如下：
   <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-2">
     <div class="flex items-center">
       <a href="/" class="flex items-center space-x-2">
-        <img src="{{ site.settings.logo_url | default: site.icon }}" alt="{{ site.name }}" class="h-8 md:h-10 w-auto" />
+        <img src="{{ site.settings.logo_url | default: default_logo }}" alt="{{ site.name }}" class="h-8 md:h-10 w-auto" />
       </a>
     </div>
 
@@ -193,11 +193,11 @@ site.settings.header_menu 格式如下：
         <label for="default-search" class="mb-2 font-medium text-gray-900 sr-only dark:text-white">Search</label>
         <div class="relative bg-transparent">
           <input type="search" name="{{form.keywords_field_name}}" value="{{ search.keywords | escape }}"
-            id="default-search" class="md:w-64 text-sm md:text-base p-1 md:p-2 text-gray-900 border opacity-50 focus:opacity-100 border-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+            id="default-search" class="md:w-64 text-sm md:text-base p-1 text-gray-900 border opacity-50 focus:opacity-100 border-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
             placeholder="searching..." required />
-          <div class="absolute inset-y-0 end-0 flex items-center p-2 bg-primary  pointer-events-none text-white rounded-r-lg">
+          <div class="absolute inset-y-0 end-0 flex items-center p-1 bg-secondary  pointer-events-none text-white rounded-r-lg">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              class="w-6 h-6">
+              class="w-5 h-5">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M21 21l-5.2-5.2M15 11a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>

@@ -1,0 +1,61 @@
+{% assign pages = page.children_in_list | order_by: '-created_at' %}
+{% assign product_categories = site.settings.product_categories | split: '|' %}
+{% assign product_sub_categories = site.settings.product_sub_categories | newline_to_br | split: '<br />' %}
+{% comment %} 
+site.settings.product_categories 格式如下：
+    电子产品|医疗器械|工业设备|厨房电器
+{% endcomment %}
+{% comment %} 
+site.settings.product_sub_categories 格式如下：
+    电子产品:手机|电脑|平板电脑|智能手机|平板电脑|笔记本电脑|智能穿戴设备
+    影音娱乐设备:智能电视|投影仪|游戏机|数码相机|智能音箱|蓝牙耳机|降噪耳机|有线耳机|便携式音响 
+{% endcomment %}
+{% # 面包屑导航 %}
+<section class="py-2">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="mb-4">
+            {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
+        </div>
+    </div>
+</section>
+
+<!-- 产品列表 -->
+<section class="bg-white py-6 sm:py-12">
+    <div class="mx-auto max-w-6xl px-4">
+        <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
+            <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
+                {{ page.settings.title }}</h2>
+            <p class="mt-2 ml-2 text-sm text-gray-500">{{ page.settings.description }}</p>
+        </div>
+
+        <!-- Cards Container -->
+        {% paginate_tag pages, per: 24 %}
+            {% render 'content_products', page: page, pages: pages %}
+            <!-- Pagination -->
+            <div class="w-full text-right block mt-12">
+                {% render 'paginate', paginate: paginate %}
+            </div>
+        {% endpaginate_tag %}
+    </div>
+</section>
+
+{% schema %}
+    {
+    "name": "栏目-产品分类列表",
+    "description": "项目/产品分类页",
+    "thumb_url": "images/theme/products.webp",
+    "sub_page_templates": ["product"],
+    "settings": [
+        {
+            "id": "title",
+            "type": "text",
+            "label": "标题"
+        },
+        {
+            "id": "description",
+            "type": "textarea",
+            "label": "摘要"
+        }
+    ]
+    }
+{% endschema%}

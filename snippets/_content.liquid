@@ -1,0 +1,22 @@
+{% case page.template_name %}
+{% when 'videos' %}
+  {% assign pages = page.children_in_list | order_by: "-created_at" %}
+  {% render 'content_videos', page: page, pages: pages %}
+{% when 'news' %}
+  {% assign pages = page.children_in_list | order_by: "-created_at" %}
+  {% render 'content_news', page: page, pages: pages %}
+{% when 'products' %}
+  {% assign pages = page.children_in_list | order_by: "-created_at" %}
+  {% render 'content_products', page: page, pages: pages %}
+{% when 'faqs' %}
+  {% assign pages = page.children_in_list | order_by: "-created_at" %}
+  {% render 'content_faqs', page: page, pages: pages %}
+{% when 'product' %}
+  {% render 'content_product', page: page %}
+{% when 'video' %}
+  {% render 'content_video', page: page %}
+{% when 'page' %}
+  {% render 'content_page', page: page %}
+{% when 'post' %}
+  {% render 'content_post', page: page %}
+{% endcase %}

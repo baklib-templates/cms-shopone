@@ -1,0 +1,10 @@
+{% for item in pages %}
+  <details class="p-4 border rounded">
+      <summary class="font-semibold cursor-pointer">
+          {{ item.settings.title }}
+      </summary>
+      <div class="ProseMirror text-gray-500 mt-2">
+          {{ item.settings.content }}
+      </div>
+  </details>
+{% endfor %}

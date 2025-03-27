@@ -1,0 +1,66 @@
+{% assign thumb = 'images/thumbnail.png' | asset_url %}
+{% assign pages = page.children_in_list | order_by: "-created_at" %}
+
+<section class="py-2">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="mb-4">
+            {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
+        </div>
+    </div>
+</section>
+
+<!-- 产品列表 -->
+<section class="bg-white py-6 sm:py-12">
+    <div class="mx-auto max-w-6xl px-4">
+        <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
+            <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
+                {{ page.settings.title }}</h2>
+            <p class="mt-2 ml-2 text-sm text-gray-500">{{ page.settings.description }}</p>
+        </div>
+
+        <!-- Cards Container -->
+        <div class="">
+            <!-- Cards Container -->
+            {% paginate_tag pages, per: 24 %}
+                {% render 'content_videos', page: page, pages: pages %}
+                <!-- Pagination -->
+                <div class="w-full text-right block mt-12">
+                    {% render 'paginate', paginate: paginate %}
+                </div>
+            {% endpaginate_tag %}
+            {%# 分页 %}
+        </div>
+    </div>
+</section>
+
+
+
+
+{% schema %}
+{
+    "name": "栏目-视频资源列表",
+    "description": "视频列表",
+    "thumb_url": "images/theme/videos.webp",
+    "sub_page_templates": ["video"],
+    "settings": [
+        {
+            "id": "title",
+            "type": "text",
+            "label": "标题"
+        },
+        {
+            "id": "description",
+            "type": "textarea",
+            "label": "摘要"
+        },
+        {
+            "id": "video_type",
+            "type": "radio",
+            "label": "视频格式",
+            "choices": [{"label":"桌面端宽视频（16:9）","value":"0"},{"label":"手机端长视频（9:16）","value":"1"}],
+            "default": "0",
+            "info": "* 在子页面上传的视频封面尺寸也应该按当前选择的尺寸适配"
+        }
+    ]
+}
+{% endschema%}

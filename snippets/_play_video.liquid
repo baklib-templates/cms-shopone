@@ -54,7 +54,7 @@
         x-transition:leave-end="opacity-0 scale-75"
         x-cloak
     >
-        <div class="max-w-5xl mx-auto flex items-center">
+        <div class="max-w-6xl mx-auto flex items-center">
             <div
                 class="max-h-full bg-primary rounded-xl overflow-hidden"
                 @click.outside="modalOpen = false"
@@ -62,7 +62,7 @@
             >
               {% if page.settings.third_party_video_url %}
                 <div class="aspect-[16/9] mx-auto max-h-screen ">
-                  <iframe width="560" height="315" src="{{ page.settings.third_party_video_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="800" height="450" src="{{ page.settings.third_party_video_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
               {% else %}
                   <div class="aspect-[16/9] mx-auto max-h-screen ">

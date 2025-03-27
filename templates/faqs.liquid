@@ -1,0 +1,54 @@
+{% assign pages = page.children_in_list | order_by: '-created_at' %}
+{% assign product_categories = site.settings.product_categories | split: '|' %}
+{% assign product_sub_categories = site.settings.product_sub_categories | newline_to_br | split: '<br />' %}
+
+<section class="py-2">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="mb-4">
+            {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
+        </div>
+    </div>
+</section>
+
+<!--Section: FAQs -->
+<section class="mt-12 md:mt-20" data-aos-id-3="">
+    <div class="relative max-w-6xl mx-auto">
+        <div class="">
+            <div class="text-center relative mb-2 md:mb-4">
+            <h2 class="h2">{{ page.settings.title }}</h2>
+            <p>{{ page.settings.description }}</p>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            {% paginate_tag pages, per: 12 %}
+                {% render 'content_faqs', page: page, pages %}
+                <!-- Pagination -->
+                <div class="w-full text-right block mt-12">
+                    {% render 'paginate', paginate: paginate %}
+                </div>
+            {% endpaginate_tag %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+    "name": "栏目-FAQs列表",
+    "description": "FAQ折叠展开样式",
+    "thumb_url": "images/theme/faqs.webp",
+    "sub_page_templates": ["post"],
+    "settings": [
+        {
+            "id": "title",
+            "type": "text",
+            "label": "标题"
+        },
+        {
+            "id": "description",
+            "type": "textarea",
+            "label": "摘要"
+        }
+    ]
+    }
+{% endschema%}

@@ -1,0 +1,26 @@
+
+  <div class="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none sm:grid-cols-2 lg:grid-cols-3">
+      {% for item in pages %}
+          <article class="flex flex-col items-start justify-between border rounded-xl">
+              <div class="relative w-full flex flex-col items-center justify-center">
+                  {% render 'play_video', page: item,video_type: page.video_type.value, thumb: thumb %}
+              </div>
+              <div class="w-full px-2">
+
+                  <div class="group relative">
+                      <h3 class="mt-2 line-clamp-2 text-lg font-semibold leading-6 group-hover:text-gray-600">
+                          <a href="{{ item.path }}">
+                          <span class="absolute inset-0"></span>
+                          {{ item.link_text }}
+                          </a>
+                      </h3>
+                  </div>
+                  <div class="flex justify-between my-2">
+                      <div>
+                          {{ item.settings.description }}
+                      </div>
+                  </div>
+              </div>
+          </article>
+      {% endfor %}
+  </div>

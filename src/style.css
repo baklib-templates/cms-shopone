@@ -7,8 +7,6 @@ h1{
   line-height: 4.5;
 }
 
-
-
 .h1 {
     @apply text-5xl font-semibold text-slate-800 dark:text-white;
 }
@@ -426,18 +424,4 @@ input[type=range]::-moz-focus-outer {
         -webkit-transform: translate3d(10px, 0, 0) scale(1.2);
         transform: translate3d(10px, 0, 0) scale(1.2);
     }
-}
-
-/* Custom Article Prose*/
-.ProseMirror p{
-  text-indent: 2em;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  line-height: 2.0;
-}
-.ProseMirror td p, .ProseMirror th p, .ProseMirror li p{
-  text-indent: 0em !important;
-  margin-top: 0em !important;
-  margin-bottom: 0em !important;
-  line-height: 2.0 !important;
 }

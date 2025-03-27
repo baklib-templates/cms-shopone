@@ -5,6 +5,22 @@
     <main class="grow">
 
         <!-- Page illustration -->
+        <div class="relative max-w-6xl mx-auto h-0 pointer-events-none -z-1" aria-hidden="true">
+            <svg class="absolute top-0 right-0 transform translate-x-1/2 -mr-16 dark:opacity-40" width="800" height="502" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="400" cy="102" r="400" fill="url(#heroglow_paint0_radial)" fill-opacity=".6" />
+                <circle cx="209" cy="289" r="170" fill="url(#heroglow_paint1_radial)" fill-opacity=".4" />
+                <defs>
+                    <radialGradient id="heroglow_paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90 149 251) scale(315.089)">
+                        <stop stop-color="#3ABAB4" />
+                        <stop offset="1" stop-color="#3ABAB4" stop-opacity=".01" />
+                    </radialGradient>
+                    <radialGradient id="heroglow_paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90 -40 249) scale(133.913)">
+                        <stop stop-color="#667EEA" />
+                        <stop offset="1" stop-color="#667EEA" stop-opacity=".01" />
+                    </radialGradient>
+                </defs>
+            </svg>
+        </div>
 
         <!-- Hero -->
         <section class="relative">
@@ -12,12 +28,12 @@
             <div class="absolute inset-0 bg-gradient-to-t from-slate-100 to-white opacity-50 pointer-events-none dark:hidden" aria-hidden="true"></div>
             <!-- End background gradient (light version only) -->
             <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
-                <div class="py-4 md:py-8">
+                <div class="pt-4 pb-4 md:pt-8 md:pb-8">
                     <div class="max-w-3xl mx-auto text-center">
                 
                         <div class="max-w-2xl mx-auto md:px-4">
-                            {% form_tag 'search', class: 'relative flex items-center mt-4', 'data-aso': 'fade-down', 'data-aso-delay': '300' %}
-                                <input type="search" name="{{form.keywords_field_name}}" value="{{ search.keywords | escape }}" placeholder="输入搜索关键词"  class="bg-white border border-primary focus:border-primary-400 leading-snug py-3 px-4 placeholder-slate-500 dark:placeholder-gray-400 dark:bg-gray-800 dark:border dark:border-primary-600 dark:focus:border-primary-500  w-full pl-12" aria-label="Search anything" />
+                            {% form_tag 'search', class: 'relative flex items-center mt-8', 'data-aso': 'fade-down', 'data-aso-delay': '300' %}
+                                <input type="search" name="{{form.keywords_field_name}}" value="{{ search.keywords | escape }}" placeholder="输入搜索关键词"  class="bg-white border border-slate-300 focus:border-slate-400 rounded leading-snug py-3 px-4 placeholder-slate-500 dark:placeholder-slate-400 dark:bg-slate-800 dark:border dark:border-slate-600 dark:focus:border-slate-500  w-full pl-12" aria-label="Search anything" />
                                 <button type="submit" class="absolute inset-0 right-auto" aria-label="Search">
                                     <svg class="w-4 h-4 shrink-0 ml-4 mr-3" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                                         <path class="fill-current text-slate-400" d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5zm8.707 12.293a.999.999 0 11-1.414 1.414L11.9 13.314a8.019 8.019 0 001.414-1.414l2.393 2.393z" />
@@ -36,7 +52,7 @@
             <div class="absolute inset-0 opacity-25 bg-gradient-to-b from-slate-800 to-slate-900 pointer-events-none hidden dark:block" aria-hidden="true"></div>
             <!-- End background gradient (dark version only) -->
             <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
-                <div class="py-4 md:py-8">
+                <div class="py-8 md:py-12">
                 {% if search.keywords or search.tag %}
                 {% paginate_tag search.pages, as: 'items', per: 15 %}
                     <div x-data="{ category: '' }" data-aos="fade-up" data-aos-delay="450">

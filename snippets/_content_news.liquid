@@ -1,0 +1,14 @@
+<section class="my-4">
+    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 mt-4">
+        {% for item in pages %}
+            <!-- Card product -->
+            <a href="{{ item.path }}" class="bg-white shadow-md rounded-lg overflow-hidden max-w-64 flex flex-col">
+                <img src="{{ item.settings.thumb_image_url }}" alt="Card Image 4" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold text-gray-800">{{ item.link_text }}</h2>
+                    <p class="text-gray-600 mt-2">{{ item.settings.description }}</p>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</section>
