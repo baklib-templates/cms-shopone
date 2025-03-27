@@ -1,6 +1,6 @@
 {
-  "theme_label": "Wiki",
-  "theme_description": "通过知识库同步页面内容，从而实现内容和站点分离；用于大规模可重用文档内容管理，如Wiki、帮助文档和内容门户。",
+  "theme_label": "Shopone",
+  "theme_description": "电商产品知识库，帮助中心，视频、下载、FAQ 等在线教程。",
   "generic": {
     "close": "关闭",
     "back": "返回",

@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="{{ site.language }}">
+<html lang="{{ site.language }}" class="scroll-smooth">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="北交金科">
+    <meta name="author" content="Baklib">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% meta_tags %}
     {{ 'css/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
     {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
-    {{ 'javascripts/components.js' | asset_url | script_tag: data-turbo-track: 'reload' }}
     {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
     {% if false %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
     {{ site.settings.head_html }}
   </head>
-  <body class="">
+  <body class="flex flex-col min-h-screen" id="js-body">
       {% render 'header' %}
       
-      {{ content_for_layout }}
+      <main class="flex-grow">
+        {{ content_for_layout }}
+      </main>
 
       {% render 'footer' %}
   </body>
