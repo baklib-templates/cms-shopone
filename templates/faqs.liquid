@@ -1,6 +1,4 @@
 {% assign pages = page.children_in_list | order_by: '-created_at' %}
-{% assign product_categories = site.settings.product_categories | split: '|' %}
-{% assign product_sub_categories = site.settings.product_sub_categories | newline_to_br | split: '<br />' %}
 
 <section class="py-2">
     <div class="max-w-6xl mx-auto px-4">
@@ -22,7 +20,7 @@
 
         <div class="space-y-4">
             {% paginate_tag pages, per: 12 %}
-                {% render 'content_faqs', page: page, pages %}
+                {% render 'content_faqs', page: page, pages: pages %}
                 <!-- Pagination -->
                 <div class="w-full text-right block mt-12">
                     {% render 'paginate', paginate: paginate %}
@@ -48,6 +46,12 @@
             "id": "description",
             "type": "textarea",
             "label": "摘要"
+        },
+        {
+            "id": "related_pages_json",
+            "type": "textarea",
+            "label": "关联的子页面path路径",
+            "info": "格式：/path/slug, 每行 1 个"
         }
     ]
     }

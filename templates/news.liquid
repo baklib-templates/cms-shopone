@@ -20,8 +20,7 @@
 
         <!-- Cards Container -->
         {% paginate_tag pages, per: 24 %}
-            {% render 'content_faqs', page: page, pages %}
-            
+            {% render 'content_news', page: page, pages: pages %}
             <!-- Pagination -->
             <div class="w-full text-right block mt-12">
                 {% render 'paginate', paginate: paginate %}
@@ -32,7 +31,7 @@
 
 {% schema %}
   {
-    "name": "栏目-文章列表（带封面图）",
+    "name": "栏目-文章列表",
     "description": "新闻/博客/资讯列表",
     "thumb_url": "images/theme/news.webp",
     "sub_page_templates": ["page"],
@@ -46,6 +45,12 @@
         "id": "description",
         "type": "textarea",
         "label": "摘要"
+      },
+      {
+          "id": "related_pages_json",
+          "type": "textarea",
+          "label": "关联的子页面path路径",
+          "info": "格式：/path/slug, 每行 1 个"
       }
     ]
   }
