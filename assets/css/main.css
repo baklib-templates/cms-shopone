@@ -4683,6 +4683,11 @@ video {
   color:rgb(241 245 249 / var(--tw-text-opacity))
 }
 
+.hover\:text-white:hover{
+  --tw-text-opacity:1;
+  color:rgb(255 255 255 / var(--tw-text-opacity))
+}
+
 .hover\:underline:hover{
   text-decoration-line:underline
 }
@@ -4807,6 +4812,11 @@ video {
 .group:hover .group-hover\:text-primary{
   --tw-text-opacity:1;
   color:hsl(var(--theme-color-primary) / var(--tw-text-opacity))
+}
+
+.group:hover .group-hover\:text-white{
+  --tw-text-opacity:1;
+  color:rgb(255 255 255 / var(--tw-text-opacity))
 }
 
 :is(.dark .dark\:block){
@@ -5053,11 +5063,6 @@ video {
     padding-left:3rem
   }
 
-  .sm\:text-2xl{
-    font-size:1.5rem;
-    line-height:2rem
-  }
-
   .sm\:text-3xl{
     font-size:1.875rem;
     line-height:2.25rem
@@ -5209,10 +5214,6 @@ video {
   .md\:text-base{
     font-size:1rem;
     line-height:1.5rem
-  }
-
-  .md\:leading-8{
-    line-height:2rem
   }
 }
 
