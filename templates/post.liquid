@@ -35,7 +35,7 @@
   <div class="pt-4 px-4 pb-4">
     <article >
       <!-- Article content -->
-      <div class="ProseMirror text-lg text-gray-700 md:leading-8">
+      <div class="ProseMirror">
         {{ page.settings.content }}
       </div>
       <!-- Sub Post Section -->
@@ -45,15 +45,15 @@
 </div>
 
 <!-- Related posts -->
-{% render 'related_pages', page: page.parent %}
+{%# render 'related_pages', page: page.parent %}
 
 
 <!--/ article-->
 {% schema %}
   {
-    "name": "详情页-文章详情页",
-    "description": "文章类页面模板",
-    "thumb_url": "images/theme/post.webp",
+    "name": "详情页-文章详情页(无封面)",
+    "description": "不带封面图的页面详情页模板",
+    "thumb_url": "images/theme/page.webp",
     "sub_page_templates": [],
     "settings": [
       {

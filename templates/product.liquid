@@ -66,17 +66,18 @@
                     <span>{{ item.link_text }}</span>
                 </a>
               </li>
-              {% for sub_item in item.children_in_list %}
-                {% comment %} name[path {% endcomment %}
-                <li>
-                  <a hef="#" data-product="{{ sub_item.id }}" @click.prevent="activeTab2 = '{{ sub_item.id }}'" :class="{ 'bg-gray-800 text-white': activeTab2 === '{{ sub_item.id }}' }" class="relative rounded-md bg-gray-800 border border-gray-800 text-white px-3 py-2 text-md w-52 font-semibold" aria-current="page">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="absolute right-2 top-3 w-4 h-4 text-white">
-                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
-                      </svg>
-                      <span>{{ sub_item.link_text }}</span>
-                  </a>
-                </li>
-              {% endfor %}
+              {% if false %}
+                {% for sub_item in item.children_in_list %}
+                  <li>
+                    <a hef="#" data-product="{{ sub_item.id }}" @click.prevent="activeTab2 = '{{ sub_item.id }}'" :class="{ 'bg-gray-800 text-white': activeTab2 === '{{ sub_item.id }}' }" class="relative rounded-md bg-gray-800 border border-gray-800 text-white px-3 py-2 text-md w-52 font-semibold" aria-current="page">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="absolute right-2 top-3 w-4 h-4 text-white">
+                          <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
+                        </svg>
+                        <span>{{ sub_item.link_text }}</span>
+                    </a>
+                  </li>
+                {% endfor %}
+              {% endif %}
             </ul>
           </div>
           

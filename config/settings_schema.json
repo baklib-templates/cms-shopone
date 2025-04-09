@@ -11,10 +11,10 @@
     "theme_support_url": "https://help.baklib.cn/cms/",
     "theme_thumb_url": "images/theme/index.webp",
     "theme_preview_images": [
-      "images/theme/index.webp",
-      "images/theme/index1.webp",
-      "images/theme/product.webp",
-      "images/theme/product1.webp"
+      "images/demo/index.webp",
+      "images/demo/index1.webp",
+      "images/demo/products.webp",
+      "images/demo/product.webp"
     ],
     "theme_languages": [
       {
