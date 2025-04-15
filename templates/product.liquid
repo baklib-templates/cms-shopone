@@ -56,8 +56,9 @@
     {% for item in pages %}
       <div x-show="activeTab === '{{ item.id }}'" x-data="{ activeTab2: '{{ item.id }}' }" class="relative px-4">
         <div class="flex flex-row items-start">
-          <div class="flex-none w-64">
+          <div class="flex-none w-0">
             <ul class="space-y-3">
+              {% if false %}
               <li>
                 <a href="#" data-product="{{ item.id }}" @click.prevent="activeTab2 = '{{ item.id }}'" :class="{ 'bg-gray-800 text-white': activeTab2 === '{{ item.id }}' }" class="relative rounded-md bg-gray-800 border border-gray-800 text-white px-3 py-2 text-md w-52 font-semibold" aria-current="page">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="absolute right-2 top-3 w-4 h-4 text-white">
@@ -66,7 +67,7 @@
                     <span>{{ item.link_text }}</span>
                 </a>
               </li>
-              {% if false %}
+              
                 {% for sub_item in item.children_in_list %}
                   <li>
                     <a hef="#" data-product="{{ sub_item.id }}" @click.prevent="activeTab2 = '{{ sub_item.id }}'" :class="{ 'bg-gray-800 text-white': activeTab2 === '{{ sub_item.id }}' }" class="relative rounded-md bg-gray-800 border border-gray-800 text-white px-3 py-2 text-md w-52 font-semibold" aria-current="page">
