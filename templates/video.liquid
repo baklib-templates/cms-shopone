@@ -38,8 +38,8 @@
     </section>
 
     <div class="relative max-w-6xl mx-auto px-4">
-        <div class="relative w-full flex flex-col {{ thumb_class }} max-h-[640px] items-center justify-center">
-          {% render 'play_video', page: page, thumb: page.settings.thumb_url %}
+        <div class="flex items-center justify-center">
+          {% render 'play_video', page: page %}
         </div>
 
         <article class="p-4 md:py-8 ProseMirror">
@@ -151,6 +151,13 @@
         "label": "标题"
       },
       {
+        "id": "youtube_id",
+        "type": "text",
+        "placeholder": "6c3RXM7lK20",
+        "label": "Youtube视频链接ID",
+        "info": "Youtube->分享->嵌入->复制embed链接ID: 6c3RXM7lK20。如： https://www.youtube.com/embed/6c3RXM7lK20"
+      },
+      {
         "id": "description",
         "type": "textarea",
         "label": "摘要"
@@ -165,27 +172,6 @@
         "type": "tag_picker",
         "multiple": true,
         "label": "标签"
-      },
-      {
-        "id": "thumb_image_url",
-        "type": "image_picker",
-        "ratio": "4:3",
-        "width": 300,
-        "label": "封面图"
-      },
-      {
-        "id": "video_url",
-        "type": "video_picker",
-        "ratio": "4:3",
-        "width": 300,
-        "label": "选择视频源"
-      },
-      {
-        "id": "third_party_video_url",
-        "type": "text",
-        "placeholder": "https://",
-        "label": "或Youtube视频链接",
-        "info": "Youtube->分享->嵌入->复制embed链接。如： https://www.youtube.com/embed/w7UzwO673Gg?si=5K9JPc4skBzOujvk"
       }
     ]
   }

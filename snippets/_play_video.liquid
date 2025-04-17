@@ -5,6 +5,9 @@
   {%  assign thumb_class = "aspect-[16/9] mx-auto max-h-screen rounded-xl bg-gray-100 object-cover" %}
 {%- endif -%}
 
+{%  assign thumb_url =  'http://img.youtube.com/vi/' | append: page.settings.youtube_id | append: '/0.jpg' %}
+{%  assign video_url = 'https://www.youtube.com/embed/' | append: page.settings.youtube_id %}
+
   <div class="[&_[x-cloak]]:hidden" x-data="{ modalOpen: false }">
 
     <!-- 1. Video thumbnail -->
@@ -14,7 +17,7 @@
         aria-controls="modal"
         aria-label="Watch the video"
     >
-      <img src="{{ page.settings.thumb_image_url | default: thumb }}" alt="{{ page.link_text }}" class="{{ thumb_class }}">
+      <img src="{{ thumb_url }}" alt="{{ page.link_text }}" class="{{ thumb_class }}">
         {% comment %} <img class="rounded-3xl shadow-2xl transition-shadow duration-300 ease-in-out" src="./video-modal-thumb.jpg" width="768" height="432" alt="Modal video thumbnail" /> {% endcomment %}
         <!-- Play icon -->
         <svg class="absolute pointer-events-none group-hover:scale-110 transition-transform duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
@@ -60,17 +63,10 @@
                 @click.outside="modalOpen = false"
                 @keydown.escape.window="modalOpen = false"
             >
-              {% if page.settings.third_party_video_url %}
-                <div class="aspect-[16/9] mx-auto max-h-screen ">
-                  <iframe width="800" height="450" src="{{ page.settings.third_party_video_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              {% if video_url %}
+                <div class="aspect-[16/9] mx-auto max-h-screen">
+                  <iframe width="1200" height="600" src="{{ video_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
-              {% else %}
-                  <div class="aspect-[16/9] mx-auto max-h-screen ">
-                    <video preload="metadata" x-init="$watch('modalOpen', value => value ? $el.play() : $el.pause())" class="{{ thumb_class }}" loop controls>
-                          <source src="{{ page.settings.video_url }}" type="video/mp4" />
-                          Your browser does not support the video tag.[{{ video_type }}]
-                      </video>
-                  </div>
               {% endif %}
             </div>
         </div>
