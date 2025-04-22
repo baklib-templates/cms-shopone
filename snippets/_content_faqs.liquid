@@ -1,26 +1,8 @@
-{% assign related_pages_json = page.settings.related_pages_json | newline_to_br | split: '<br />' %}
-{% for path in related_pages_json %}
-    {%  assign path2 = path | strip %}
-    {%  assign item =  site.pages[path2] %}
-    {% if item %}
-        <details class="p-4 border rounded">
-            <summary class="font-semibold cursor-pointer">
-                {{ item.settings.title }}
-            </summary>
-            <div class="ProseMirror text-gray-500 mt-2">
-                {{ item.settings.content }}
-            </div>
-        </details>
-    {% endif %}
-{% endfor %}
-
-{% for item in pages %}
-    <details class="p-4 border rounded">
-        <summary class="font-semibold cursor-pointer">
-            {{ item.settings.title }}
-        </summary>
-        <div class="ProseMirror text-gray-500 mt-2">
-            {{ item.settings.content }}
-        </div>
-    </details>
-{% endfor %}
+<details class="p-4 border rounded">
+    <summary class="font-semibold cursor-pointer">
+        {{ item.settings.title }}
+    </summary>
+    <div class="ProseMirror text-gray-500 mt-2">
+        {{ item.settings.content }}
+    </div>
+</details>

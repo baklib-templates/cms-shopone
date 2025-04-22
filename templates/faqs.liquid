@@ -9,18 +9,30 @@
 </section>
 
 <!--Section: FAQs -->
-<section class="mt-12 md:mt-20" data-aos-id-3="">
+<section class="my-6 md:my-12" data-aos-id-3="">
     <div class="relative max-w-6xl mx-auto">
         <div class="">
-            <div class="text-center relative mb-2 md:mb-4">
-            <h2 class="h2">{{ page.settings.title }}</h2>
-            <p>{{ page.settings.description }}</p>
+            <div class="text-center relative mb-2 md:my-4">
+                <h2 class="h2">{{ page.settings.title }}</h2>
+                <p>{{ page.settings.description }}</p>
             </div>
         </div>
 
-        <div class="space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {% paginate_tag pages, per: 12 %}
-                {% render 'content_faqs', page: page, pages: pages %}
+                {% for item in pages  %}
+                    {%  assign sub_items_count= item.children_in_list | size %}
+                    {% if sub_items_count > 0 %}
+                        <div>
+                            <h3 class="text-2xl font-semibold border-b border-primary">{{ item.settings.title  }}</h3>
+                            {% for item2 in item.children_in_list %}
+                                {% render 'content_faqs', item: item2 %}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {% render 'content_faqs', item: item %}
+                    {% endif %}
+                {% endfor %}
                 <!-- Pagination -->
                 <div class="w-full text-right block mt-12">
                     {% render 'paginate', paginate: paginate %}
@@ -46,12 +58,6 @@
             "id": "description",
             "type": "textarea",
             "label": "摘要"
-        },
-        {
-            "id": "related_pages_json",
-            "type": "textarea",
-            "label": "关联的子页面path路径",
-            "info": "格式：/path/slug, 每行 1 个"
         }
     ]
     }
