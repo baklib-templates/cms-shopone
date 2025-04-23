@@ -1,8 +1,25 @@
-<details class="p-4 border rounded">
-    <summary class="font-semibold cursor-pointer">
-        {{ item.settings.title }}
-    </summary>
-    <div class="ProseMirror text-gray-500 mt-2">
-        {{ item.settings.content }}
+{% paginate_tag pages, per: 24 %}
+    {% for item in pages  %}
+        {%  assign sub_items_count= item.children_in_list | size %}
+        {% if sub_items_count > 0 %}
+            <div class="mb-4">
+                <h3 class="text-xl font-semibold border-b border-primary">{{ item.settings.title  }}</h3>
+                {% assign sub_items = item.children_in_list | limit: 24  %}
+                {% for item2 in sub_items %}
+                    {% render 'content_faq', item: item2 %}
+                {% endfor %}
+                {% if sub_items_count > 24 %}
+                    <div class="text-center mt-4">
+                        <a href="{{ item.url }}" class="btn btn-primary">Learn more</a>
+                    </div>
+                {% endif %}
+            </div>
+        {% else %}
+            {% render 'content_faq', item: item %}
+        {% endif %}
+    {% endfor %}
+    <!-- Pagination -->
+    <div class="w-full text-right block mt-12">
+        {% render 'paginate', paginate: paginate %}
     </div>
-</details>
+{% endpaginate_tag %}
