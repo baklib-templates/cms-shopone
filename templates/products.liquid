@@ -1,4 +1,4 @@
-{% assign pages = page.children_in_list | order_by: '-created_at' %}
+{% assign pages = page.children_in_list %}
 {% assign product_categories = site.settings.product_categories | split: '|' %}
 {% assign product_sub_categories = site.settings.product_sub_categories | newline_to_br | split: '<br />' %}
 {% comment %} 

@@ -1,4 +1,4 @@
-{% assign pages = page.children_in_list | order_by: '-created_at' %}
+{% assign pages = page.children_in_list %}
 
 <section class="py-2">
     <div class="max-w-6xl mx-auto px-4">
@@ -9,10 +9,10 @@
 </section>
 
 <!--Section: FAQs -->
-<section class="my-6 md:my-12" data-aos-id-3="">
+<section class="my-6" data-aos-id-3="">
     <div class="relative max-w-6xl mx-auto">
         <div class="">
-            <div class="text-center relative mb-2 md:my-4">
+            <div class="text-center relative mb-4 md:mb-8">
                 <h2 class="h2">{{ page.settings.title }}</h2>
                 <p>{{ page.settings.description }}</p>
             </div>

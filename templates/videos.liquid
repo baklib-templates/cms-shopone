@@ -1,5 +1,5 @@
 {% assign thumb = 'images/thumbnail.png' | asset_url %}
-{% assign pages = page.children_in_list | order_by: "-created_at" %}
+{% assign pages = page.children_in_list %}
 
 <section class="py-2">
     <div class="max-w-6xl mx-auto px-4">

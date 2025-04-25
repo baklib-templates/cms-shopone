@@ -11,7 +11,7 @@
     </header>
 
     <!-- Article header -->
-    <div class="relative max-w-6xl mx-auto px-4 my-6 md:my-12">
+    <div class="relative max-w-6xl mx-auto my-4">
       <div class="mb-4">
         {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
       </div>
@@ -22,10 +22,10 @@
         </div>
         <div class="col-span-2 md:col-span-1 gap-2">
           <div class="flex items-center justify-end">
-            <a href="{{ page.settings.external_url }}" class="w-20 bg-secondary text-white rounded-md px-4 py-2" target="_blank" rel="noopener noreferrer">Learn more</a>
+            <a href="{{ page.settings.external_url | default: '#' }}" class="w-20 bg-secondary text-white rounded-md px-4 py-2" target="_blank" rel="noopener noreferrer">Learn more</a>
           </div>
           <div class="flex items-center justify-end">
-            <a href="{{ site.settings.contact_us_url }}" class="mt-2 w-20 bg-gray-100 rounded-md px-1 py-1.5 text-xs text-center" target="_blank" rel="noopener noreferrer">Contact Us</a>
+            <a href="{{ site.settings.contact_us_url | default: '#' }}" class="mt-2 w-20 bg-gray-100 rounded-md px-1 py-1.5 text-xs text-center" target="_blank" rel="noopener noreferrer">Contact Us</a>
           </div>
         </div>
       </div>

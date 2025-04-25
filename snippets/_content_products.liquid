@@ -2,7 +2,9 @@
 
 <section class="my-4" x-data="{ activeTab: 'all' }">
     <div class="flex justify-center gap-4">
-        <button @click="activeTab = 'all'" :class="{ 'bg-primary text-white': activeTab === 'all' }" class="px-4 py-1 text-sm font-medium  border border-gray-300 rounded-md focus:outline-none">{{ 'generic.all' | t}}</button>
+        {% if false %}
+            <button @click="activeTab = 'all'" :class="{ 'bg-primary text-white': activeTab === 'all' }" class="px-4 py-1 text-sm font-medium  border border-gray-300 rounded-md focus:outline-none">{{ 'generic.all' | t}}</button>
+        {% endif %}
         {% for item in product_categories %}
             <button @click="activeTab = '{{ item }}'" :class="{ 'bg-primary text-white': activeTab === '{{ item }}' }" class="px-4 py-1 text-sm font-medium  border border-gray-300 rounded-md focus:outline-none">{{ item }}</button>
         {% endfor %}

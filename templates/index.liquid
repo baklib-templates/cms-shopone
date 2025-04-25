@@ -1,5 +1,5 @@
 {% assign product_page = site.pages['/products'] %}
-{% assign product_pages = product_page.children_in_list | order_by: '-created_at' | limit: 40 %} 
+{% assign product_pages = product_page.children_in_list | limit: 40 %} 
 
 {% assign topics_menu = site.settings.topics_menu | newline_to_br | split: '<br />' %}
 
