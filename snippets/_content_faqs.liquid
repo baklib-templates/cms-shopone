@@ -1,35 +1,29 @@
-{%  assign page_count = pages | size %}
-{% if page_count > 1 %}
-    {% paginate_tag pages, per: 24 %}
-        {% for item in pages  %}
-            {%  assign sub_items_count= item.children_in_list | size %}
-            {% if sub_items_count > 0 %}
-                <div class="">
-                    {% assign sub_items = item.children_in_list | limit: 24  %}
-                    {% for item2 in sub_items %}
-                        {% render 'content_faq', item: item2 %}
-                    {% endfor %}
-                    {% if sub_items_count > 24 %}
-                        <div class="text-center mt-4">
-                            <a href="{{ item.url }}" class="btn btn-primary">Learn more</a>
-                        </div>
-                    {% endif %}
+{% paginate_tag pages, per: 24 %}
+    {% for item in pages  %}
+        {%  assign sub_items_count= item.children_in_list | size %}
+        {% if sub_items_count > 0 %}
+            {% assign sub_items = item.children_in_list | limit: 24  %}
+            {% for item2 in sub_items %}
+                {% render 'content_faq', item: item2 %}
+            {% endfor %}
+            {% if sub_items_count > 24 %}
+                <div class="text-center mt-4">
+                    <a href="{{ item.url }}" class="btn btn-primary">Learn more</a>
                 </div>
-            {% else %}
-                {% render 'content_faq', item: item %}
             {% endif %}
-        {% endfor %}
-        <!-- Pagination -->
-        <div class="w-full text-right block mt-12">
-            {% render 'paginate', paginate: paginate %}
-        </div>
-    {% endpaginate_tag %}
-{% else %}
-    
-    <h2 class="text-gray-600 cursor-pointer">
-        {{ page.settings.title }}
-    </h2> 
-    <div class=" ProseMirror">
-        {{ page.settings.content }}
+        {% else %}
+            <details class="py-2" open>
+                <summary class="text-gray-900 cursor-pointer">
+                    {{ item.settings.title }}
+                </summary> 
+                <div class="ProseMirror text-gray-600 mt-2 pl-4 pb-4">
+                    {{ item.settings.content }}
+                </div>
+            </details>
+        {% endif %}
+    {% endfor %}
+    <!-- Pagination -->
+    <div class="w-full text-right block mt-12">
+        {% render 'paginate', paginate: paginate %}
     </div>
-{% endif %}
+{% endpaginate_tag %}
