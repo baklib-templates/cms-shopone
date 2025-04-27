@@ -1,15 +1,4 @@
-{% assign tag_name = params.t %}
-{% for atag in site.tags %}
-    {% if atag.name == tag_name %}
-        {% assign tag = atag %}
-        {% break %}
-    {% elsif atag.name == 'AMPLIFIER' %}
-        {% assign tag = atag %}
-        {% break %}
-    {% else %}
-        {% assign tag = atag %}
-    {% endif %}
-{% endfor %}
+
 
 {% assign topics_menu = site.settings.topics_menu | newline_to_br | split: '<br />' %}
 
@@ -20,12 +9,9 @@
     <div class="mx-auto max-w-6xl px-4">
         <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
             <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
-                Browse by Product {{ params.t }}</h2>
+                Browse by Product</h2>
         </div>
-
-        <!-- Cards Container -->
         {% render 'content_products', tag: tag %}
-        {%# render 'tag_products',tag: tag, page: page, pages: product_pages %}
     </div>
 </section>
 

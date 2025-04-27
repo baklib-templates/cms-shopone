@@ -1,11 +1,4 @@
-{% for atag in site.tags %}
-    {% if atag.name == 'AMPLIFIER' %}
-        {% assign tag = atag %}
-        {% break %}
-    {% else %}
-        {% assign tag = atag %}
-    {% endif %}
-{% endfor %}
+
 
 <section class="py-2">
     <div class="max-w-6xl mx-auto px-4">
@@ -25,7 +18,7 @@
         </div>
 
         <!-- Cards Container -->
-        {% render 'tag_products', tag: tag %}
+        {% render 'content_products', tag: tag %}
     </div>
 </section>
 
