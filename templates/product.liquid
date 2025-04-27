@@ -15,12 +15,12 @@
       <div class="mb-4">
         {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
       </div>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="col-span-2 md:col-span-1">
+      <div class="flex justify-between">
+        <div class="">
           <h1 class="text-3xl md:text-5xl font-bold text-gray-900">{{ page.settings.title }}</h1>
           <p class="mt-2 text-sm text-gray-500">{{ page.settings.description }}</p>
         </div>
-        <div class="col-span-2 md:col-span-1 gap-2">
+        <div class="">
           <div class="flex items-center justify-end">
             <a href="{{ page.settings.external_url | default: '#' }}" class="w-20 bg-secondary text-white rounded-md px-4 py-2" target="_blank" rel="noopener noreferrer">Learn more</a>
           </div>
