@@ -1,29 +1,35 @@
-{% paginate_tag pages, per: 24 %}
+{% comment %} 只有一条记录的情况下，直接展开显示内容 {% endcomment %}
+{% assign page_count = page.pages_in_list | size %}
+{% if page_count < 3 %}
     {% for item in pages  %}
-        {%  assign sub_items_count= item.children_in_list | size %}
-        {% if sub_items_count > 0 %}
-            {% assign sub_items = item.children_in_list | limit: 24  %}
-            {% for item2 in sub_items %}
-                {% render 'content_faq', item: item2 %}
+        {% if item.template_name == 'faqs' %}
+            <h3 class="mt-4 text-lg font-semibold text-gray-900">
+                {{ item.settings.title }}
+            </h3>
+            {% for item2 in item.children_in_list %}
+                {% render 'content_faq', open: 'open', item: item2 %}
             {% endfor %}
-            {% if sub_items_count > 24 %}
-                <div class="text-center mt-4">
-                    <a href="{{ item.url }}" class="btn btn-primary">Learn more</a>
-                </div>
-            {% endif %}
         {% else %}
-            <details class="py-2">
-                <summary class="text-gray-900 cursor-pointer">
-                    {{ item.settings.title }}
-                </summary> 
-                <div class="ProseMirror max-w-full overflow-x-auto text-gray-600 mt-2 pl-4 pb-4">
-                    {{ item.settings.content }}
-                </div>
-            </details>
+            {% render 'content_faq', open: 'open', item: item %}
         {% endif %}
     {% endfor %}
-    <!-- Pagination -->
-    <div class="w-full text-right block mt-12">
-        {% render 'paginate', paginate: paginate %}
-    </div>
-{% endpaginate_tag %}
+{% else %}
+    {% paginate_tag pages, per: 24 %}
+        {% for item in pages  %}
+            {% if item.template_name == 'faqs' %}
+                <h3 class="mt-4 text-lg font-semibold text-gray-900">
+                    {{ item.settings.title }}
+                </h3>
+                {% for item2 in item.children_in_list %}
+                    {% render 'content_faq', item: item2 %}
+                {% endfor %}
+            {% else %}
+                {% render 'content_faq', item: item %}
+            {% endif %}
+        {% endfor %}
+        <!-- Pagination -->
+        <div class="w-full text-right block mt-12">
+            {% render 'paginate', paginate: paginate %}
+        </div>
+    {% endpaginate_tag %}
+{% endif %}
