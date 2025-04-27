@@ -1,5 +1,5 @@
 
-<div class="grid grid-cols-2 gap-4 md:gap-8 sm:grid-cols-3 mt-4">
+<div class="">
     {% assign related_pages_json = page.settings.related_pages_json | newline_to_br | split: '<br />' %}
     {% for path in related_pages_json %}
         {%  assign path2 = path | strip %}
@@ -27,31 +27,33 @@
     {% for item in pages %}
         {%  assign sub_items_count= item.children_in_list | size %}
             {% if sub_items_count > 0 %}
-                <h3 class="text-lg font-semibold mb-3">{{ item.settings.title  }}</h3>
+                <h3 class="text-lg font-semibold mt-3">{{ item.settings.title  }}</h3>
                 {% assign sub_items = item.children_in_list | limit: 24  %}
-                {% for item2 in sub_items %}
-                    <!-- Card product -->
-                    {% if item2.template_name == 'video' %}
-                        <article class="flex flex-col border rounded-xl my-4">
-                            <div class="relative w-full flex flex-col items-center justify-center">
-                                {% render 'play_video', page: item2 %}
-                            </div>
-                            <div class="w-full px-2">
-                                <div class="group relative">
-                                    <h3 class="mt-2 line-clamp-2 text-md leading-6 group-hover:text-gray-600">
-                                        <a href="{{ item2.path }}">
-                                            <span class="absolute inset-0"></span>
-                                            {{ item2.link_text }}
-                                        </a>
-                                    </h3>
+                <div class="grid grid-cols-2 gap-4 md:gap-8 sm:grid-cols-3 mt-4">
+                    {% for item2 in sub_items %}
+                        <!-- Card product -->
+                        {% if item2.template_name == 'video' %}
+                            <article class="flex flex-col border rounded-xl my-4">
+                                <div class="relative w-full flex flex-col items-center justify-center">
+                                    {% render 'play_video', page: item2 %}
                                 </div>
-                                <div class="text-sm text-gray-600 my-2">
-                                    {{ item.settings.description }}
+                                <div class="w-full px-2">
+                                    <div class="group relative">
+                                        <h3 class="mt-2 line-clamp-2 text-md leading-6 group-hover:text-gray-600">
+                                            <a href="{{ item2.path }}">
+                                                <span class="absolute inset-0"></span>
+                                                {{ item2.link_text }}
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    <div class="text-sm text-gray-600 my-2">
+                                        {{ item.settings.description }}
+                                    </div>
                                 </div>
-                            </div>
-                        </article>
-                    {% endif %}
-                {% endfor %}
+                            </article>
+                        {% endif %}
+                    {% endfor %}
+                </div>
                 {% if sub_items_count > 24 %}
                     <div class="text-center mt-4">
                         <a href="{{ item.url }}" class="btn btn-primary">Learn more</a>
@@ -59,7 +61,7 @@
                 {% endif %}
             {% else %}
                 {% if item.template_name == 'video' %}
-                    <div class="">
+                    <div class="grid grid-cols-2 gap-4 md:gap-8 sm:grid-cols-3 mt-4">
                         <article class="flex flex-col border rounded-xl">
                             <div class="relative w-full flex flex-col items-center justify-center">
                                 {% render 'play_video', page: item %}
