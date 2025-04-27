@@ -29,7 +29,7 @@
             {% if sub_items_count > 0 %}
                 <h3 class="text-lg font-semibold mt-3">{{ item.settings.title  }}</h3>
                 {% assign sub_items = item.children_in_list | limit: 24  %}
-                <div class="grid grid-cols-2 gap-4 md:gap-8 sm:grid-cols-3 mt-4">
+                <div class="grid grid-cols-1 gap-4 md:gap-8 sm:grid-cols-3 mt-4">
                     {% for item2 in sub_items %}
                         <!-- Card product -->
                         {% if item2.template_name == 'video' %}
@@ -61,7 +61,7 @@
                 {% endif %}
             {% else %}
                 {% if item.template_name == 'video' %}
-                    <div class="grid grid-cols-2 gap-4 md:gap-8 sm:grid-cols-3 mt-4">
+                    <div class="grid grid-cols-1 gap-4 md:gap-8 sm:grid-cols-3 mt-4">
                         <article class="flex flex-col border rounded-xl">
                             <div class="relative w-full flex flex-col items-center justify-center">
                                 {% render 'play_video', page: item %}

@@ -41,10 +41,10 @@
     <!-- Article Navigation -->
     <div class="bg-gray-100 rounded-md px-4 py-0 my-4">
       <div class="max-w-3xl mx-auto">
-        <nav class="flex justify-between space-x-4" aria-label="Tabs">
+        <nav class="flex justify-between w-full overflow-x-auto" aria-label="Tabs">
           <!-- Current: "bg-gray-200 text-gray-800", Default: "text-gray-600 hover:text-gray-800" -->
           {% for item in pages %}
-            <a href="#" data-product="{{ item.id }}" @click.prevent="activeTab = '{{ item.id }}'" :class="{ 'bg-gray-800 text-white': activeTab === '{{ item.id }}' }"  class="rounded-md px-3 py-2 text-lg font-semibold">
+            <a href="#" data-product="{{ item.id }}" @click.prevent="activeTab = '{{ item.id }}'" :class="{ 'bg-gray-800 text-white': activeTab === '{{ item.id }}' }"  class="rounded-md px-3 py-2 text-sm md:text-lg font-semibold max-w-24 md:max-w-64" aria-current="page">
               {{ item.link_text}}
             </a>
           {% endfor %}

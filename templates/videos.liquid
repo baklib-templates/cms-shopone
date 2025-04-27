@@ -19,17 +19,14 @@
         </div>
 
         <!-- Cards Container -->
-        <div class="">
-            <!-- Cards Container -->
-            {% paginate_tag pages, per: 24 %}
-                {% render 'content_videos', page: page, pages: pages %}
-                <!-- Pagination -->
-                <div class="w-full text-right block mt-12">
-                    {% render 'paginate', paginate: paginate %}
-                </div>
-            {% endpaginate_tag %}
-            {%# 分页 %}
-        </div>
+        {% paginate_tag pages, per: 24 %}
+            {% render 'content_videos', page: page, pages: pages %}
+            <!-- Pagination -->
+            <div class="w-full text-right block mt-12">
+                {% render 'paginate', paginate: paginate %}
+            </div>
+        {% endpaginate_tag %}
+        {%# 分页 %}
     </div>
 </section>
 
