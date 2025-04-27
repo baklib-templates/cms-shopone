@@ -1,5 +1,6 @@
+{% assign tag_name = params.tag | escape %}
 {% for atag in site.tags %}
-    {% if atag.name == params.tag %}
+    {% if atag.name == tag_name %}
         {% assign tag = atag %}
         {% break %}
     {% elsif atag.name == 'AMPLIFIER' %}
