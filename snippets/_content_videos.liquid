@@ -1,65 +1,35 @@
-
-
-{% assign related_pages_json = page.settings.related_pages_json | newline_to_br | split: '<br />' %}
-{% for path in related_pages_json %}
-    {%  assign path2 = path | strip %}
-    {%  assign item =  site.pages[path2] %}
-    {% if item %}
-        <article class="flex flex-col items-start justify-between border rounded-xl">
-            <div class="relative w-full flex flex-col items-center justify-center">
-                {% render 'play_video', page: item %}
-            </div>
-            <div class="w-full px-2">
-                <div class="group relative">
-                    <h3 class="mt-1 line-clamp-2 text-md leading-6 group-hover:text-gray-600">
-                        <a href="{{ item.path }}">
-                        <span class="absolute inset-0"></span>
-                        {{ item.link_text }}
-                        </a>
-                    </h3>
-                    <p class="text-gray-500 text-sm"> {{ item.settings.description }} </p>
-                </div>
-            </div>
-        </article>
-    {% endif %}
-{% endfor %}
-
-<div class="grid grid-cols-1 gap-4 md:gap-8 sm:grid-cols-3 mt-4">
-    {% for item in pages %}
-        {%  assign sub_items_count= item.children_in_list | size %}
-        {% if sub_items_count > 0 %}
-            {% assign sub_items = item.children_in_list | limit: 24  %}
-            <div class="">
-                {% for item2 in sub_items %}
-                    <!-- Card product -->
-                    {% if item2.template_name == 'video' %}
-                        <article class="flex flex-col border rounded-xl my-4">
-                            <div class="relative w-full flex flex-col items-center justify-center">
-                                {% render 'play_video', page: item2 %}
+{% for item in pages %}
+    {% if item.template_name == 'videos' %}
+        <h3 class="mt-4 text-lg font-semibold text-gray-900">
+            {{ item.settings.title }}
+        </h3>
+        <div class="grid grid-cols-1 gap-4 md:gap-8 sm:grid-cols-3 mt-4">
+            {% for item2 in item.children_in_list %}
+                <!-- Card product -->
+                {% if item2.template_name == 'video' %}
+                    <article class="flex flex-col border rounded-xl my-4">
+                        <div class="relative w-full flex flex-col items-center justify-center">
+                            {% render 'play_video', page: item2 %}
+                        </div>
+                        <div class="w-full px-2">
+                            <div class="group relative">
+                                <h3 class="mt-2 line-clamp-2 text-md leading-6 group-hover:text-gray-600">
+                                    <a href="{{ item2.path }}">
+                                        <span class="absolute inset-0"></span>
+                                        {{ item2.link_text }}
+                                    </a>
+                                </h3>
                             </div>
-                            <div class="w-full px-2">
-                                <div class="group relative">
-                                    <h3 class="mt-2 line-clamp-2 text-md leading-6 group-hover:text-gray-600">
-                                        <a href="{{ item2.path }}">
-                                            <span class="absolute inset-0"></span>
-                                            {{ item2.link_text }}
-                                        </a>
-                                    </h3>
-                                </div>
-                                <div class="text-sm text-gray-600 my-2">
-                                    {{ item.settings.description }}
-                                </div>
+                            <div class="text-sm text-gray-600 my-2">
+                                {{ item.settings.description }}
                             </div>
-                        </article>
-                    {% endif %}
-                {% endfor %}
-            </div>
-            {% if sub_items_count > 24 %}
-                <div class="text-center mt-4">
-                    <a href="{{ item.url }}" class="btn btn-primary">Learn more</a>
-                </div>
-            {% endif %}
-        {% else %}
+                        </div>
+                    </article>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="w-72">
             {% if item.template_name == 'video' %}
                 <div class="">
                     <article class="flex flex-col border rounded-xl">
@@ -82,6 +52,6 @@
                     </article>
                 </div>
             {% endif %}
-        {% endif %}
-    {% endfor %}
-</div>
+        </div>
+    {% endif %}
+{% endfor %}

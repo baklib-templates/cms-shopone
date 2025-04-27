@@ -1,20 +1,16 @@
-{% assign product_page = site.pages['/products'] %}
-{% assign product_pages = product_page.children_in_list | limit: 60 %} 
+{% for atag in site.tags %}
+    {% if atag.name == params.tag %}
+        {% assign tag = atag %}
+        {% break %}
+    {% elsif atag.name == 'AMPLIFIER' %}
+        {% assign tag = atag %}
+        {% break %}
+    {% else %}
+        {% assign tag = atag %}
+    {% endif %}
+{% endfor %}
 
 {% assign topics_menu = site.settings.topics_menu | newline_to_br | split: '<br />' %}
-
-{%# assign product_sub_categories = site.settings.product_sub_categories | newline_to_br | split: '<br />' %}
-{% comment %} 
-site.settings.product_categories 格式如下：
-    电子产品|医疗器械|工业设备|厨房电器
-{% endcomment %}
-
-{% comment %} 
-song: 未完成
-site.settings.product_sub_categories 格式如下：
-    电子产品:手机|电脑|平板电脑|智能手机|平板电脑|笔记本电脑|智能穿戴设备
-    影音娱乐设备:智能电视|投影仪|游戏机|数码相机|智能音箱|蓝牙耳机|降噪耳机|有线耳机|便携式音响 
-{% endcomment %}
 
 {% render 'hero', page: page %}
 
@@ -27,7 +23,8 @@ site.settings.product_sub_categories 格式如下：
         </div>
 
         <!-- Cards Container -->
-        {% render 'content_products', page: page, pages: product_pages %}
+        {% render 'content_products', tag: tag %}
+        {%# render 'tag_products',tag: tag, page: page, pages: product_pages %}
     </div>
 </section>
 

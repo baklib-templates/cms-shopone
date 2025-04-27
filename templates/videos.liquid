@@ -19,14 +19,68 @@
         </div>
 
         <!-- Cards Container -->
-        {% paginate_tag pages, per: 24 %}
-            {% render 'content_videos', page: page, pages: pages %}
-            <!-- Pagination -->
-            <div class="w-full text-right block mt-12">
-                {% render 'paginate', paginate: paginate %}
-            </div>
-        {% endpaginate_tag %}
-        {%# 分页 %}
+        <section class="grid grid-cols-1 gap-4 md:gap-8 sm:grid-cols-3 mt-4">
+            {% paginate_tag pages, per: 24 %}
+                {% for item in pages %}
+                    {% if item.template_name == 'videos' %}
+                        <h3 class="mt-4 text-lg font-semibold text-gray-900">
+                            {{ item.settings.title }}
+                        </h3>
+                        {% for item2 in item.children_in_list %}
+                            <!-- Card product -->
+                            {% if item2.template_name == 'video' %}
+                                <article class="flex flex-col border rounded-xl my-4">
+                                    <div class="relative w-full flex flex-col items-center justify-center">
+                                        {% render 'play_video', page: item2 %}
+                                    </div>
+                                    <div class="w-full px-2">
+                                        <div class="group relative">
+                                            <h3 class="mt-2 line-clamp-2 text-md leading-6 group-hover:text-gray-600">
+                                                <a href="{{ item2.path }}">
+                                                    <span class="absolute inset-0"></span>
+                                                    {{ item2.link_text }}
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="text-sm text-gray-600 my-2">
+                                            {{ item.settings.description }}
+                                        </div>
+                                    </div>
+                                </article>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        {% if item.template_name == 'video' %}
+                            <div class="">
+                                <article class="flex flex-col border rounded-xl">
+                                    <div class="relative w-full flex flex-col items-center justify-center">
+                                        {% render 'play_video', page: item %}
+                                    </div>
+                                    <div class="w-full px-2">
+                                        <div class="group relative">
+                                            <h3 class="mt-2 line-clamp-2 text-md leading-6 group-hover:text-gray-600">
+                                                <a href="{{ item.path }}">
+                                                    <span class="absolute inset-0"></span>
+                                                    {{ item.link_text }}
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="text-sm text-gray-600 my-2">
+                                            {{ item.settings.description }}
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                <!-- Pagination -->
+                <div class="w-full text-right block mt-12">
+                    {% render 'paginate', paginate: paginate %}
+                </div>
+            {% endpaginate_tag %}
+            {%# 分页 %}
+        </section>
     </div>
 </section>
 
@@ -57,12 +111,6 @@
             "choices": [{"label":"桌面端宽视频（16:9）","value":"0"},{"label":"手机端长视频（9:16）","value":"1"}],
             "default": "0",
             "info": "* 在子页面上传的视频封面尺寸也应该按当前选择的尺寸适配"
-        },
-        {
-            "id": "related_pages_json",
-            "type": "textarea",
-            "label": "关联的子页面path路径",
-            "info": "格式：/path/slug, 每行 1 个"
         }
     ]
 }
