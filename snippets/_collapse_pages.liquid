@@ -18,7 +18,7 @@
             <span>{{ page.link_text | highlight: tag_name }}</span>
         </button>
         <div :class="{ 'hidden': !expanded }" x-cloak>
-            <div class="pl-5 mt-2 text-slate-500 ProseMirror">
+            <div class="pl-5 mt-2 text-slate-500 ProseMirror max-w-full overflow-x-auto">
                 {{ page.settings.content | strip_html | highlight: tag_name, 100 }}
                 <p><a href="{{ page.path }}" class="text-blue-600">{{ 'generic.read_more' | t}}</a></p>
             </div>
