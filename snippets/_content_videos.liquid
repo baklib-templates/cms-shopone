@@ -1,6 +1,8 @@
 {% for item in pages %}
     {% if item.template_name == 'videos' %}
-        
+        <h3 class="mt-4 text-lg font-semibold text-gray-900">
+            {{ item.settings.title }}
+        </h3>
         <div class="grid grid-cols-1 gap-4 md:gap-8 sm:grid-cols-3 mt-4">
             {% for item2 in item.children_in_list %}
                 <!-- Card product -->
