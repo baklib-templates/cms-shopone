@@ -3,9 +3,6 @@
 {% if page_count < 3 %}
     {% for item in pages  %}
         {% if item.template_name == 'faqs' %}
-            <h3 class="mt-4 text-lg font-semibold text-gray-900">
-                {{ item.settings.title }}
-            </h3>
             {% for item2 in item.children_in_list %}
                 {% render 'content_faq', open: 'open', item: item2 %}
             {% endfor %}
@@ -17,9 +14,7 @@
     {% paginate_tag pages, per: 24 %}
         {% for item in pages  %}
             {% if item.template_name == 'faqs' %}
-                <h3 class="mt-4 text-lg font-semibold text-gray-900">
-                    {{ item.settings.title }}
-                </h3>
+
                 {% for item2 in item.children_in_list %}
                     {% render 'content_faq', item: item2 %}
                 {% endfor %}
