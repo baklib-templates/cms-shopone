@@ -59,7 +59,7 @@
         <!-- Cards Container -->
         <section class="my-4">
             <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-                <li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white hover:bg-primary hover:text-white text-center border">
+                <li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white hover:bg-primary/20 hover:text-white text-center border">
                     <div class="flex flex-1 flex-col p-8">
                         <a href="mailto:{{ site.settings.email | default: '#' }}" class="flex-shrink-0 group block">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-primary mx-auto size-10 w-10 h-10 shrink-0">
@@ -70,7 +70,7 @@
                         <p class="text-gray-500 text-sm">Responses may take up to 24 hours</p>
                     </div>
                 </li>
-                <li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white hover:bg-primary hover:text-white text-center border">
+                <li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white hover:bg-primary/20 hover:text-white text-center border">
                     <div class="flex flex-1 flex-col p-8">
                         <a href="tel:{{ site.settings.phone | default: '#' }}" class="flex-shrink-0 group block">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-primary mx-auto size-10 w-10 h-10 shrink-0">
@@ -81,7 +81,7 @@
                         <p class="text-gray-500 text-sm">{{ site.settings.contact_info }}</p>
                     </div>
                 </li>
-                <li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white hover:bg-primary hover:text-white text-center border">
+                <li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white hover:bg-primary/20 hover:text-white text-center border">
                     <div class="flex flex-1 flex-col p-8">
                         <a href="{{ site.settings.chat_url | default: '#'}}" class="flex-shrink-0 group block">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-primary mx-auto size-10 w-10 h-10 shrink-0">
