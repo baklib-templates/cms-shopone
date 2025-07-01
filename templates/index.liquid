@@ -26,7 +26,7 @@
             <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
                 {% for menu_line in topics_menu %}
                     {%  assign arr = menu_line | split: '[' %}
-                    <a href="{{ arr[1] }}" class="relative group flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:bg-secondary/10 hover:no-underline hover:border-gray-400">
+                    <a href="{{ arr[1] }}" class="relative group flex items-center space-x-3 rounded-lg border border-gray-300 bg-gray-100 px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:bg-secondary/10 hover:no-underline hover:border-gray-400">
                         <div class="min-w-0 flex-1">
                             <span class="absolute inset-0" aria-hidden="true"></span>
                             <p class="text-sm font-medium text-gray-900">{{ arr[0] }}</p>
