@@ -9,6 +9,9 @@
     {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
     {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
     {% if false %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
+    <link rel="preload" as="font" href="//fosiaudio.com/cdn/fonts/roboto/roboto_n4.da808834c2315f31dd3910e2ae6b1a895d7f73f5.woff2?h1=Zm9zaWF1ZGlvc2hvcC5jb20&amp;h2=Zm9zaS1hdWRpby5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h3=Zm9zaWF1ZGlvLmNvbQ&amp;hmac=6bd5aac0eb23a5c38484e7f3736841d208dc2f966b5b18de0bb13a8d54b5bb0b" type="font/woff2" crossorigin="">
+    <link rel="preload" as="font" href="//fosiaudio.com/cdn/fonts/roboto/roboto_n7.51ede27d5b58491d9cf07ad184108da52fef80b4.woff2?h1=Zm9zaWF1ZGlvc2hvcC5jb20&amp;h2=Zm9zaS1hdWRpby5hY2NvdW50Lm15c2hvcGlmeS5jb20&amp;h3=Zm9zaWF1ZGlvLmNvbQ&amp;hmac=0e1a9b779def0ae1c3405f6cebed38ddf4c32b9ac684f2d98ba4c485e4965bb1" type="font/woff2" crossorigin="">
+    
     {{ site.settings.head_html }}
   </head>
   <body class="flex flex-col min-h-screen" id="js-body">
