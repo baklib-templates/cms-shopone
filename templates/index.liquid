@@ -9,7 +9,11 @@
             <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
                 Product Support</h2>
         </div>
-        {% render 'content_products', tag: tag %}
+        {% if site.settings.product_show_type == true %}
+            {% render 'content_products', tag: tag %}
+        {% else %}
+            {% render 'content_products_all' %}
+        {% endif %}
     </div>
 </section>
 
@@ -18,7 +22,7 @@
     <div class="mx-auto max-w-6xl px-4">
         <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
             <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
-                Service Support</h2>
+                Service Support</h2><a name="topics"></a>
         </div>
 
         <!-- Cards Container -->

@@ -1,0 +1,39 @@
+{% unless tag %}
+    {% for atag in site.tags %}
+        {% if atag.name == 'AMPLIFIER' %}
+            {% assign tag = atag %}
+            {% break %}
+        {% else %}
+            {% assign tag = atag %}
+        {% endif %}
+    {% endfor %}
+{% endunless %}
+
+{% assign tag_pages = tag.pages %}
+<!-- Page wrapper -->
+{% assign product_categories = site.settings.product_categories | split: '|' %}
+
+<!-- 产品列表 -->
+<section class="my-4 max-w-2xl mx-auto">
+    
+    <div class="grid grid-cols-2 gap-4 sm:grid-cols-2 mt-2">
+        {% paginate_tag tag_pages, per: 32 %}
+            {% for item in tag_pages %}
+                {% if item.template_name == 'product' %}
+                    <!-- Card product -->
+                    <a href="{{ item.path }}" class="bg-gray-50 overflow-hidden p-2 max-w-64 flex flex-col">
+                        <div class="p-2 md:p-4 bg-white"><img src="{{ item.settings.thumb_image_url }}" alt="{{ item.link_text }}" class="w-full object-cover"></div>
+                        <div class="mt-1">
+                            <p class="text-md text-center text-gray-800">{{ item.link_text }}</p>
+                            {% comment %} <p class="text-gray-600 mt-2">{{ item.settings.description }}</p> {% endcomment %}
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+            <!-- Pagination -->
+            <div class="w-full text-right block mt-12">
+                {% render 'paginate', paginate: paginate %}
+            </div>
+        {% endpaginate_tag %}
+    </div>
+</section>

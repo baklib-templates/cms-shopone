@@ -127,6 +127,7 @@
   {
     "name": "导航菜单设计",
     "settings": [
+      
       {
         "id": "product_categories",
         "type": "text",
@@ -141,6 +142,13 @@
         "rows": 10,
         "info": "格式：大类名称[小类名称1|小类名称2|小类名称3，每行一个分类。",
         "default": "Coverage[high|light|medium|opaque|translucent\nConsistency[cream|fluid|gel|liquid|powder|solid|waxy"
+      },
+      {
+        "id": "product_show_type",
+        "type": "checkbox",
+        "label": "产品列表按分类显示",
+        "info": "如果选中，则在首页产品列表按分类显示；否则按标签显示。",
+        "default": true
       },
       {
         "id": "header_menu",

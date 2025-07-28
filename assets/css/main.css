@@ -3094,10 +3094,6 @@ video {
   grid-column:span 1 / span 1
 }
 
-.col-span-2{
-  grid-column:span 2 / span 2
-}
-
 .-m-1{
   margin:-0.25rem
 }
@@ -3119,11 +3115,6 @@ video {
 .my-4{
   margin-top:1rem;
   margin-bottom:1rem
-}
-
-.my-6{
-  margin-top:1.5rem;
-  margin-bottom:1.5rem
 }
 
 .my-8{
@@ -3596,10 +3587,6 @@ video {
   justify-content:space-between
 }
 
-.gap-2{
-  gap:0.5rem
-}
-
 .gap-4{
   gap:1rem
 }
@@ -3648,12 +3635,6 @@ video {
   --tw-space-y-reverse:0;
   margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))
-}
-
-.space-y-2 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-y-reverse:0;
-  margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))
 }
 
 .space-y-3 > :not([hidden]) ~ :not([hidden]){
@@ -4122,10 +4103,6 @@ video {
   padding-bottom:2rem
 }
 
-.pb-2{
-  padding-bottom:0.5rem
-}
-
 .pb-4{
   padding-bottom:1rem
 }
@@ -4368,6 +4345,11 @@ video {
   color:rgb(168 85 247 / var(--tw-text-opacity))
 }
 
+.text-secondary{
+  --tw-text-opacity:1;
+  color:hsl(var(--theme-color-secondary) / var(--tw-text-opacity))
+}
+
 .text-slate-300{
   --tw-text-opacity:1;
   color:rgb(203 213 225 / var(--tw-text-opacity))
@@ -4596,8 +4578,6 @@ video {
   -webkit-mask-size:100% 100%
 }
 
-@config '../tailwind.config.js';
-
 .placeholder\:text-slate-400\/70::-moz-placeholder{
   color:rgb(148 163 184 / 0.7)
 }
@@ -4706,6 +4686,11 @@ video {
 .hover\:text-slate-100:hover{
   --tw-text-opacity:1;
   color:rgb(241 245 249 / var(--tw-text-opacity))
+}
+
+.hover\:text-white:hover{
+  --tw-text-opacity:1;
+  color:rgb(255 255 255 / var(--tw-text-opacity))
 }
 
 .hover\:underline:hover{
@@ -4827,11 +4812,6 @@ video {
 .group:hover .group-hover\:text-primary{
   --tw-text-opacity:1;
   color:hsl(var(--theme-color-primary) / var(--tw-text-opacity))
-}
-
-.group:hover .group-hover\:text-white{
-  --tw-text-opacity:1;
-  color:rgb(255 255 255 / var(--tw-text-opacity))
 }
 
 :is(.dark .dark\:block){
@@ -5095,10 +5075,6 @@ video {
 }
 
 @media (min-width: 768px){
-  .md\:col-span-1{
-    grid-column:span 1 / span 1
-  }
-
   .md\:my-8{
     margin-top:2rem;
     margin-bottom:2rem
