@@ -1,5 +1,7 @@
+{% assign footer_menus = site.settings.footer_menu | newline_to_br | split: '<br />' %}
+
 <footer class="bg-gray-900 text-gray-400 py-12 px-4">
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+      <div class="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-5 gap-8">
           <div class="md:col-span-2">
               <h3 class="text-sm font-semibold text-gray-100 mb-4">Join us for exclusive stories and special promotions.</h3>
               <div class="">
@@ -58,7 +60,7 @@
           </div>
       </div>
 
-      <div class="mt-8 pt-4 flex flex-col md:flex-row justify-between items-center text-sm">
+      <div class="mx-auto max-w-6xl mt-8 pt-4 flex flex-col md:flex-row justify-between items-center text-sm">
           <ul class="flex space-x-6 mb-4 md:mb-0 " role="list">
             <li>
               <a href="https://www.facebook.com/RingConn" class="tap-area" target="_blank" rel="noopener nofollow" aria-label="Follow on Facebook"><svg role="presentation" focusable="false" width="27" height="27" class="icon icon-facebook" viewBox="0 0 24 24">
@@ -88,7 +90,7 @@
           </ul>
       </div>
 
-      <div class="mt-8 pt-4 flex flex-col md:flex-row justify-between items-center text-sm">
+      <div class="mx-auto max-w-6xl mt-8 pt-4 flex flex-col md:flex-row justify-between items-center text-sm">
           <div class="mb-4 md:mb-0">
             {{ site.settings.company_info }}
           </div>
