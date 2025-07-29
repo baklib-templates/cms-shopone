@@ -18,7 +18,11 @@
         </div>
 
         <!-- Cards Container -->
-        {% render 'content_products', tag: tag %}
+        {% if site.settings.product_show_type == true %}
+            {% render 'content_products', tag: tag %}
+        {% else %}
+            {% render 'content_products_all' %}
+        {% endif %}
     </div>
 </section>
 
