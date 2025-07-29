@@ -3832,6 +3832,11 @@ video {
   border-color:transparent
 }
 
+.border-secondary{
+  --tw-border-opacity:1;
+  border-color:hsl(var(--theme-color-secondary) / var(--tw-border-opacity))
+}
+
 .border-b-transparent{
   border-bottom-color:transparent
 }
@@ -3935,6 +3940,11 @@ video {
 .bg-white{
   --tw-bg-opacity:1;
   background-color:rgb(255 255 255 / var(--tw-bg-opacity))
+}
+
+.bg-accent{
+  --tw-bg-opacity:1;
+  background-color:hsl(var(--theme-color-accent) / var(--tw-bg-opacity))
 }
 
 .bg-opacity-25{
@@ -4374,6 +4384,10 @@ video {
   color:hsl(var(--theme-color-primary-hsl-h) var(--theme-color-primary-hsl-s) 60% / var(--tw-text-opacity))
 }
 
+.text-primary\/20{
+  color:hsl(var(--theme-color-primary) / 0.2)
+}
+
 .text-purple-200{
   --tw-text-opacity:1;
   color:rgb(233 213 255 / var(--tw-text-opacity))
@@ -4382,11 +4396,6 @@ video {
 .text-purple-500{
   --tw-text-opacity:1;
   color:rgb(168 85 247 / var(--tw-text-opacity))
-}
-
-.text-secondary{
-  --tw-text-opacity:1;
-  color:hsl(var(--theme-color-secondary) / var(--tw-text-opacity))
 }
 
 .text-slate-300{
@@ -4437,6 +4446,11 @@ video {
 .text-white{
   --tw-text-opacity:1;
   color:rgb(255 255 255 / var(--tw-text-opacity))
+}
+
+.text-gray-200{
+  --tw-text-opacity:1;
+  color:rgb(229 231 235 / var(--tw-text-opacity))
 }
 
 .placeholder-slate-500::-moz-placeholder{
@@ -4616,6 +4630,8 @@ video {
   mask-size:100% 100%;
   -webkit-mask-size:100% 100%
 }
+
+@config '../tailwind.config.js';
 
 .placeholder\:text-slate-400\/70::-moz-placeholder{
   color:rgb(148 163 184 / 0.7)
