@@ -3603,10 +3603,6 @@ video {
   gap:1.5rem
 }
 
-.gap-8{
-  gap:2rem
-}
-
 .-space-x-px > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse:0;
   margin-right:calc(-1px * var(--tw-space-x-reverse));
@@ -5123,10 +5119,6 @@ video {
 }
 
 @media (min-width: 768px){
-  .md\:col-span-2{
-    grid-column:span 2 / span 2
-  }
-
   .md\:my-8{
     margin-top:2rem;
     margin-bottom:2rem
@@ -5190,10 +5182,6 @@ video {
 
   .md\:grid-cols-4{
     grid-template-columns:repeat(4, minmax(0, 1fr))
-  }
-
-  .md\:grid-cols-5{
-    grid-template-columns:repeat(5, minmax(0, 1fr))
   }
 
   .md\:flex-row{
