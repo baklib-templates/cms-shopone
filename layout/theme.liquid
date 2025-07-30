@@ -17,11 +17,14 @@
         font-display: swap;
         src: url("{{ 'images/font/HelveticaNowDisplay-Bold.otf' | asset_url }}") format("otf"),url("{{ 'images/font/HelveticaNowDisplay-Medium.otf' | asset_url }}") format("otf"),url("{{ 'images/font/HelveticaNowDisplay-Regular.otf' | asset_url }}") format("otf");
       }
+      .font-custom {
+          font-family: 'Helvetica Now Display';
+        }
     </style>
     
     {{ site.settings.head_html }}
   </head>
-  <body class="flex flex-col min-h-screen" id="js-body">
+  <body class="flex flex-col min-h-screen font-custom" id="js-body">
       {% render 'header' %}
       
       <main class="flex-grow">

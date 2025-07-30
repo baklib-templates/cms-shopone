@@ -3,14 +3,14 @@
 
 <!-- Hero Section -->
 <section id="hero" class="flex items-center justify-center flex-col bg-no-repeat bg-cover bg-center bg-accent dark:bg-primary/120 h-[250px]  {% if screen_width == 'max-w-screen-2xl' %}  md:h-[400px] {% else %}  md:h-[300px] {%- endif -%}"
-  style="background-image: url({{ page.settings.hero_image_url | default: default_hero_image }})">
+  style="background-image: url({{ page.settings.hero_image_url | default: default_hero_image }}); color: {{ page.settings.text_color | default: '#ffffff' }};">
   <div class="flex items-center justify-center flex-1 w-full py-3">
     <div class="container flex flex-col h-full px-4 mx-auto">
       <div class="flex flex-col items-center justify-center flex-grow">
-        <h1 class="py-2 mt-12 text-2xl md:text-4xl font-bold text-white transition duration-500 md:mt-0 text-shadow">
+        <h1 class="py-2 mt-12 text-2xl md:text-4xl font-bold transition duration-500 md:mt-0 text-shadow">
           {{ site.name }}
         </h1>
-        <p class="py-2 text-base text-white transition duration-500 text-shadow">{{ page.settings.description }}</p>
+        <p class="py-2 text-base transition duration-500 text-shadow">{{ page.settings.description }}</p>
 
         <div class="z-0 flex flex-col items-center justify-center w-full md:w-1/2">
           {% form_tag 'search', class: 'w-full' %}
@@ -32,12 +32,12 @@
           {% if page.settings.tags.size > 0 %}
             <div class="md:flex flex-wrap items-center justify-center hidden w-full mt-4">
               <div class="inline-block">
-                <span class="text-white mr-3">{{ 'generic.tags' | t }}：</span>
+                <span class= mr-3">{{ 'generic.tags' | t }}：</span>
                 {% for tag in page.settings.tags %}
                   <a
                     href="{{ tag.path }}"
                     data-turbo-frame="_top"
-                    class="mr-3 text-white hover:underline focus:ring hover:-translate-y-[2px] min-w-12"
+                    class="mr-3 hover:underline focus:ring hover:-translate-y-[2px] min-w-12"
                   >
                     {{ tag.name }}
                   </a>
