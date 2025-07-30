@@ -18,7 +18,7 @@
         </div>
 
         <!-- Cards Container -->
-        {% if site.settings.product_show_type == true %}
+        {% if site.settings.section_product_type == true %}
             {% render 'content_products', tag: tag %}
         {% else %}
             {% render 'content_products_all' %}

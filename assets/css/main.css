@@ -3435,10 +3435,6 @@ video {
   max-width:1536px
 }
 
-.max-w-screen-xl{
-  max-width:1280px
-}
-
 .max-w-sm{
   max-width:24rem
 }
@@ -3784,11 +3780,6 @@ video {
   border-top-width:2px
 }
 
-.border-\[\#ff7e00\]{
-  --tw-border-opacity:1;
-  border-color:rgb(255 126 0 / var(--tw-border-opacity))
-}
-
 .border-gray-200{
   --tw-border-opacity:1;
   border-color:rgb(229 231 235 / var(--tw-border-opacity))
@@ -3818,6 +3809,11 @@ video {
   border-color:hsl(var(--theme-color-primary) / var(--tw-border-opacity))
 }
 
+.border-secondary{
+  --tw-border-opacity:1;
+  border-color:hsl(var(--theme-color-secondary) / var(--tw-border-opacity))
+}
+
 .border-slate-200{
   --tw-border-opacity:1;
   border-color:rgb(226 232 240 / var(--tw-border-opacity))
@@ -3830,11 +3826,6 @@ video {
 
 .border-transparent{
   border-color:transparent
-}
-
-.border-secondary{
-  --tw-border-opacity:1;
-  border-color:hsl(var(--theme-color-secondary) / var(--tw-border-opacity))
 }
 
 .border-b-transparent{
@@ -3854,9 +3845,9 @@ video {
   border-top-color:transparent
 }
 
-.bg-\[\#ff7e00\]{
+.bg-accent{
   --tw-bg-opacity:1;
-  background-color:rgb(255 126 0 / var(--tw-bg-opacity))
+  background-color:hsl(var(--theme-color-accent) / var(--tw-bg-opacity))
 }
 
 .bg-gray-100{
@@ -3909,10 +3900,6 @@ video {
   background-color:hsl(var(--theme-color-primary) / var(--tw-bg-opacity))
 }
 
-.bg-primary\/40{
-  background-color:hsl(var(--theme-color-primary) / 0.4)
-}
-
 .bg-purple-500{
   --tw-bg-opacity:1;
   background-color:rgb(168 85 247 / var(--tw-bg-opacity))
@@ -3940,11 +3927,6 @@ video {
 .bg-white{
   --tw-bg-opacity:1;
   background-color:rgb(255 255 255 / var(--tw-bg-opacity))
-}
-
-.bg-accent{
-  --tw-bg-opacity:1;
-  background-color:hsl(var(--theme-color-accent) / var(--tw-bg-opacity))
 }
 
 .bg-opacity-25{
@@ -4384,10 +4366,6 @@ video {
   color:hsl(var(--theme-color-primary-hsl-h) var(--theme-color-primary-hsl-s) 60% / var(--tw-text-opacity))
 }
 
-.text-primary\/20{
-  color:hsl(var(--theme-color-primary) / 0.2)
-}
-
 .text-purple-200{
   --tw-text-opacity:1;
   color:rgb(233 213 255 / var(--tw-text-opacity))
@@ -4446,11 +4424,6 @@ video {
 .text-white{
   --tw-text-opacity:1;
   color:rgb(255 255 255 / var(--tw-text-opacity))
-}
-
-.text-gray-200{
-  --tw-text-opacity:1;
-  color:rgb(229 231 235 / var(--tw-text-opacity))
 }
 
 .placeholder-slate-500::-moz-placeholder{
@@ -4630,8 +4603,6 @@ video {
   mask-size:100% 100%;
   -webkit-mask-size:100% 100%
 }
-
-@config '../tailwind.config.js';
 
 .placeholder\:text-slate-400\/70::-moz-placeholder{
   color:rgb(148 163 184 / 0.7)

@@ -2,14 +2,14 @@
 
 {% render 'hero', page: page %}
 
-<!-- 产品列表 -->
+<!-- Product Section -->
 <section class="bg-white py-6 sm:py-12">
     <div class="mx-auto max-w-6xl px-4">
         <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
             <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
-                Product Support</h2>
+                {{ site.settings.section_product_title }} </h2>
         </div>
-        {% if site.settings.product_show_type == true %}
+        {% if site.settings.section_product_type == true %}
             {% render 'content_products', tag: tag %}
         {% else %}
             {% render 'content_products_all' %}
@@ -17,12 +17,12 @@
     </div>
 </section>
 
-<!-- Topic 列表 -->
+<!-- Topic Section -->
 <section class="bg-white py-6 sm:py-12">
     <div class="mx-auto max-w-6xl px-4">
         <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
             <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
-                Service Support</h2><a name="topics"></a>
+                {{ site.settings.section_topic_title }}</h2><a name="topics"></a>
         </div>
 
         <!-- Cards Container -->
@@ -51,7 +51,7 @@
     </div>
 </section>
 
-<!-- Support 列表 -->
+<!-- Contact US Section -->
 {% render 'need_help', page: page %}
 
 {% schema %}
@@ -70,7 +70,8 @@
             {
                 "id": "description",
                 "type": "text",
-                "label": "描述"
+                "label": "一句话描述",
+                "default": "Welcome to Service and Support"
             },
             {
                 "id": "hero_image_url",

@@ -91,6 +91,61 @@
         "width": 200,
         "label": "站点Logo",
         "info": "放在站点顶部导航栏位置"
+      }
+    ]
+  },
+  {
+    "name": "首页产品版块(Products)",
+    "settings": [
+      {
+        "id": "section_product_type",
+        "type": "checkbox",
+        "label": "产品列表按分类显示",
+        "info": "如果选中，则在首页产品列表按分类显示；否则显示所有",
+        "default": true
+      },
+      {
+        "id": "section_product_title",
+        "type": "text",
+        "label": "版块名称",
+        "default": "Browse by Product"
+      },
+      {
+        "id": "product_categories",
+        "type": "text",
+        "label": "产品大分类设置",
+        "info": "格式：电子产品|医疗器械|工业设备|厨房电器；同时在[标签管理]中添加对应的标签。",
+        "default": "Eyes|Lips|Face & Body|Sets & Kits|Pencils|Brushes|Accessories & Tools"
+      }
+    ]
+  },
+  {
+    "name": "首页话题版块(Topics)",
+    "settings": [
+      {
+        "id": "section_topic_title",
+        "type": "text",
+        "label": "版块名称",
+        "default": "Browse by Topic"
+      },
+      {
+        "id": "topics_menu",
+        "type": "textarea",
+        "label": "首页话题导航设置",
+        "rows": 10,
+        "info": "格式：name[slug[description，每行一个分栏。",
+        "default": "FAQs[/faqs[some Q&A for all products\nVideos[/videos[the how-to video manuals\nNews[/news[the company news&events"
+      }
+    ]
+  },
+  {
+    "name": "首页联系版块(Contact US)",
+    "settings": [
+      {
+        "id": "section_contact_title",
+        "type": "text",
+        "label": "版块名称",
+        "default": "Contact Us"
       },
       {
         "id": "email",
@@ -115,41 +170,12 @@
         "type": "text",
         "label": "Chat 链接",
         "default": "#"
-      },
-      {
-        "id": "company_info",
-        "type": "text",
-        "label": "公司信息",
-        "default": "&copy; 2025 Google Inc. All Rights Reserved."
       }
     ]
   },
   {
-    "name": "导航菜单设计",
+    "name": "页头页脚菜单设计",
     "settings": [
-      
-      {
-        "id": "product_categories",
-        "type": "text",
-        "label": "产品大分类设置",
-        "info": "格式：电子产品|医疗器械|工业设备|厨房电器；同时在[标签管理]中添加对应的标签。",
-        "default": "Eyes|Lips|Face & Body|Sets & Kits|Pencils|Brushes|Accessories & Tools"
-      },
-      {
-        "id": "product_sub_categories",
-        "type": "textarea",
-        "label": "产品子分类设置",
-        "rows": 10,
-        "info": "格式：大类名称[小类名称1|小类名称2|小类名称3，每行一个分类。",
-        "default": "Coverage[high|light|medium|opaque|translucent\nConsistency[cream|fluid|gel|liquid|powder|solid|waxy"
-      },
-      {
-        "id": "product_show_type",
-        "type": "checkbox",
-        "label": "产品列表按分类显示",
-        "info": "如果选中，则在首页产品列表按分类显示；否则按标签显示。",
-        "default": true
-      },
       {
         "id": "header_menu",
         "type": "textarea",
@@ -167,12 +193,10 @@
         "default": "Products[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nVideos[/videos\nNews[/news"
       },
       {
-        "id": "topics_menu",
-        "type": "textarea",
-        "label": "首页话题导航设置",
-        "rows": 10,
-        "info": "格式：name[slug[description，每行一个分栏。",
-        "default": "FAQs[/faqs[some Q&A for all products\nVideos[/videos[the how-to video manuals\nNews[/news[the company news&events"
+        "id": "company_info",
+        "type": "text",
+        "label": "页脚版权公司信息",
+        "default": "&copy; 2025 Google Inc. All Rights Reserved."
       },
       {
         "id": "friend_links",
