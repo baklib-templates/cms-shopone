@@ -160,16 +160,22 @@
         "default": "1234567890"
       },
       {
-        "id": "contact_us_url",
+        "id": "phone_name",
         "type": "text",
-        "label": "Contact Us 链接",
-        "default": "/contact"
+        "label": "Phone Name",
+        "default": "Monday-Friday, 10:00 AM - 6:00 PM EST"
       },
       {
         "id": "chat_url",
         "type": "text",
         "label": "Chat 链接",
         "default": "#"
+      },
+      {
+        "id": "chat_name",
+        "type": "text",
+        "label": "Chat Name",
+        "default": "@google"
       }
     ]
   },
