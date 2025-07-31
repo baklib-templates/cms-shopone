@@ -176,6 +176,18 @@
         "type": "text",
         "label": "Chat Name",
         "default": "@google"
+      },
+      {
+        "id": "contact_url",
+        "type": "text",
+        "label": "Contact Form 链接",
+        "default": "#"
+      },
+      {
+        "id": "contact_name",
+        "type": "text",
+        "label": "Contact Name",
+        "default": ""
       }
     ]
   },
