@@ -25,13 +25,10 @@
                         <div class="py-2 text-lg font-semibold">{{ parent_menu[0] }}</div>
                         <!-- 2nd level menu -->
                         <ul class="space-y-2">
-                        {% assign i =  0 %}
                         {% for second_menu in sub_menus %}
-                            {% assign i = i | plus: 1 %}
                             {%  assign second_menu_arr = second_menu | split: '[' %}
                             <li>
                                 <a class=" hover:no-underline" href="{{ second_menu_arr[1] | default: '#'}}">
-                                    <span class="bg-white rounded-full px-2 py-0">{{ i }}</span>
                                     <span class="whitespace-wrap hover:underline">{{ second_menu_arr[0] }}</span>
                                 </a>
                             </li>

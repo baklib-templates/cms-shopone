@@ -116,7 +116,7 @@
         "label": "FAQs导航设置",
         "rows": 10,
         "info": "格式：name[slug[description，每行一个分栏。",
-        "default": "Home[/\nNews[/news\nVideos[/videos\nProducts[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nFAQs[/faqs\nSitemap[/s/sitemap"
+        "default": "News[/news{Catalog1[/|Catalog2[/\nVideos[/videos{Catalog1[/|Catalog2[/\nProducts[/products{Catalog1[/|Catalog2[/\nFAQs[/faqs{Catalog1[/|Catalog2[/\nSitemap[/s/sitemap{Catalog1[/|Catalog2[/\n"
       }
     ]
   },
@@ -200,7 +200,7 @@
         "label": "首页话题导航设置",
         "rows": 10,
         "info": "格式：name[slug[description，每行一个分栏。",
-        "default": "FAQs[/faqs[some Q&A for all products\nVideos[/videos[the how-to video manuals\nNews[/news[the company news&events"
+        "default": "General FAQ[/#{What is the trading session?[/|How do I login system?[/|How to change password in my profile?|How do I sync my knowledge base to wiki site?\nProducts FAQ[/{What is Content Security Policy (CSP)?[/|How to set up SSO for your institution?[/|What is the guaranteed uptime of the service?[/|What is the DXP Tool?[/"
       }
     ]
   },
