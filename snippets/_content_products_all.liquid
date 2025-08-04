@@ -14,14 +14,14 @@
 {% assign product_categories = site.settings.product_categories | split: '|' %}
 
 <!-- 产品列表 -->
-<section class="my-4 max-w-2xl mx-auto">
-    
-    <div class="grid grid-cols-2 gap-4 sm:grid-cols-2 mt-2">
-        {% paginate_tag tag_pages, per: 32 %}
+<section class="max-w-6xl mx-auto">
+    {% paginate_tag tag_pages, per: 32 %}
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:grid-cols-2 mt-2">
+            
             {% for item in tag_pages %}
                 {% if item.template_name == 'product' %}
                     <!-- Card product -->
-                    <a href="{{ item.path }}" class=" overflow-hidden p-2 max-w-64 flex flex-col">
+                    <a href="{{ item.path }}" class="overflow-hidden p-2 max-w-64 flex flex-col">
                         <div class="p-2 md:p-4 bg-white"><img src="{{ item.settings.thumb_image_url }}" alt="{{ item.link_text }}" class="w-full object-cover"></div>
                         <div class="mt-1">
                             <p class="text-md text-center text-gray-800">{{ item.link_text }}</p>
@@ -29,11 +29,12 @@
                         </div>
                     </a>
                 {% endif %}
-            {% endfor %}
-            <!-- Pagination -->
-            <div class="w-full text-right block mt-12">
-                {% render 'paginate', paginate: paginate %}
-            </div>
-        {% endpaginate_tag %}
-    </div>
+                {% endfor %}
+                
+        </div>
+        <!-- Pagination -->
+        <div class="w-full text-right block">
+            {% render 'paginate', paginate: paginate %}
+        </div>
+    {% endpaginate_tag %}
 </section>

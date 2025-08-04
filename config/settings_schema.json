@@ -95,8 +95,41 @@
     ]
   },
   {
+    "name": "首页FAQs版块(FAQs)",
+    "settings": [
+      {
+        "id": "section_faqs_on",
+        "type": "checkbox",
+        "label": "是否显示FAQs版块",
+        "info": "如果选中，则在首页显示FAQs版块；否则不显示",
+        "default": true
+      },
+      {
+        "id": "section_faqs_title",
+        "type": "text",
+        "label": "版块名称",
+        "default": "Browse by FAQs"
+      },
+      {
+        "id": "section_faqs_menu",
+        "type": "textarea",
+        "label": "FAQs导航设置",
+        "rows": 10,
+        "info": "格式：name[slug[description，每行一个分栏。",
+        "default": "Home[/\nNews[/news\nVideos[/videos\nProducts[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nFAQs[/faqs\nSitemap[/s/sitemap"
+      }
+    ]
+  },
+  {
     "name": "首页产品版块(Products)",
     "settings": [
+      {
+        "id": "section_products_on",
+        "type": "checkbox",
+        "label": "是否显示Products版块",
+        "info": "如果选中，则在首页显示Products版块；否则不显示",
+        "default": true
+      },
       {
         "id": "section_product_type",
         "type": "checkbox",
@@ -123,6 +156,13 @@
     "name": "首页话题版块(Topics)",
     "settings": [
       {
+        "id": "section_topics_on",
+        "type": "checkbox",
+        "label": "是否显示Topics版块",
+        "info": "如果选中，则在首页显示Topics版块；否则不显示",
+        "default": true
+      },
+      {
         "id": "section_topic_title",
         "type": "text",
         "label": "版块名称",
@@ -139,8 +179,41 @@
     ]
   },
   {
+    "name": "首页新闻版块(News)",
+    "settings": [
+      {
+        "id": "section_news_on",
+        "type": "checkbox",
+        "label": "是否显示News版块",
+        "info": "如果选中，则在首页显示News版块；否则不显示",
+        "default": true
+      },
+      {
+        "id": "section_news_title",
+        "type": "text",
+        "label": "版块名称",
+        "default": "Browse by News"
+      },
+      {
+        "id": "section_news_menu",
+        "type": "textarea",
+        "label": "首页话题导航设置",
+        "rows": 10,
+        "info": "格式：name[slug[description，每行一个分栏。",
+        "default": "FAQs[/faqs[some Q&A for all products\nVideos[/videos[the how-to video manuals\nNews[/news[the company news&events"
+      }
+    ]
+  },
+  {
     "name": "首页联系版块(Contact US)",
     "settings": [
+      {
+        "id": "section_contact_on",
+        "type": "checkbox",
+        "label": "是否显示Contact版块",
+        "info": "如果选中，则在首页显示Contact版块；否则不显示",
+        "default": true
+      },
       {
         "id": "section_contact_title",
         "type": "text",

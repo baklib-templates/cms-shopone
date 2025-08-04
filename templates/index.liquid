@@ -1,58 +1,163 @@
-{% assign topics_menu = site.settings.topics_menu | newline_to_br | split: '<br />' %}
 
 {% render 'hero', page: page %}
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gag-4 xl:gap-8"></div>
+
+<!-- FAQs Section -->
+{% if site.settings.section_faqs_on %}
+    {% assign section_faqs_menu = site.settings.section_faqs_menu | newline_to_br | split: '<br />' %}
+    {% assign parent_faqs_menu_count = section_faqs_menu | size %}
+    <section class="bg-white py-4 sm:py-8">
+        <div class="mx-auto max-w-6xl px-4">
+            <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
+                <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center mb-4">
+                    {{ site.settings.section_faqs_title }} </h2>
+            </div>
+            <!-- Cards Container -->
+            <div class="grid grid-cols-2 md:grid-cols-{{ parent_faqs_menu_count | default: 3 }} gag-4 xl:gap-8">
+                {% for menu_line in section_faqs_menu %}
+                {%  assign p_menu_arr = menu_line | split: '{' %}
+                {%  assign parent_menu = p_menu_arr[0] | split: '[' %}
+                {%  assign sub_menus = p_menu_arr[1] | split: '|' %}
+                {%  assign sub_menus_count =  sub_menus | size %}
+
+                {% if sub_menus_count > 0 %}
+                    <div class="flex flex-col rounded-md border border-gray-200 bg-gray-100 px-6 py-5 shadow-sm">
+                        <div class="py-2 text-lg font-semibold">{{ parent_menu[0] }}</div>
+                        <!-- 2nd level menu -->
+                        <ul class="space-y-2">
+                        {% assign i =  0 %}
+                        {% for second_menu in sub_menus %}
+                            {% assign i = i | plus: 1 %}
+                            {%  assign second_menu_arr = second_menu | split: '[' %}
+                            <li>
+                                <a class=" hover:no-underline" href="{{ second_menu_arr[1] | default: '#'}}">
+                                    <span class="bg-white rounded-full px-2 py-0">{{ i }}</span>
+                                    <span class="whitespace-wrap hover:underline">{{ second_menu_arr[0] }}</span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                {% else %}
+                    <div class="">
+                        <a class="" href="{{ parent_menu[1] | default: '#'}}">{{ parent_menu[0] }}</a>
+                    </div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+{% endif %}
 
 <!-- Product Section -->
-<section class="bg-white py-6 sm:py-12">
-    <div class="mx-auto max-w-6xl px-4">
-        <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
-            <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
-                {{ site.settings.section_product_title }} </h2>
+{% if site.settings.section_products_on %}
+    <section class="bg-white py-4 sm:py-8">
+        <div class="mx-auto max-w-6xl px-4">
+            <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
+                <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
+                    {{ site.settings.section_product_title }} </h2>
+            </div>
+            {% if site.settings.section_product_type == true %}
+                {% render 'content_products', tag: tag %}
+            {% else %}
+                {% render 'content_products_all' %}
+            {% endif %}
         </div>
-        {% if site.settings.section_product_type == true %}
-            {% render 'content_products', tag: tag %}
-        {% else %}
-            {% render 'content_products_all' %}
-        {% endif %}
-    </div>
-</section>
+    </section>
+{% endif %}
 
 <!-- Topic Section -->
-<section class="bg-white py-6 sm:py-12">
-    <div class="mx-auto max-w-6xl px-4">
-        <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
-            <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
-                {{ site.settings.section_topic_title }}</h2><a name="topics"></a>
-        </div>
+{% if site.settings.section_topics_on %}
+    {% assign topics_menu = site.settings.topics_menu | newline_to_br | split: '<br />' %}
 
-        <!-- Cards Container -->
-        <section class="my-4">
-            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
-                {% for menu_line in topics_menu %}
-                    {%  assign arr = menu_line | split: '[' %}
-                    <a href="{{ arr[1] }}" class="relative group flex items-center space-x-3 rounded-lg border border-gray-300 bg-gray-100 px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:bg-secondary/10 hover:no-underline hover:border-gray-400">
-                        <div class="min-w-0 flex-1">
-                            <span class="absolute inset-0" aria-hidden="true"></span>
-                            <p class="text-sm font-medium text-gray-900">{{ arr[0] }}</p>
-                            <p class="truncate text-sm text-gray-500">{{ arr[2] }}</p>
-                        </div>
-                        <div>
-                            <button type="button" class="inline-flex items-center px-1.5 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-primary hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 w-4 h-4">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                            </button>
-                        </div>
-                    </a>
-                {% endfor %}
+    <section class="bg-white py-4 sm:py-8">
+        <div class="mx-auto max-w-6xl px-4">
+            <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
+                <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
+                    {{ site.settings.section_topic_title }}</h2><a name="topics"></a>
             </div>
 
-        </section>
-    </div>
-</section>
+            <!-- Cards Container -->
+            <section class="my-4">
+                <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+                    {% for menu_line in topics_menu %}
+                        {%  assign arr = menu_line | split: '[' %}
+                        <a href="{{ arr[1] }}" class="relative group flex items-center space-x-3 rounded-md border border-gray-200 bg-gray-100 px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:bg-secondary/10 hover:no-underline hover:border-gray-400">
+                            <div class="min-w-0 flex-1">
+                                <span class="absolute inset-0" aria-hidden="true"></span>
+                                <p class="text-sm font-medium text-gray-900">{{ arr[0] }}</p>
+                                <p class="truncate text-sm text-gray-500">{{ arr[2] }}</p>
+                            </div>
+                            <div>
+                                <button type="button" class="inline-flex items-center px-1.5 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm bg-primary hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white w-4 h-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+
+            </section>
+        </div>
+    </section>
+{% endif %}
+
+<!-- News Section -->
+{% if site.settings.section_news_on %}
+    {% assign section_news_menu = site.settings.section_news_menu | newline_to_br | split: '<br />' %}
+    {% assign parent_news_menu_count = section_news_menu | size %}
+    <section class="bg-white py-4 sm:py-8">
+        <div class="mx-auto max-w-6xl px-4">
+            <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
+                <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center mb-4">
+                    {{ site.settings.section_news_title }} </h2>
+            </div>
+            <!-- Cards Container -->
+            <div class="grid grid-cols-2 md:grid-cols-{{ parent_news_menu_count | default: 3 }} gag-4 xl:gap-8">
+                {% for menu_line in section_news_menu %}
+                {%  assign p_menu_arr = menu_line | split: '{' %}
+                {%  assign parent_menu = p_menu_arr[0] | split: '[' %}
+                {%  assign sub_menus = p_menu_arr[1] | split: '|' %}
+                {%  assign sub_menus_count =  sub_menus | size %}
+
+                {% if sub_menus_count > 0 %}
+                    <div class="flex flex-col ">
+                        <div class="py-2 text-lg font-semibold">{{ parent_menu[0] }}</div>
+                        <!-- 2nd level menu -->
+                        <ul class="space-y-2">
+                        {% assign i =  0 %}
+                        {% for second_menu in sub_menus %}
+                            {% assign i = i | plus: 1 %}
+                            {%  assign second_menu_arr = second_menu | split: '[' %}
+                            <li>
+                                <a class=" hover:no-underline" href="{{ second_menu_arr[1] | default: '#'}}">
+                                    <span class="bg-gray-100 border-gray-300 rounded-full px-2 py-0">{{ i }}</span>
+                                    <span class="whitespace-wrap hover:underline">{{ second_menu_arr[0] }}</span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                {% else %}
+                    <div class="">
+                        <a class="" href="{{ parent_menu[1] | default: '#'}}">{{ parent_menu[0] }}</a>
+                    </div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+{% endif %}
+
 
 <!-- Contact US Section -->
-{% render 'need_help', page: page %}
+{% if site.settings.section_contact_on %}
+    {% render 'content_contacts', page: page %}
+{% endif %}
 
 {% schema %}
     {
