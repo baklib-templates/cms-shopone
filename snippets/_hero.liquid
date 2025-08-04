@@ -32,7 +32,6 @@
           {% if page.settings.tags.size > 0 %}
             <div class="md:flex flex-wrap items-center justify-center hidden w-full mt-4">
               <div class="inline-block">
-                <span class= mr-3">{{ 'generic.tags' | t }}：</span>
                 {% for tag in page.settings.tags %}
                   <a
                     href="{{ tag.path }}"
