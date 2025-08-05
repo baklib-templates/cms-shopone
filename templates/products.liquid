@@ -27,7 +27,9 @@
 </section>
 
 <!-- Support 列表 -->
-{% render 'need_help', page: page %}
+{% if site.settings.section_contact_on %}
+    {% render 'content_contacts', page: page %}
+{% endif %}
 
 {% schema %}
     {

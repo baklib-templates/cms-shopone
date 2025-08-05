@@ -9,19 +9,8 @@
     {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
     {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
     {% if true %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
-    <style>
-      @font-face {
-        font-family: 'Helvetica Now Display';
-        font-style: normal;
-        font-weight: normal;
-        font-display: swap;
-        src: url("{{ 'images/font/HelveticaNowDisplay-Bold.otf' | asset_url }}") format("otf"),url("{{ 'images/font/HelveticaNowDisplay-Medium.otf' | asset_url }}") format("otf"),url("{{ 'images/font/HelveticaNowDisplay-Regular.otf' | asset_url }}") format("otf");
-      }
-      .font-custom {
-          font-family: 'Helvetica Now Display';
-        }
-    </style>
     
+    {{ site.settings.font_html }}
     {{ site.settings.head_html }}
   </head>
   <body class="flex flex-col min-h-screen font-custom" id="js-body">
@@ -31,6 +20,6 @@
         {{ content_for_layout }}
       </main>
 
-      {% render 'footer' %}
+      {% render 'footer2' %}
   </body>
 </html>

@@ -297,6 +297,14 @@
         "info": "格式：<a href=''>svg icon</a>; ICON图标下载地址： https://www.bootstrapmb.com/icon"
       },
       {
+        "id": "font_html",
+        "type": "html",
+        "label": "自定义字体",
+        "info": "放在<head>中，注意必须用.font-custom类定义字体",
+        "rows": 10,
+        "default": "<style>\n  @font-face {\n    font-family: 'Helvetica Now Display';\n    font-style: normal;\n    font-weight: normal;\n    font-display: swap;\n    src: url("{{ 'images/font/HelveticaNowDisplay-Bold.otf' | asset_url }}") format("otf"),url("{{ 'images/font/HelveticaNowDisplay-Medium.otf' | asset_url }}") format("otf"),url("{{ 'images/font/HelveticaNowDisplay-Regular.otf' | asset_url }}") format("otf");\n  }\n  .font-custom {\n      font-family: 'Helvetica Now Display';\n    }\n</style>\n"
+      },
+      {
         "id": "head_html",
         "type": "html",
         "label": "<head>标签内 HTML 代码",
