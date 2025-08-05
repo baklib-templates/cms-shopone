@@ -49,6 +49,8 @@
 
 <!-- Product Section -->
 {% if site.settings.section_products_on %}
+    {% assign first_tag_name = site.settings.product_categories | split: '|' | first %}
+
     <section class="bg-white py-4 sm:py-8">
         <div class="mx-auto max-w-6xl px-4">
             <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
@@ -56,7 +58,7 @@
                     {{ site.settings.section_product_title }} </h2>
             </div>
             {% if site.settings.section_product_type == true %}
-                {% render 'content_products', tag: tag %}
+                {% render 'content_products', tag_name: first_tag_name %}
             {% else %}
                 {% render 'content_products_all' %}
             {% endif %}
@@ -68,7 +70,7 @@
 {% if site.settings.section_topics_on %}
     {% assign topics_menu = site.settings.topics_menu | newline_to_br | split: '<br />' %}
 
-    <section class="bg-white py-4 sm:py-8">
+    <section class=" py-4 sm:py-8">
         <div class="mx-auto max-w-6xl px-4">
             <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
                 <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
@@ -87,7 +89,7 @@
                                 <p class="truncate text-sm text-gray-500">{{ arr[2] }}</p>
                             </div>
                             <div>
-                                <button type="button" class="inline-flex items-center px-1.5 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm bg-primary hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                                <button type="button" class="inline-flex items-center px-1.5 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm bg-gray-400 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white w-4 h-4">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                     </svg>

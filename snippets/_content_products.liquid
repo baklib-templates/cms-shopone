@@ -1,6 +1,6 @@
 {% unless tag %}
     {% for atag in site.tags %}
-        {% if atag.name == 'AMPLIFIER' %}
+        {% if atag.name == tag_name %}
             {% assign tag = atag %}
             {% break %}
         {% else %}
