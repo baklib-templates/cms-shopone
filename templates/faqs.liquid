@@ -1,24 +1,23 @@
 {% assign pages = page.children_in_list %}
 
-<section class="py-2">
+{% # 面包屑导航 %}
+<section class="py-2 bg-secondary-100">
     <div class="max-w-6xl mx-auto px-4">
         <div class="mb-4">
             {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
         </div>
     </div>
+    <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center py-4">
+        <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
+            {{ page.settings.title }}</h2>
+        <p class="mt-2 ml-2 text-sm text-gray-500">{{ page.settings.description }}</p>
+    </div>
 </section>
 
 <!--Section: FAQs -->
-<section class="px-4" data-aos-id-3="">
-    <div class="relative max-w-6xl mx-auto">
-        <div class="">
-            <div class="text-center relative mb-4 md:mb-8">
-                <h2 class="h2">{{ page.settings.title }}</h2>
-                <p>{{ page.settings.description }}</p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<section class="px-4 py-6 sm:py-12" data-aos-id-3="">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {% paginate_tag pages, per: 12 %}
                 {% for item in pages  %}
                     {%  assign sub_items_count= item.children_in_list | size %}

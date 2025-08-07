@@ -1,86 +1,72 @@
 {% assign thumb = 'images/thumbnail.png' | asset_url %}
 {% assign pages = page.children_in_list %}
+{% for item in pages %}
+    {% if item.template_name == 'videos' %}
+        {%  assign type =  'channel' %}
+        {% break %}
+    {% endif %}
+{% endfor %}
 
-<section class="py-2">
+<section class="py-2 bg-secondary-100">
     <div class="max-w-6xl mx-auto px-4">
         <div class="mb-4">
             {% render 'breadcrumb', breadcrumb: page.breadcrumb  %}
         </div>
+    </div>
+    <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center py-4">
+        <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
+            {{ page.settings.title }}</h2>
+        <p class="mt-2 ml-2 text-sm text-gray-500">{{ page.settings.description }}</p>
     </div>
 </section>
 
 <!-- 产品列表 -->
 <section class="bg-white py-6 sm:py-12">
     <div class="mx-auto max-w-6xl px-4">
-        <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
-            <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
-                {{ page.settings.title }}</h2>
-            <p class="mt-2 ml-2 text-sm text-gray-500">{{ page.settings.description }}</p>
-        </div>
-
         <!-- Cards Container -->
-        <section class="grid grid-cols-1 gap-4 md:gap-8 sm:grid-cols-3 mt-4">
-            {% paginate_tag pages, per: 24 %}
+        {% if type == 'channel' %}
+            <section>
                 {% for item in pages %}
                     {% if item.template_name == 'videos' %}
-                        <h3 class="mt-4 text-lg font-semibold text-gray-900">
-                            {{ item.settings.title }}
-                        </h3>
-                        {% for item2 in item.children_in_list %}
-                            <!-- Card product -->
-                            {% if item2.template_name == 'video' %}
-                                <article class="flex flex-col border rounded-xl my-4">
-                                    <div class="relative w-full flex flex-col items-center justify-center">
-                                        {% render 'play_video', page: item2 %}
-                                    </div>
-                                    <div class="w-full px-2">
-                                        <div class="group relative">
-                                            <h3 class="mt-2 line-clamp-2 text-md leading-6 group-hover:text-gray-600">
-                                                <a href="{{ item2.path }}">
-                                                    <span class="absolute inset-0"></span>
-                                                    {{ item2.link_text }}
-                                                </a>
-                                            </h3>
-                                        </div>
-                                        <div class="text-sm text-gray-600 my-2">
-                                            {{ item.settings.description }}
-                                        </div>
-                                    </div>
-                                </article>
-                            {% endif %}
-                        {% endfor %}
+                        {% render 'content_videos', page: item %}
                     {% else %}
                         {% if item.template_name == 'video' %}
-                            <div class="">
-                                <article class="flex flex-col border rounded-xl">
-                                    <div class="relative w-full flex flex-col items-center justify-center">
-                                        {% render 'play_video', page: item %}
-                                    </div>
-                                    <div class="w-full px-2">
-                                        <div class="group relative">
-                                            <h3 class="mt-2 line-clamp-2 text-md leading-6 group-hover:text-gray-600">
-                                                <a href="{{ item.path }}">
-                                                    <span class="absolute inset-0"></span>
-                                                    {{ item.link_text }}
-                                                </a>
-                                            </h3>
-                                        </div>
-                                        <div class="text-sm text-gray-600 my-2">
-                                            {{ item.settings.description }}
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
+                            {% render 'content_video', page: item %}
                         {% endif %}
                     {% endif %}
                 {% endfor %}
+            </section>
+        {% else %}
+            {% paginate_tag pages, per: 12 %}
+                <div class="grid grid-cols-1 gap-4 md:gap-8 sm:grid-cols-3 mt-4">
+                    {% for item2 in pages %}
+                        <!-- Card product -->
+                        {% if item2.template_name == 'video' %}
+                            <article class="flex flex-col border rounded-xl my-4">
+                                <div class="relative w-full flex flex-col items-center justify-center">
+                                    {% render 'play_video', page: item2 %}
+                                </div>
+                                <div class="w-full px-2">
+                                    <div class="group relative">
+                                        <a href="{{ item2.path }}" class="mt-2 line-clamp-2 text-md leading-6 group-hover:text-gray-600">
+                                            {{ item2.settings.title }}
+                                        </a>
+                                    </div>
+                                    <div class="text-sm text-gray-600 my-2">
+                                        {{ item.settings.description }}
+                                    </div>
+                                </div>
+                            </article>
+                        {% endif %}
+                    {% endfor %}
+                </div>
                 <!-- Pagination -->
                 <div class="w-full text-right block mt-12">
                     {% render 'paginate', paginate: paginate %}
                 </div>
             {% endpaginate_tag %}
             {%# 分页 %}
-        </section>
+        {% endif %}
     </div>
 </section>
 

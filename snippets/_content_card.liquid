@@ -1,0 +1,27 @@
+
+<!-- CARD 1 -->
+<div class="rounded overflow-hidden shadow-lg flex flex-col">
+    <a href="{{ item.path }}"></a>
+    {% if item.settings.thumbnail %}
+        <div class="relative">
+            <a href="{{ item.path }}">
+                <img class="w-full object-cover"
+                    src="{{ item.settings.thumbnail }}"
+                    alt="{{ item.settings.title }}">
+                <div
+                    class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-primary/10">
+                </div>
+            </a>
+        </div>
+    {% endif %}
+    <div class="px-6 py-4 mb-auto">
+        <a href="{{ item.path }}"
+            class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2">
+            {{ item.link_text }}
+            </a>
+        <p class="text-gray-500 text-sm">
+            {{ item.settings.description | truncatewords: 12 }}
+        </p>
+    </div>
+    
+</div>

@@ -28,7 +28,7 @@
                         {% for second_menu in sub_menus %}
                             {%  assign second_menu_arr = second_menu | split: '[' %}
                             <li>
-                                <a class=" hover:no-underline" href="{{ second_menu_arr[1] | default: '#'}}">
+                                <a class="hover:no-underline" href="{{ second_menu_arr[1] | default: '#'}}" target="_blank">
                                     <span class="whitespace-wrap hover:underline">{{ second_menu_arr[0] }}</span>
                                 </a>
                             </li>
@@ -37,7 +37,7 @@
                     </div>
                 {% else %}
                     <div class="">
-                        <a class="" href="{{ parent_menu[1] | default: '#'}}">{{ parent_menu[0] }}</a>
+                        <a class="" href="{{ parent_menu[1] | default: '#'}}" target="_blank">{{ parent_menu[0] }}</a>
                     </div>
                 {% endif %}
                 {% endfor %}
