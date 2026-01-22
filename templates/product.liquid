@@ -54,12 +54,10 @@
     <!-- Article Content -->
     {% for item in pages %}
       <div x-show="activeTab === '{{ item.id }}'" x-data="{ activeTab2: '{{ item.id }}' }" class="relative px-4">
-        <div class="flex flex-row items-start">
+        <div class="flex flex-col items-start">
           
-          
-
           {% if item.slug == 'faq' %}
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
                 {% for item in item.children_in_list  %}
                     {%  assign sub_items_count= item.children_in_list | size %}
                     {% if sub_items_count > 0 %}
