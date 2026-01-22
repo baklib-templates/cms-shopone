@@ -64,7 +64,7 @@
                     {%  assign sub_items_count= item.children_in_list | size %}
                     {% if sub_items_count > 0 %}
                         <div>
-                            <h3 class="text-2xl font-semibold border-b border-primary">{{ item.settings.title  }}</h3>
+                            <h3 class="text-xl mb-2 font-semibold border-b border-primary">{{ item.settings.title  }}</h3>
                             {% assign sub_items = item.children_in_list | limit: 12  %}
                             {% for item2 in sub_items %}
                                 {% render 'content_faq', item: item2 %}
