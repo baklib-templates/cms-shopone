@@ -55,7 +55,7 @@
     {% for item in pages %}
       <div x-show="activeTab === '{{ item.id }}'" x-data="{ activeTab2: '{{ item.id }}' }" class="relative px-4">
         <div class="flex flex-row items-start">
-          {% if false %}
+          {% if true %}
             <div class="flex-none w-64">
               <ul class="space-y-3">  
                 {% for sub_item in item.children_in_list %}
