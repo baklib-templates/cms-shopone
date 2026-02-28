@@ -10,7 +10,8 @@
       msgEl.value = (msgEl.value || '').trim() + '\n\n--- Contact ---\n' + contactEl.value.trim();
     }
     isSubmitting = true;
-    setTimeout(() => form.submit(), 1500);
+    fetch(form.action, { method: 'POST', body: new FormData(form) })
+      .finally(() => isSubmitting = false);
   ">
   {% form_tag 'feedback', page: page %}
     <div class="space-y-5 p-4">
