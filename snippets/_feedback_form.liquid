@@ -1,17 +1,46 @@
 <!-- 2026.2.28: 增加了contact 字段 -->
 <div
   id="feedback_form"
-  x-data
-  @submit="
-    $event.preventDefault();
-    const form = $event.target;
-    const msgEl = form.querySelector('[name=\'feedback[message]\']');
-    const contactEl = form.querySelector('.feedback-contact');
-    if (msgEl && contactEl && contactEl.value.trim()) {
-      msgEl.value = (msgEl.value || '').trim() + '\n\n--- 联系信息 ---\n' + contactEl.value.trim();
+  x-data="{
+    isSubmitting: false,
+    errors: {},
+    messageRequired: {{ site.plugins.feedback.message_required | default: false | json }},
+    async handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const msgEl = form.querySelector('[name=\'feedback[message]\']');
+      const contactEl = form.querySelector('.feedback-contact');
+      this.errors = {};
+
+      if (this.messageRequired && msgEl && (!msgEl.value || !msgEl.value.trim())) {
+        this.errors.message = true;
+      }
+
+      if (Object.keys(this.errors).length === 0) {
+        this.isSubmitting = true;
+        if (msgEl && contactEl && contactEl.value.trim()) {
+          msgEl.value = (msgEl.value || '').trim() + '\n\n--- Contact Information ---\n' + contactEl.value.trim();
+        }
+        try {
+          const formData = new FormData(form);
+          const res = await fetch(form.action, { method: 'POST', body: formData });
+          if (res.ok || res.redirected) {
+            setTimeout(() => {
+              alert('Submission successful! We will contact you soon.');
+              if (msgEl) msgEl.value = '';
+              if (contactEl) contactEl.value = '';
+              this.isSubmitting = false;
+            }, 1500);
+          } else {
+            throw new Error('Submit failed');
+          }
+        } catch (e) {
+          form.submit();
+        }
+      }
     }
-    form.submit();
-  ">
+  }"
+  @submit="handleSubmit($event)">
   {% form_tag 'feedback', page: page %}
     <div class="space-y-5 p-4">
       <div class="text-center">{{ site.plugins.feedback.useful_label }}</div>
@@ -48,21 +77,24 @@
         {% endif %}
         <div class="mt-5">
           <textarea
-            class="w-full resize-none rounded-lg border border-slate-300 bg-transparent p-2.5 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-gray-700 dark:hover:border-navy-400 dark:focus:border-accent max-h-20"
+            class="w-full resize-none rounded-lg border bg-transparent p-2.5 placeholder:text-slate-400/70 focus:border-primary dark:border-gray-700 dark:focus:border-accent max-h-20"
+            :class="errors.message ? 'border-red-500' : 'border-slate-300 hover:border-slate-400 dark:hover:border-navy-400'"
             name="feedback[message]"
             placeholder="{{ 'feedback.input_placeholder' | t }}"></textarea>
+          <p x-show="errors.message" x-text="'Please enter feedback content'" class="mt-1 text-sm text-red-500"></p>
           {%# 联系信息（可选） %}
           <input
             type="text"
             class="feedback-contact w-full mt-2 rounded-lg border border-slate-300 bg-transparent p-2.5 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-gray-700 dark:hover:border-navy-400 dark:focus:border-accent"
-            placeholder="Optional, enter your contact (e.g. email, WeChat)"
+            placeholder="Optional, enter your contact (e.g. email, WhatsApp)"
             autocomplete="off" />
           {%# 提交按钮 %}
           <div class="flex justify-end mt-5">
             <input
               type="submit"
-              class="inline-flex items-center justify-center px-5 py-2 tracking-wide text-center border rounded-lg cursor-pointer text-slate-900 dark:text-white text-slate-800 focus:outline-none disabled:pointer-events-none"
-              value="{{ 'buttons.submit' | t }}" />
+              :disabled="isSubmitting"
+              class="inline-flex items-center justify-center px-5 py-2 tracking-wide text-center border rounded-lg cursor-pointer text-slate-900 dark:text-white text-slate-800 focus:outline-none disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed"
+              :value="isSubmitting ? 'Submitting...' : '{{ 'buttons.submit' | t }}'" />
           </div>
         </div>
       {% endif %}
