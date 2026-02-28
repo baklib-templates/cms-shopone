@@ -1,4 +1,17 @@
-<div id="feedback_form">
+<!-- 2026.2.28: 增加了contact 字段 -->
+<div
+  id="feedback_form"
+  x-data
+  @submit="
+    $event.preventDefault();
+    const form = $event.target;
+    const msgEl = form.querySelector('[name=\'feedback[message]\']');
+    const contactEl = form.querySelector('.feedback-contact');
+    if (msgEl && contactEl && contactEl.value.trim()) {
+      msgEl.value = (msgEl.value || '').trim() + '\n\n--- 联系信息 ---\n' + contactEl.value.trim();
+    }
+    form.submit();
+  ">
   {% form_tag 'feedback', page: page %}
     <div class="space-y-5 p-4">
       <div class="text-center">{{ site.plugins.feedback.useful_label }}</div>
@@ -38,6 +51,12 @@
             class="w-full resize-none rounded-lg border border-slate-300 bg-transparent p-2.5 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-gray-700 dark:hover:border-navy-400 dark:focus:border-accent max-h-20"
             name="feedback[message]"
             placeholder="{{ 'feedback.input_placeholder' | t }}"></textarea>
+          {%# 联系信息（可选） %}
+          <input
+            type="text"
+            class="feedback-contact w-full mt-2 rounded-lg border border-slate-300 bg-transparent p-2.5 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-gray-700 dark:hover:border-navy-400 dark:focus:border-accent"
+            placeholder="Optional, enter your contact (e.g. email, WeChat)"
+            autocomplete="off" />
           {%# 提交按钮 %}
           <div class="flex justify-end mt-5">
             <input
