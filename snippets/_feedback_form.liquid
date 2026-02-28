@@ -73,7 +73,7 @@
       {%# 反馈内容 %}
       {% if site.plugins.feedback.message_enabled %}
         {% if site.plugins.feedback.message_required %}
-          <div class="text-left">* 反馈内容</div>
+          <div class="text-left">* Feedback Content </div>
         {% endif %}
         <div class="mt-5">
           <textarea
@@ -94,7 +94,7 @@
               type="submit"
               :disabled="isSubmitting"
               class="inline-flex items-center justify-center px-5 py-2 tracking-wide text-center border rounded-lg cursor-pointer text-slate-900 dark:text-white text-slate-800 focus:outline-none disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed"
-              :value="isSubmitting ? 'Submitting...' : 'Submit'" />
+              value="Submit" />
           </div>
         </div>
       {% endif %}
