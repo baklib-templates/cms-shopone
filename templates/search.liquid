@@ -124,6 +124,8 @@
                             </div>
                         {% endif %}
 
+                        <div class="flex flex-col gap-6 md:flex-row md:items-start">
+                        <div class="flex-1 min-w-0">
                         <!-- Articles -->
                         <div class="-mb-2">
                         {% if search.page_number == 1 %}
@@ -174,17 +176,19 @@
                             {% render 'paginate', paginate: paginate %}
                         </nav>
 
+                        </div>
+
                         {% comment %} AI 搜索会话区域 {% endcomment %}
                         {% if site.ai_search_enabled? %}
-                          <div class="hidden mt-8 rounded bg-primary-50 space-y-2 chat-container" id="js--ai-search-container">
+                          <div class="hidden w-full md:block md:w-96 md:shrink-0" id="js--ai-search-completion-container">
                             <div
-                              class="py-4 rounded bg-primary-50 space-y-2"
-                              id="js--ai-search"
-                              data-controller="ai-search"
-                              data-ai-search-hidden-class="hidden opacity-0"
-                              data-ai-search-messages-value='{"thinking":"{{ ai_search_thinking_text }}","completed":"{{ ai_search_completed_text }}","canceled":"{{ ai_search_canceled_text }}"}'
-                              data-ai-search-url-value="/-/ai-search-completion"
-                              data-ai-search-auto-submit-value="true"
+                              class="py-4 rounded bg-primary-50 space-y-2 chat-container"
+                              id="js--ai-search-completion"
+                              data-controller="ai-search-completion"
+                              data-ai-search-completion-hidden-class="hidden opacity-0"
+                              data-ai-search-completion-messages-value='{"thinking":"{{ ai_search_thinking_text }}","completed":"{{ ai_search_completed_text }}","canceled":"{{ ai_search_canceled_text }}"}'
+                              data-ai-search-completion-url-value="/-/ai-search-completion"
+                              data-ai-search-completion-auto-submit-value="true"
                             >
                               <div class="flex gap-1 items-center px-4 text-sm">
                                 <div class="overflow-hidden w-5 h-5 bg-gradient bg-gradient-to-r rounded-full from-secondary-500 to-primary-600">
@@ -192,10 +196,10 @@
                                 </div>
                                 <span>{{ ai_search_title }}</span>
                               </div>
-                              <div data-ai-search-target="messages" class="ai-response prose p-4 gap-2 max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+                              <div data-ai-search-completion-target="messages" class="ai-response prose p-4 gap-2 max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                                 <!-- 多轮消息将在这里显示 -->
                               </div>
-                              <template data-ai-search-target="userMessageTemplate">
+                              <template data-ai-search-completion-target="userMessageTemplate">
                                 <div class="flex justify-end items-end mb-2">
                                   <div class="flex flex-col items-end flex-1">
                                     <div class="bg-primary text-gray-50 px-3 py-2 rounded-2xl max-w-full break-words shadow">
@@ -211,7 +215,7 @@
                                   </span>
                                 </div>
                               </template>
-                              <template data-ai-search-target="assistantMessageTemplate">
+                              <template data-ai-search-completion-target="assistantMessageTemplate">
                                 <div class="flex justify-start items-end mb-2">
                                   <span class="w-8 h-8 mr-2 rounded-full shadow flex items-center justify-center bg-gradient-to-r from-secondary-500 to-primary-600">
                                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -233,36 +237,37 @@
                                   class="flex-1 p-2 border border-gray-100 rounded focus-visible:outline-primary"
                                   placeholder="请输入你的问题…"
                                   id="js--ai-chat-input"
-                                  data-ai-search-target="input"
+                                  data-ai-search-completion-target="input"
                                   autocomplete="off"
                                 >
                                 <div class="flex items-center justify-center">
                                   <button
                                     class="rounded-full w-8 h-8 text-primary"
                                     id="js--ai-chat-send"
-                                    data-ai-search-target="send"
+                                    data-ai-search-completion-target="send"
                                     type="button"
                                   >
                                   <svg xmlns="http://www.w3.org/2000/svg" class="size-full" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM13 12H16L12 8L8 12H11V16H13V12Z"></path></svg>
                                   </button>
                                 </div>
                               </div>
-                              <div data-ai-search-target="error" class="hidden text-red-500 opacity-100 transition-opacity duration-300"></div>
+                              <div data-ai-search-completion-target="error" class="hidden text-red-500 opacity-100 transition-opacity duration-300"></div>
                             </div>
                           </div>
                           <script>
                             (function(){
                               setTimeout(function(){
-                                const aiSearchContainer = document.getElementById('js--ai-search-container');
-                                const aiSearch = document.getElementById('js--ai-search');
+                                const aiSearchContainer = document.getElementById('js--ai-search-completion-container');
+                                const aiSearch = document.getElementById('js--ai-search-completion');
                                 if (aiSearchContainer && aiSearch) {
                                   aiSearchContainer.classList.remove('hidden');
-                                  aiSearch.dataset.aiSearchMessageValue = "{{ search.keywords | escape_once }}";
+                                  aiSearch.dataset.aiSearchCompletionMessageValue = "{{ search.keywords | escape_once }}";
                                 }
                               }, 10);
                             })()
                           </script>
                         {% endif %}
+                        </div>
 
                     </div>
                 {% endpaginate_tag %}
