@@ -1,4 +1,11 @@
 <!-- locals: pages: 搜索返回结果, keywords: 搜索关键词 search.extends - 自定义结果集  search.page_number - 当前分页的页码 -->
+{% assign ai_search_title = "ai.title" | t: "AI智能助理" | presence %}
+{% assign ai_search_thinking_text = "ai.thinking" | t: "正在思考..." | presence %}
+{% assign ai_search_canceled_text = "ai.canceled" | t: "已取消回答" | presence %}
+{% assign ai_search_completed_text = site.settings.ai_search_completed_text | presence %}
+{% unless ai_search_completed_text %}
+  {% assign ai_search_completed_text = "ai.completed" | t: "AI 回答完毕." | presence %}
+{% endunless %}
 <!-- Page wrapper -->
 <div class="flex flex-col min-h-screen overflow-hidden">
     <!-- Page content -->
@@ -30,7 +37,10 @@
             <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
                 <div class="pt-4 pb-4 md:pt-8 md:pb-8">
                     <div class="max-w-3xl mx-auto text-center">
-                
+                        <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
+                            <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
+                                {{ 'generic.search' | t }}</h2>
+                        </div>
                         <div class="max-w-2xl mx-auto md:px-4">
                             {% form_tag 'search', class: 'relative flex items-center mt-8', 'data-aso': 'fade-down', 'data-aso-delay': '300' %}
                                 <input type="search" name="{{form.keywords_field_name}}" value="{{ search.keywords | escape }}" placeholder="Searching"  class="bg-white border border-slate-300 focus:border-slate-400 rounded leading-snug py-3 px-4 placeholder-slate-500 dark:placeholder-slate-400 dark:bg-slate-800 dark:border dark:border-slate-600 dark:focus:border-slate-500  w-full pl-12" aria-label="Search anything" />
@@ -163,6 +173,96 @@
                         <nav class="flex justify-center sm:justify-between mt-12">
                             {% render 'paginate', paginate: paginate %}
                         </nav>
+
+                        {% comment %} AI 搜索会话区域 {% endcomment %}
+                        {% if site.ai_search_enabled? %}
+                          <div class="hidden mt-8 rounded bg-primary-50 space-y-2 chat-container" id="js--ai-search-container">
+                            <div
+                              class="py-4 rounded bg-primary-50 space-y-2"
+                              id="js--ai-search"
+                              data-controller="ai-search"
+                              data-ai-search-hidden-class="hidden opacity-0"
+                              data-ai-search-messages-value='{"thinking":"{{ ai_search_thinking_text }}","completed":"{{ ai_search_completed_text }}","canceled":"{{ ai_search_canceled_text }}"}'
+                              data-ai-search-url-value="/-/ai-search-completion"
+                              data-ai-search-auto-submit-value="true"
+                            >
+                              <div class="flex gap-1 items-center px-4 text-sm">
+                                <div class="overflow-hidden w-5 h-5 bg-gradient bg-gradient-to-r rounded-full from-secondary-500 to-primary-600">
+                                  <img src="{{ "images/ai-search-icon.png" | asset_url }}">
+                                </div>
+                                <span>{{ ai_search_title }}</span>
+                              </div>
+                              <div data-ai-search-target="messages" class="ai-response prose p-4 gap-2 max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+                                <!-- 多轮消息将在这里显示 -->
+                              </div>
+                              <template data-ai-search-target="userMessageTemplate">
+                                <div class="flex justify-end items-end mb-2">
+                                  <div class="flex flex-col items-end flex-1">
+                                    <div class="bg-primary text-gray-50 px-3 py-2 rounded-2xl max-w-full break-words shadow">
+                                      <span class="text-sm ai-user-message"></span>
+                                    </div>
+                                  </div>
+                                  <span class="w-8 h-8 ml-2 rounded-full shadow flex items-center justify-center bg-primary text-secondary">
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <circle cx="14" cy="14" r="14" fill="currentColor"/>
+                                      <circle cx="14" cy="11" r="5" fill="white"/>
+                                      <ellipse cx="14" cy="21" rx="7" ry="4" fill="white"/>
+                                    </svg>
+                                  </span>
+                                </div>
+                              </template>
+                              <template data-ai-search-target="assistantMessageTemplate">
+                                <div class="flex justify-start items-end mb-2">
+                                  <span class="w-8 h-8 mr-2 rounded-full shadow flex items-center justify-center bg-gradient-to-r from-secondary-500 to-primary-600">
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <circle cx="14" cy="14" r="14" fill="currentColor"/>
+                                      <rect x="8" y="8" width="12" height="12" rx="6" fill="white"/>
+                                      <circle cx="14" cy="14" r="3" fill="currentColor"/>
+                                    </svg>
+                                  </span>
+                                  <div class="flex flex-col items-start flex-1">
+                                    <div class="bg-gray-100 text-gray-800 px-3 py-2 rounded-2xl max-w-full break-words shadow">
+                                      <span class="text-sm ai-assistant-message"></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </template>
+                              <div class="mt-4 flex gap-2 px-4">
+                                <input
+                                  type="text"
+                                  class="flex-1 p-2 border border-gray-100 rounded focus-visible:outline-primary"
+                                  placeholder="请输入你的问题…"
+                                  id="js--ai-chat-input"
+                                  data-ai-search-target="input"
+                                  autocomplete="off"
+                                >
+                                <div class="flex items-center justify-center">
+                                  <button
+                                    class="rounded-full w-8 h-8 text-primary"
+                                    id="js--ai-chat-send"
+                                    data-ai-search-target="send"
+                                    type="button"
+                                  >
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="size-full" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM13 12H16L12 8L8 12H11V16H13V12Z"></path></svg>
+                                  </button>
+                                </div>
+                              </div>
+                              <div data-ai-search-target="error" class="hidden text-red-500 opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                          </div>
+                          <script>
+                            (function(){
+                              setTimeout(function(){
+                                const aiSearchContainer = document.getElementById('js--ai-search-container');
+                                const aiSearch = document.getElementById('js--ai-search');
+                                if (aiSearchContainer && aiSearch) {
+                                  aiSearchContainer.classList.remove('hidden');
+                                  aiSearch.dataset.aiSearchMessageValue = "{{ search.keywords | escape_once }}";
+                                }
+                              }, 10);
+                            })()
+                          </script>
+                        {% endif %}
 
                     </div>
                 {% endpaginate_tag %}
