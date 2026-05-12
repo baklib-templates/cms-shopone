@@ -1,0 +1,36 @@
+site:
+  language: "zh-CN"
+  time_zone: "Asia/Shanghai"
+  favicon: ""
+  settings:
+    logo_url: "images/logo.png"
+    section_faqs_on: true
+    section_faqs_title: "Browse by FAQs"
+    # 与 templates/index.liquid 解析格式一致（见 config/settings_schema.json 默认值）
+    section_faqs_menu: "News[/news{Catalog1[/|Catalog2[/\nVideos[/videos{Catalog1[/|Catalog2[/\nProducts[/products{Catalog1[/|Catalog2[/\nFAQs[/faqs{Catalog1[/|Catalog2[/\nSitemap[/s/sitemap{Catalog1[/|Catalog2[/\n"
+    section_products_on: true
+    section_product_type: true
+    section_product_title: "Browse by Product"
+    # 与「标签管理」联动；沿用主题 schema 默认分类名，便于演示
+    product_categories: "Eyes|Lips|Face & Body|Sets & Kits|Pencils|Brushes|Accessories & Tools"
+    section_topics_on: true
+    section_topic_title: "Browse by Topic"
+    topics_menu: "FAQs[/faqs[some Q&A for all products\nVideos[/videos[the how-to video manuals\nNews[/news[the company news&events"
+    section_news_on: true
+    section_news_title: "Browse by News"
+    section_news_menu: "General FAQ[/#{What is the trading session?[/|How do I login system?[/|How to change password in my profile?|How do I sync my knowledge base to wiki site?\nProducts FAQ[/{What is Content Security Policy (CSP)?[/|How to set up SSO for your institution?[/|What is the guaranteed uptime of the service?[/|What is the DXP Tool?[/"
+    section_contact_on: true
+    section_contact_title: "联系我们"
+    email: "hello@shopone.example"
+    phone: "+86 400-000-0000"
+    phone_name: "周一至周五 10:00–18:00（北京时间）"
+    chat_url: "#"
+    chat_name: "@shopone"
+    contact_url: "#"
+    contact_name: "在线留言"
+    header_menu: "Home[/\nNews[/news\nVideos[/videos\nProducts[/products{Hydra Glow Serum[/products/hydra-glow-serum|Starter Gift Set[/products/gift-set-starter\nFAQs[/faqs\nSitemap[/s/sitemap"
+    footer_menu: "Products[/products{Hydra Glow Serum[/products/hydra-glow-serum|Starter Gift Set[/products/gift-set-starter\nVideos[/videos\nNews[/news"
+    company_info: "&copy; 2026 Shop One Demo. All Rights Reserved."
+    friend_links: ""
+    font_html: ""
+    head_html: ""

@@ -1,0 +1,80 @@
+{% comment %}
+  本地视频（模板 schema 中 video_picker，如 id: video_url）。
+  page.settings.video_url 为 DAM EntityDrop：存储为 signed_id，模板中用 .url 为可播放地址，.preview.* 为封面缩略图。
+  布局与交互参考 _play_video（缩略图 + Alpine 弹层）。
+{% endcomment %}
+{%- assign local = page.settings.video_url -%}
+{%- if video_type == "1" -%}
+  {% assign thumb_class = "aspect-[9/16] mx-auto max-h-screen rounded-xl bg-gray-100 object-cover" %}
+{%- else -%}
+  {% assign thumb_class = "aspect-[16/9] mx-auto max-h-screen rounded-xl bg-gray-100 object-cover" %}
+{%- endif -%}
+
+<div class="[&_[x-cloak]]:hidden" x-data="{ modalOpen: false }">
+  <button
+    class="relative flex justify-center items-center focus:outline-none focus-visible:ring focus-visible:ring-indigo-300 rounded-3xl group"
+    type="button"
+    @click="modalOpen = true"
+    aria-controls="modal-local-video"
+    aria-label="播放视频"
+  >
+    {% if local.previewable? %}
+      <img src="{{ local.preview.cover }}" alt="{{ page.link_text }}" class="{{ thumb_class }}" loading="lazy">
+    {% else %}
+      <div class="{{ thumb_class }} flex items-center justify-center bg-gray-200">
+        <span class="text-gray-500 text-sm">视频</span>
+      </div>
+    {% endif %}
+    <svg class="absolute pointer-events-none group-hover:scale-110 transition-transform duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+      <circle class="fill-white" cx="36" cy="36" r="36" fill-opacity=".8" />
+      <path class="fill-primary drop-shadow-2xl" d="M44 36a.999.999 0 0 0-.427-.82l-10-7A1 1 0 0 0 32 29V43a.999.999 0 0 0 1.573.82l10-7A.995.995 0 0 0 44 36V36c0 .001 0 .001 0 0Z" />
+    </svg>
+  </button>
+
+  <div
+    class="fixed inset-0 z-[99999] bg-primary bg-opacity-50 transition-opacity"
+    x-show="modalOpen"
+    x-transition:enter="transition ease-out duration-200"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="transition ease-out duration-100"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+    aria-hidden="true"
+    x-cloak
+  ></div>
+
+  <div
+    id="modal-local-video"
+    class="fixed inset-0 z-[99999] flex p-6"
+    role="dialog"
+    aria-modal="true"
+    x-show="modalOpen"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0 scale-75"
+    x-transition:enter-end="opacity-100 scale-100"
+    x-transition:leave="transition ease-out duration-200"
+    x-transition:leave-start="opacity-100 scale-100"
+    x-transition:leave-end="opacity-0 scale-75"
+    x-cloak
+  >
+    <div class="max-w-6xl mx-auto flex items-center">
+      <div
+        class="max-h-full bg-primary rounded-xl overflow-hidden p-2"
+        @click.outside="modalOpen = false"
+        @keydown.escape.window="modalOpen = false"
+      >
+        <div class="aspect-[16/9] mx-auto max-h-screen min-w-0 flex items-center justify-center">
+          <video
+            class="w-full max-w-[min(100vw-3rem,1200px)] max-h-[min(85vh,600px)] rounded-lg bg-black"
+            controls
+            playsinline
+            {% if local.previewable? %}poster="{{ local.preview.cover }}"{% endif %}
+          >
+            <source src="{{ local.url }}" {% if local.metadata.content_type != blank %}type="{{ local.metadata.content_type }}"{% endif %}>
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

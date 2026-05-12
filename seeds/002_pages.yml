@@ -1,0 +1,168 @@
+pages:
+  name: 首页
+  slug: index
+  template_name: index
+  settings:
+    description: "Shop One 演示站：产品、资讯、视频与常见问题一站聚合。"
+    hero_image_url: "images/theme/index.webp"
+    text_color: "#ffffff"
+
+  children:
+    - name: 产品中心
+      slug: products
+      template_name: products
+      settings:
+        title: "产品中心"
+        description: "从护肤到彩妆，浏览示例商品与配套内容（FAQ / 视频 / 资讯）。"
+      children:
+        - name: 水光焕采精华
+          slug: hydra-glow-serum
+          template_name: product
+          settings:
+            title: "水光焕采精华"
+            description: "轻盈质地，保湿提亮，适合作为日常护肤的第一步。"
+            content: "<p>这是一款用于演示 <strong>Shop One</strong> 产品详情页布局的示例商品。你可以在后台替换文案、图片与外链。</p><p>建议搭配同系列的乳霜与防晒使用。</p>"
+            thumb_image_url: "images/demo/product.webp"
+            hero_image_url: "images/demo/product1.webp"
+            external_url: "https://example.com"
+          children:
+            - name: 商品常见问题
+              slug: product-faqs
+              template_name: faqs
+              settings:
+                title: "商品常见问题"
+                description: "下单前最常问到的几件事。"
+              children:
+                - name: 敏感肌可以使用吗？
+                  slug: faq-sensitive-skin
+                  template_name: post
+                  settings:
+                    title: "敏感肌可以使用吗？"
+                    description: "成分与测试说明（示例）"
+                    content: "<p>本示例内容不代表真实功效承诺。上线后请替换为经法务审核的说明。</p>"
+                - name: 开封后多久内用完？
+                  slug: faq-after-opening
+                  template_name: post
+                  settings:
+                    title: "开封后多久内用完？"
+                    description: "保存建议（示例）"
+                    content: "<p>一般建议在开封后 12 个月内使用完毕，并避免高温与阳光直射。</p>"
+
+            - name: 使用教程视频
+              slug: product-howto-videos
+              template_name: videos
+              settings:
+                title: "使用教程"
+                description: "短视频演示：用量、手法与搭配。"
+                video_type: "0"
+              children:
+                - name: 晨间护肤 3 分钟流程
+                  slug: morning-routine-howto
+                  template_name: video
+                  settings:
+                    title: "晨间护肤 3 分钟流程"
+                    youtube_id: "6c3RXM7lK20"
+                    description: "示例视频（可替换为品牌自有素材）。"
+                    content: "<p>观看时请注意音量。将 <code>youtube_id</code> 替换为你自己的嵌入视频 ID 即可。</p>"
+
+            - name: 商品动态
+              slug: product-news
+              template_name: news
+              settings:
+                title: "商品动态"
+                description: "上新、配方迭代与活动预告（示例）。"
+              children:
+                - name: 水光焕采精华 2.0 发布说明
+                  slug: hydra-glow-2-announcement
+                  template_name: post
+                  settings:
+                    title: "水光焕采精华 2.0 发布说明"
+                    description: "示例资讯"
+                    content: "<p>这是一篇挂在「产品详情」下的示例资讯，用于展示 <strong>news</strong> 频道与文章详情页。</p>"
+
+        - name: 入门礼盒套装
+          slug: gift-set-starter
+          template_name: product
+          settings:
+            title: "入门礼盒套装"
+            description: "旅行装组合，适合首次体验品牌产品线。"
+            content: "<p>礼盒内含精华小样、洁面与保湿霜（示例文案）。</p>"
+            thumb_image_url: "images/demo/product1.webp"
+            hero_image_url: "images/demo/product.webp"
+            external_url: "#"
+
+    - name: 新闻动态
+      slug: news
+      template_name: news
+      settings:
+        title: "新闻动态"
+        description: "品牌公告、活动回顾与行业观察（示例）。"
+      children:
+        - name: 2026 春季活动回顾
+          slug: spring-2026-recap
+          template_name: post
+          settings:
+            title: "2026 春季活动回顾"
+            description: "示例文章摘要"
+            content: "<p>把这里替换成你的活动复盘、图文报道或外链汇总。</p>"
+        - name: 站点内容维护小贴士
+          slug: content-maintenance-tips
+          template_name: post
+          settings:
+            title: "站点内容维护小贴士"
+            description: "给内容编辑的示例清单"
+            content: "<ul><li>先定栏目结构，再批量补文案</li><li>图片尽量统一比例，列表页更整齐</li><li>视频用统一的封面尺寸</li></ul>"
+
+    - name: 常见问题
+      slug: faqs
+      template_name: faqs
+      settings:
+        title: "常见问题"
+        description: "账号、订单与售后的高频问题（示例）。"
+      children:
+        - name: 账号与登录
+          slug: faqs-account
+          template_name: faqs
+          settings:
+            title: "账号与登录"
+            description: ""
+          children:
+            - name: 如何重置密码？
+              slug: faq-reset-password
+              template_name: post
+              settings:
+                title: "如何重置密码？"
+                description: "示例回答"
+                content: "<p>在登录页点击「忘记密码」，按邮件/短信指引完成验证即可。</p>"
+            - name: 如何开启两步验证？
+              slug: faq-2fa
+              template_name: post
+              settings:
+                title: "如何开启两步验证？"
+                description: "示例回答"
+                content: "<p>进入「账号安全」设置，绑定验证器或短信验证。</p>"
+
+        - name: 订单多久发货？
+          slug: faq-shipping-time
+          template_name: post
+          settings:
+            title: "订单多久发货？"
+            description: "物流说明（示例）"
+            content: "<p>工作日 16:00 前支付的订单，通常当日或次日发出（示例文案）。</p>"
+
+    - name: 视频中心
+      slug: videos
+      template_name: videos
+      settings:
+        title: "视频中心"
+        description: "教程、发布会回放与幕后花絮（示例）。"
+        video_type: "0"
+      children:
+        - name: 品牌故事 60 秒
+          slug: brand-story-60s
+          template_name: video
+          settings:
+            title: "品牌故事 60 秒"
+            youtube_id: "6c3RXM7lK20"
+            description: "示例短视频"
+            content: "<p>用短视频讲清楚「你是谁、你解决什么问题」。</p>"

@@ -38,7 +38,18 @@
 
     <div class="relative max-w-6xl mx-auto px-4 mt-4">
         <div class="flex items-center justify-center">
-          {% render 'play_video', page: page %}
+          {% if page.parent %}
+            {% assign video_type = page.parent.settings.video_type.value %}
+          {% else %}
+            {% assign video_type = "0" %}
+          {% endif %}
+          {% if page.settings.video_url %}
+            {% render 'play_local_video', page: page %}
+          {% elsif page.settings.youtube_id != blank %}
+            {% render 'play_video', page: page %}
+          {% else %}
+            <p class="text-gray-500">无视频</p>
+          {% endif %}
         </div>
 
         <article class="p-4 md:py-8 ProseMirror max-w-full overflow-x-auto">
@@ -150,6 +161,12 @@
         "label": "标题"
       },
       {
+        "id": "video_url",
+        "type": "video_picker",
+        "label": "本地视频",
+        "info": "选择本地视频后，将优先显示本地视频；未选择时显示 YouTube 视频。"
+      },
+       {
         "id": "youtube_id",
         "type": "text",
         "placeholder": "6c3RXM7lK20",

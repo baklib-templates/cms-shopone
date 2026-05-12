@@ -10,13 +10,20 @@
     </div>
 </section>
 
+{% assign video_type = page.settings.video_type.value %}
 <div class="grid grid-cols-1 gap-4 md:gap-8 sm:grid-cols-3">
     {% for item2 in items %}
         <!-- Card product -->
         {% if item2.template_name == 'video' %}
             <article class="flex flex-col border rounded-xl bg-gray-100">
                 <div class="relative w-full flex flex-col items-center justify-center">
-                    {% render 'play_video', page: item2 %}
+                    {% if item2.settings.video_url %}
+                      {% render 'play_local_video', page: item2 %}
+                    {% elsif item2.settings.youtube_id != blank %}
+                      {% render 'play_video', page: item2 %}
+                    {% else %}
+                      <p class="text-gray-500 text-sm py-8">无视频</p>
+                    {% endif %}
                 </div>
                 <div class="w-full px-2">
                     <div class="group relative">
