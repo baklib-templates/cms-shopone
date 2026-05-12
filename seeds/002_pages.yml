@@ -61,6 +61,7 @@ pages:
                   template_name: video
                   settings:
                     title: "晨间护肤 3 分钟流程"
+                    video_show: "1"
                     youtube_id: "6c3RXM7lK20"
                     description: "示例视频（可替换为品牌自有素材）。"
                     content: "<p>观看时请注意音量。将 <code>youtube_id</code> 替换为你自己的嵌入视频 ID 即可。</p>"
@@ -163,6 +164,7 @@ pages:
           template_name: video
           settings:
             title: "品牌故事 60 秒"
+            video_show: "1"
             youtube_id: "6c3RXM7lK20"
             description: "示例短视频"
             content: "<p>用短视频讲清楚「你是谁、你解决什么问题」。</p>"

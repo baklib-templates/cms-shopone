@@ -45,12 +45,27 @@
                         {% if item2.template_name == 'video' %}
                             <article class="flex flex-col border rounded-xl my-4">
                                 <div class="relative w-full flex flex-col items-center justify-center">
-                                    {% if item2.settings.video_url %}
-                                      {% render 'play_local_video', page: item2 %}
-                                    {% elsif item2.settings.youtube_id != blank %}
-                                      {% render 'play_video', page: item2 %}
+                                    {% assign video_show = item2.settings.video_show.value %}
+                                    {% if video_show == "0" %}
+                                      {% if item2.settings.video_url %}
+                                        {% render 'play_local_video', page: item2 %}
+                                      {% else %}
+                                        <p class="text-gray-500 text-sm py-8">无视频</p>
+                                      {% endif %}
+                                    {% elsif video_show == "1" %}
+                                      {% if item2.settings.youtube_id != blank %}
+                                        {% render 'play_video', page: item2 %}
+                                      {% else %}
+                                        <p class="text-gray-500 text-sm py-8">无视频</p>
+                                      {% endif %}
                                     {% else %}
-                                      <p class="text-gray-500 text-sm py-8">无视频</p>
+                                      {% if item2.settings.youtube_id != blank %}
+                                        {% render 'play_video', page: item2 %}
+                                      {% elsif item2.settings.video_url %}
+                                        {% render 'play_local_video', page: item2 %}
+                                      {% else %}
+                                        <p class="text-gray-500 text-sm py-8">无视频</p>
+                                      {% endif %}
                                     {% endif %}
                                 </div>
                                 <div class="w-full px-2">

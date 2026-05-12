@@ -5,12 +5,27 @@
       {% else %}
         {% assign video_type = "0" %}
       {% endif %}
-      {% if page.settings.video_url %}
-        {% render 'play_local_video', page: page %}
-      {% elsif page.settings.youtube_id != blank %}
-        {% render 'play_video', page: page %}
+      {% assign video_show = page.settings.video_show.value %}
+      {% if video_show == "0" %}
+        {% if page.settings.video_url %}
+          {% render 'play_local_video', page: page %}
+        {% else %}
+          <p class="text-gray-500">无视频</p>
+        {% endif %}
+      {% elsif video_show == "1" %}
+        {% if page.settings.youtube_id != blank %}
+          {% render 'play_video', page: page %}
+        {% else %}
+          <p class="text-gray-500">无视频</p>
+        {% endif %}
       {% else %}
-        <p class="text-gray-500">无视频</p>
+        {% if page.settings.youtube_id != blank %}
+          {% render 'play_video', page: page %}
+        {% elsif page.settings.video_url %}
+          {% render 'play_local_video', page: page %}
+        {% else %}
+          <p class="text-gray-500">无视频</p>
+        {% endif %}
       {% endif %}
     </div>
 

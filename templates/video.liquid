@@ -43,12 +43,28 @@
           {% else %}
             {% assign video_type = "0" %}
           {% endif %}
-          {% if page.settings.video_url %}
-            {% render 'play_local_video', page: page %}
-          {% elsif page.settings.youtube_id != blank %}
-            {% render 'play_video', page: page %}
+          {% assign video_show = page.settings.video_show.value %}
+          {% if video_show == "0" %}
+            {% if page.settings.video_url %}
+              {% render 'play_local_video', page: page %}
+            {% else %}
+              <p class="text-gray-500">无视频</p>
+            {% endif %}
+          {% elsif video_show == "1" %}
+            {% if page.settings.youtube_id != blank %}
+              {% render 'play_video', page: page %}
+            {% else %}
+              <p class="text-gray-500">无视频</p>
+            {% endif %}
           {% else %}
-            <p class="text-gray-500">无视频</p>
+            {% comment %} 未写入 video_show 的旧数据：优先 YouTube {% endcomment %}
+            {% if page.settings.youtube_id != blank %}
+              {% render 'play_video', page: page %}
+            {% elsif page.settings.video_url %}
+              {% render 'play_local_video', page: page %}
+            {% else %}
+              <p class="text-gray-500">无视频</p>
+            {% endif %}
           {% endif %}
         </div>
 
@@ -161,10 +177,18 @@
         "label": "标题"
       },
       {
+        "id": "video_show",
+        "type": "radio",
+        "label": "视频来源",
+        "choices": [{"label":"本地视频","value":"0"},{"label":"Youtube视频","value":"1"}],
+        "default": "1",
+        "info": "*  系统根据你选择的视频来源，选择不同的播放渠道。"
+      },
+      {
         "id": "video_url",
         "type": "video_picker",
         "label": "本地视频",
-        "info": "选择本地视频后，将优先显示本地视频；未选择时显示 YouTube 视频。"
+        "info": "选择本地视频。"
       },
        {
         "id": "youtube_id",
