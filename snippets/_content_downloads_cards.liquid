@@ -1,0 +1,66 @@
+<section class="bg-base-100 py-4 sm:py-8">
+  <div class="page-container">
+    <div class="section-head mb-4">
+      <h2 class="section-title">{{ site.settings.section_downloads_title }}</h2>
+      {% if site.settings.section_downloads_description != blank %}
+        <p class="section-desc">{{ site.settings.section_downloads_description }}</p>
+      {% endif %}
+    </div>
+
+    {% assign downloads_channel_path = site.settings.section_downloads_slug | default: '/downloads' %}
+    {% assign downloads_channel = site.pages[downloads_channel_path] %}
+    {% if downloads_channel %}
+      {% assign downloads_items = downloads_channel.pages_in_list %}
+
+      <div class="flex flex-col w-full gap-8">
+        <div class="flex flex-col w-full gap-6 sm:flex-row">
+          {% for item in downloads_items limit: 3 %}
+            <div class="w-full sm:w-1/2">
+              <div class="relative h-full sm:mr-6">
+                <span class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded-lg bg-primary/40" aria-hidden="true"></span>
+                <div class="relative h-full rounded-lg border-2 border-primary bg-base-100 p-5">
+                  {% if item.settings.thumbnail != blank %}
+                    <div class="mb-2 text-center">
+                      <img src="{{ item.settings.thumbnail }}" alt="" class="mx-auto h-8 w-8 object-contain">
+                    </div>
+                  {% endif %}
+                  <a href="{{ item.path }}" class="my-2 block text-lg font-semibold text-base-content hover:text-primary">
+                    {{ item.settings.title | default: item.link_text }}
+                  </a>
+                  {% if item.settings.description != blank %}
+                    <p class="text-sm text-base-content/60">{{ item.settings.description }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="flex flex-col w-full gap-6 sm:flex-row">
+          {% for item in downloads_items limit: 6 %}
+            {% if forloop.index > 3 %}
+              <div class="w-full sm:w-1/2">
+                <div class="relative h-full sm:mr-6">
+                  <span class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded-lg bg-secondary/40" aria-hidden="true"></span>
+                  <div class="relative h-full rounded-lg border-2 border-secondary bg-base-100 p-5">
+                    {% if item.settings.thumbnail != blank %}
+                      <div class="mb-2 text-center">
+                        <img src="{{ item.settings.thumbnail }}" alt="" class="mx-auto h-8 w-8 object-contain">
+                      </div>
+                    {% endif %}
+                    <a href="{{ item.path }}" class="my-2 block text-lg font-semibold text-base-content hover:text-primary">
+                      {{ item.settings.title | default: item.link_text }}
+                    </a>
+                    {% if item.settings.description != blank %}
+                      <p class="text-sm text-base-content/60">{{ item.settings.description }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>

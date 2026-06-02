@@ -71,5 +71,178 @@
         }
       }
     }
+  },
+  "templates": {
+    "index": {
+      "name": "首页",
+      "description": "首页模板",
+      "settings": {
+        "tags": {
+          "label": "标签"
+        },
+        "description": {
+          "label": "一句话描述",
+          "default": "Welcome to Service and Support"
+        },
+        "hero_image_url": {
+          "label": "Hero 图片"
+        },
+        "text_color": {
+          "label": "Hero 字体颜色"
+        }
+      }
+    },
+    "downloads": {
+      "name": "栏目 — 下载列表",
+      "description": "下载与资源列表栏目",
+      "settings": {
+        "title": {
+          "label": "标题"
+        },
+        "description": {
+          "label": "摘要"
+        }
+      }
+    },
+    "faqs": {
+      "name": "栏目 — FAQs 列表",
+      "description": "FAQ 折叠展开样式",
+      "settings": {
+        "title": {
+          "label": "标题"
+        },
+        "description": {
+          "label": "摘要"
+        }
+      }
+    },
+    "page": {
+      "name": "详情页 — 文章（带封面）",
+      "description": "带封面图的页面详情模板",
+      "settings": {
+        "title": {
+          "label": "标题"
+        },
+        "description": {
+          "label": "摘要"
+        },
+        "content": {
+          "label": "内容"
+        },
+        "thumb_image_url": {
+          "label": "封面图"
+        },
+        "tags": {
+          "label": "标签"
+        }
+      }
+    },
+    "post": {
+      "name": "详情页 — 文章（无封面）",
+      "description": "不带封面图的页面详情模板",
+      "settings": {
+        "title": {
+          "label": "标题"
+        },
+        "description": {
+          "label": "摘要"
+        },
+        "content": {
+          "label": "内容"
+        },
+        "thumbnail": {
+          "label": "封面图"
+        },
+        "tags": {
+          "label": "标签"
+        }
+      }
+    },
+    "product": {
+      "name": "详情页 — 产品/项目",
+      "description": "产品、项目或案例详情页面模板",
+      "settings": {
+        "title": {
+          "label": "标题"
+        },
+        "description": {
+          "label": "摘要"
+        },
+        "content": {
+          "label": "内容"
+        },
+        "thumb_image_url": {
+          "label": "封面图"
+        },
+        "hero_image_url": {
+          "label": "详情页封面图"
+        },
+        "tags": {
+          "label": "标签"
+        },
+        "external_url": {
+          "label": "外部链接（Learn More）",
+          "info": "如果添加了外链，点击会跳转到该链接，以下的内容可作为补充"
+        }
+      }
+    },
+    "products": {
+      "name": "栏目 — 产品分类列表",
+      "description": "项目/产品分类页",
+      "settings": {
+        "title": {
+          "label": "标题"
+        },
+        "description": {
+          "label": "摘要"
+        }
+      }
+    },
+    "video": {
+      "name": "视频页 — 视频详情",
+      "description": "视频详情页面模板",
+      "settings": {
+        "title": {
+          "label": "标题"
+        },
+        "youtube_id": {
+          "label": "YouTube 视频 ID",
+          "info": "YouTube → 分享 → 嵌入，复制 embed 链接中的 ID（如 6c3RXM7lK20），示例：https://www.youtube.com/embed/6c3RXM7lK20"
+        },
+        "video_url": {
+          "label": "视频",
+          "info": "从资源库选择视频；若已选本地视频则优先于 YouTube 显示"
+        },
+        "description": {
+          "label": "摘要"
+        },
+        "content": {
+          "label": "内容"
+        },
+        "tags": {
+          "label": "标签"
+        }
+      }
+    },
+    "videos": {
+      "name": "栏目 — 视频列表",
+      "description": "视频列表栏目",
+      "settings": {
+        "title": {
+          "label": "标题"
+        },
+        "description": {
+          "label": "摘要"
+        },
+        "video_type": {
+          "label": "视频格式",
+          "info": "子页面上传的视频封面尺寸应与当前所选比例一致",
+          "choices": {
+            "desktop": "桌面端宽视频（16:9）",
+            "mobile": "手机端长视频（9:16）"
+          }
+        }
+      }
+    }
   }
 }

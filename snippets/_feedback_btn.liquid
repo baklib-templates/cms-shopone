@@ -1,0 +1,32 @@
+<div class="flex flex-col items-center">
+  {% if page.visitor_posted_feedback %}
+    <a
+      data-turbo-stream="true"
+      href="{{ page.feedback_path }}"
+      class="inline-flex items-center justify-center rounded-full border border-base-300 bg-primary p-4 text-primary-content hover:bg-primary/90"
+      aria-label="{{ 'generic.feedbacked' | t }}"
+    >
+      <i data-lucide="message-square-text" class="h-10 w-10"></i>
+    </a>
+    <div class="mt-2 text-sm text-base-content/70">{{ 'generic.feedbacked' | t }}</div>
+  {% else %}
+    <a
+      data-turbo-stream="true"
+      href="{{ page.feedback_path }}"
+      class="inline-flex items-center justify-center rounded-full border border-base-300 p-4 text-base-content/50 hover:bg-base-200 hover:text-base-content"
+      aria-label="{{ 'generic.feedback' | t }}"
+    >
+      <i data-lucide="message-square" class="h-10 w-10"></i>
+    </a>
+    <div class="mt-2 text-sm text-base-content/70">{{ 'generic.feedback' | t }}</div>
+  {% endif %}
+
+  {% if site.settings.request_form_url != blank %}
+    <p class="mt-2 text-center text-sm text-base-content/60">
+      Have more questions?
+      <a href="{{ site.settings.request_form_url }}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+        Submit a request.
+      </a>
+    </p>
+  {% endif %}
+</div>

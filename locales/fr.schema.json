@@ -71,5 +71,178 @@
         }
       }
     }
+  },
+  "templates": {
+    "index": {
+      "name": "Accueil",
+      "description": "Modèle de page d'accueil",
+      "settings": {
+        "tags": {
+          "label": "Mots clés"
+        },
+        "description": {
+          "label": "Description courte",
+          "default": "Welcome to Service and Support"
+        },
+        "hero_image_url": {
+          "label": "Image hero"
+        },
+        "text_color": {
+          "label": "Couleur du texte hero"
+        }
+      }
+    },
+    "downloads": {
+      "name": "Canal — liste des téléchargements",
+      "description": "Canal de liste des téléchargements et ressources",
+      "settings": {
+        "title": {
+          "label": "Titre"
+        },
+        "description": {
+          "label": "Résumé"
+        }
+      }
+    },
+    "faqs": {
+      "name": "Canal — liste FAQ",
+      "description": "Canal FAQ en accordéon",
+      "settings": {
+        "title": {
+          "label": "Titre"
+        },
+        "description": {
+          "label": "Résumé"
+        }
+      }
+    },
+    "page": {
+      "name": "Article (avec couverture)",
+      "description": "Page de détail avec image de couverture",
+      "settings": {
+        "title": {
+          "label": "Titre"
+        },
+        "description": {
+          "label": "Résumé"
+        },
+        "content": {
+          "label": "Contenu"
+        },
+        "thumb_image_url": {
+          "label": "Image de couverture"
+        },
+        "tags": {
+          "label": "Mots clés"
+        }
+      }
+    },
+    "post": {
+      "name": "Article (sans couverture)",
+      "description": "Page de détail sans image de couverture",
+      "settings": {
+        "title": {
+          "label": "Titre"
+        },
+        "description": {
+          "label": "Résumé"
+        },
+        "content": {
+          "label": "Contenu"
+        },
+        "thumbnail": {
+          "label": "Image de couverture"
+        },
+        "tags": {
+          "label": "Mots clés"
+        }
+      }
+    },
+    "product": {
+      "name": "Détail produit / projet",
+      "description": "Page de détail produit, projet ou étude de cas",
+      "settings": {
+        "title": {
+          "label": "Titre"
+        },
+        "description": {
+          "label": "Résumé"
+        },
+        "content": {
+          "label": "Contenu"
+        },
+        "thumb_image_url": {
+          "label": "Vignette"
+        },
+        "hero_image_url": {
+          "label": "Image hero de détail"
+        },
+        "tags": {
+          "label": "Mots clés"
+        },
+        "external_url": {
+          "label": "Lien externe (En savoir plus)",
+          "info": "Si renseigné, l'action principale ouvre cette URL ; les champs ci-dessous complètent le contenu."
+        }
+      }
+    },
+    "products": {
+      "name": "Canal catégories produits",
+      "description": "Liste des catégories produits ou projets",
+      "settings": {
+        "title": {
+          "label": "Titre"
+        },
+        "description": {
+          "label": "Résumé"
+        }
+      }
+    },
+    "video": {
+      "name": "Détail vidéo",
+      "description": "Modèle de page vidéo unique",
+      "settings": {
+        "title": {
+          "label": "Titre"
+        },
+        "youtube_id": {
+          "label": "ID vidéo YouTube",
+          "info": "YouTube → Partager → Intégrer, copier l'ID (ex. 6c3RXM7lK20) depuis https://www.youtube.com/embed/6c3RXM7lK20"
+        },
+        "video_url": {
+          "label": "Vidéo",
+          "info": "Choisir une vidéo dans la bibliothèque. La vidéo locale est prioritaire sur YouTube."
+        },
+        "description": {
+          "label": "Résumé"
+        },
+        "content": {
+          "label": "Contenu"
+        },
+        "tags": {
+          "label": "Mots clés"
+        }
+      }
+    },
+    "videos": {
+      "name": "Canal vidéos",
+      "description": "Canal liste de vidéos",
+      "settings": {
+        "title": {
+          "label": "Titre"
+        },
+        "description": {
+          "label": "Résumé"
+        },
+        "video_type": {
+          "label": "Format vidéo",
+          "info": "Les couvertures des sous-pages doivent correspondre à ce ratio.",
+          "choices": {
+            "desktop": "Vidéo large bureau (16:9)",
+            "mobile": "Vidéo portrait mobile (9:16)"
+          }
+        }
+      }
+    }
   }
 }

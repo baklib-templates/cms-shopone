@@ -1,6 +1,6 @@
-# Shopone CMS Template
+# Shop CMS Template
 
-Shopone theme template is a professional template for building product help centers, product manuals, operating instructions, video tutorials and FAQs.
+Shop theme template is a professional template for building product help centers, product manuals, operating instructions, video tutorials and FAQs.
 
 template deployed by Baklib CMS.
 

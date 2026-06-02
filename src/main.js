@@ -5,7 +5,6 @@ import { Application } from "@hotwired/stimulus"
 import MenuController from "./menu_controller"
 import ViewImagesController from "./view_images_controller"
 import NavtreeController from "./navtree_controller"
-import ThemeController from "./theme_controller"
 import SwiperController from "./swiper_controller"
 import Dropdown from 'stimulus-dropdown'
 import AOS from 'aos'
@@ -19,7 +18,6 @@ window.Stimulus = application
 application.register('menu', MenuController)
 application.register('view_images', ViewImagesController)
 application.register('navtree', NavtreeController)
-application.register('theme', ThemeController)
 application.register('dropdown', Dropdown)
 application.register('swiper', SwiperController)
 

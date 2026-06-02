@@ -1,0 +1,248 @@
+{
+  "settings_schema": {
+    "generic": {
+      "name": "Basic Setting",
+      "help_center_index_description": "Ideal for feature-rich product user manuals",
+      "list_index_description": "list dictionary style",
+      "header_name": "Header and footer menu",
+      "head_title": "Head HTML Settings",
+      "settings": {
+        "hero_image_url": {
+          "label": "Hero Banner",
+          "info": "For the help center index theme, size of 1900*600px is recommended."
+        },
+        "title": {
+          "label": "site title"
+        },
+        "description": {
+          "label": "site description"
+        },
+        "hot_tags": {
+            "label": "Hot search keywords (please separate them with English comma: ,)"
+        },
+        "company_name": {
+          "label": "Company Name",
+          "default": "Tanmer Inc."
+        },
+        "copyright_info": {
+          "label": "Copyright Info",
+          "default": "All copyright served"
+        },
+        "header_menu_html": {
+          "label": "Header navigation menu",
+          "info": "Supports HTML、Javascript and TailwindCss code"
+        },
+        "features_one": {
+          "label": "HTML Section 1(features_one)",
+          "info": "Supports HTML、Javascript and TailwindCss code"
+        },
+        "features_two": {
+          "label": "HTML Section 2(features_two)",
+          "info": "Supports HTML、Javascript and TailwindCss code"
+        },
+        "footer_menu_html": {
+          "label": "Footer navigation menu",
+          "info": "Supports HTML、Javascript and TailwindCss code"
+        },
+        "head_html": {
+          "label": "Head HTML Code",
+          "info": "This part of the content will be embedded in the <head> tag of the site. Please use standard HTML format.",
+          "placeholder": "<meta name='author' content='Baklib' />"
+        }
+      }
+    },
+    "page": {
+      "name": "Page",
+      "description": "Document content page",
+      "settings": {
+        "description":{
+          "label": "Description"
+        },
+        "content":{
+          "label": "Content",
+          "info": "Synchronized from data source, cannot be edited"
+        },
+        "icon": {
+          "label": "ICON",
+          "info": "1:1 ratio is recommended"
+        },
+        "tags":{
+          "label": "Tags"
+        }
+      }
+    }
+  },
+  "templates": {
+    "index": {
+      "name": "Home",
+      "description": "Homepage template",
+      "settings": {
+        "tags": {
+          "label": "Tags"
+        },
+        "description": {
+          "label": "Short description",
+          "default": "Welcome to Service and Support"
+        },
+        "hero_image_url": {
+          "label": "Hero image"
+        },
+        "text_color": {
+          "label": "Hero text color"
+        }
+      }
+    },
+    "downloads": {
+      "name": "Channel — downloads list",
+      "description": "Downloads and resource list channel",
+      "settings": {
+        "title": {
+          "label": "Title"
+        },
+        "description": {
+          "label": "Summary"
+        }
+      }
+    },
+    "faqs": {
+      "name": "Channel — FAQs list",
+      "description": "FAQ accordion list channel",
+      "settings": {
+        "title": {
+          "label": "Title"
+        },
+        "description": {
+          "label": "Summary"
+        }
+      }
+    },
+    "page": {
+      "name": "Article detail (with cover)",
+      "description": "Page detail template with cover image",
+      "settings": {
+        "title": {
+          "label": "Title"
+        },
+        "description": {
+          "label": "Summary"
+        },
+        "content": {
+          "label": "Content"
+        },
+        "thumb_image_url": {
+          "label": "Cover image"
+        },
+        "tags": {
+          "label": "Tags"
+        }
+      }
+    },
+    "post": {
+      "name": "Article detail (no cover)",
+      "description": "Page detail template without cover image",
+      "settings": {
+        "title": {
+          "label": "Title"
+        },
+        "description": {
+          "label": "Summary"
+        },
+        "content": {
+          "label": "Content"
+        },
+        "thumbnail": {
+          "label": "Cover image"
+        },
+        "tags": {
+          "label": "Tags"
+        }
+      }
+    },
+    "product": {
+      "name": "Product / project detail",
+      "description": "Product, project, or case study detail page",
+      "settings": {
+        "title": {
+          "label": "Title"
+        },
+        "description": {
+          "label": "Summary"
+        },
+        "content": {
+          "label": "Content"
+        },
+        "thumb_image_url": {
+          "label": "Thumbnail"
+        },
+        "hero_image_url": {
+          "label": "Detail hero image"
+        },
+        "tags": {
+          "label": "Tags"
+        },
+        "external_url": {
+          "label": "External link (Learn more)",
+          "info": "When set, the primary action opens this URL; use the fields below for on-page content."
+        }
+      }
+    },
+    "products": {
+      "name": "Product category channel",
+      "description": "Product or project category listing",
+      "settings": {
+        "title": {
+          "label": "Title"
+        },
+        "description": {
+          "label": "Summary"
+        }
+      }
+    },
+    "video": {
+      "name": "Video detail",
+      "description": "Single video page template",
+      "settings": {
+        "title": {
+          "label": "Title"
+        },
+        "youtube_id": {
+          "label": "YouTube video ID",
+          "info": "From YouTube Share → Embed, copy the ID (e.g. 6c3RXM7lK20) from https://www.youtube.com/embed/6c3RXM7lK20"
+        },
+        "video_url": {
+          "label": "Video",
+          "info": "Pick a video from the library. Local video takes priority over YouTube when both are set."
+        },
+        "description": {
+          "label": "Summary"
+        },
+        "content": {
+          "label": "Content"
+        },
+        "tags": {
+          "label": "Tags"
+        }
+      }
+    },
+    "videos": {
+      "name": "Video channel",
+      "description": "Video list channel",
+      "settings": {
+        "title": {
+          "label": "Title"
+        },
+        "description": {
+          "label": "Summary"
+        },
+        "video_type": {
+          "label": "Video aspect",
+          "info": "Child video pages should use cover images matching this aspect ratio.",
+          "choices": {
+            "desktop": "Desktop widescreen (16:9)",
+            "mobile": "Mobile portrait (9:16)"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{%- comment -%}
+  Runtime color mapping: platform --theme-color-* → daisyUI --color-*.
+  Render inside <head> before application.css.
+{%- endcomment -%}
+<style>
+  :root {
+    --color-base-100: hsl(var(--theme-color-base-100));
+    --color-base-200: hsl(var(--theme-color-base-200));
+    --color-base-300: hsl(var(--theme-color-base-300));
+    --color-base-content: hsl(var(--theme-color-base-content));
+    --color-primary: hsl(var(--theme-color-primary));
+    --color-primary-content: hsl(var(--theme-color-primary-content));
+    --color-secondary: hsl(var(--theme-color-secondary));
+    --color-secondary-content: hsl(var(--theme-color-secondary-content));
+    --color-accent: hsl(var(--theme-color-accent));
+    --color-accent-content: hsl(var(--theme-color-accent-content));
+    --color-neutral: hsl(var(--theme-color-neutral));
+    --color-neutral-content: hsl(var(--theme-color-neutral-content));
+    --color-info: hsl(var(--theme-color-info));
+    --color-info-content: hsl(var(--theme-color-info-content));
+    --color-success: hsl(var(--theme-color-success));
+    --color-success-content: hsl(var(--theme-color-success-content));
+    --color-warning: hsl(var(--theme-color-warning));
+    --color-warning-content: hsl(var(--theme-color-warning-content));
+    --color-error: hsl(var(--theme-color-error));
+    --color-error-content: hsl(var(--theme-color-error-content));
+    --header-height: 68px;
+  }
+</style>
+

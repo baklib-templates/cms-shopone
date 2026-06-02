@@ -1,0 +1,43 @@
+{
+  "copy": {
+    "en": {
+      "title": "Shop",
+      "subtitle": "A modern storefront + product help center theme for manuals, videos, FAQs, and downloads.",
+      "keywords": ["Storefront", "Product manuals", "Video tutorials", "FAQs", "Downloads"]
+    },
+    "zh-CN": {
+      "title": "商店",
+      "subtitle": "用于产品帮助中心与在线商店的现代主题，支持产品手册、视频教程、FAQ 与下载资源的集中展示。",
+      "keywords": ["电商", "产品手册", "视频教程", "FAQ", "下载"]
+    },
+    "de": {
+      "title": "Shop",
+      "subtitle": "Ein modernes Storefront- und Help-Center-Theme für Produkthandbücher, Video-Tutorials, FAQs und Downloads.",
+      "keywords": ["Onlineshop", "Produkthandbuch", "Video-Tutorials", "FAQ", "Downloads"]
+    },
+    "fr": {
+      "title": "Boutique",
+      "subtitle": "Un thème moderne de vitrine et centre d’aide pour manuels produit, tutoriels vidéo, FAQ et téléchargements.",
+      "keywords": ["Boutique", "Manuels produit", "Tutoriels vidéo", "FAQ", "Téléchargements"]
+    }
+  },
+  "keywords": {
+    "en": ["Storefront", "Product manuals", "Video tutorials", "FAQs", "Downloads"],
+    "zh-CN": ["电商", "产品手册", "视频教程", "FAQ", "下载"],
+    "de": ["Onlineshop", "Produkthandbuch", "Video-Tutorials", "FAQ", "Downloads"],
+    "fr": ["Boutique", "Manuels produit", "Tutoriels vidéo", "FAQ", "Téléchargements"]
+  },
+  "cover": {
+    "gradient_left": [[242, 252, 249], [224, 242, 235]],
+    "gradient_right": [[255, 248, 242], [248, 232, 220]],
+    "blob_palette": [
+      [13, 148, 136],
+      [20, 184, 166],
+      [45, 212, 191],
+      [234, 88, 12],
+      [251, 146, 60],
+      [253, 186, 116]
+    ],
+    "liquid_glass": { "blobs": 6, "blob_alpha": 30, "blob_blur": 120, "grain_amount": 0.025 }
+  }
+}

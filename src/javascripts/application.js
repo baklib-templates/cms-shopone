@@ -1,0 +1,62 @@
+import * as Turbo from "@hotwired/turbo"
+import Alpine from "alpinejs"
+import collapse from "@alpinejs/collapse"
+import { Application } from "@hotwired/stimulus"
+import { createIcons, icons } from "lucide"
+
+import MenuController from "../menu_controller"
+import ViewImagesController from "../view_images_controller"
+import NavtreeController from "../navtree_controller"
+import SwiperController from "../swiper_controller"
+import AiSearchCompletionController from "../ai_search_completion_controller"
+import Dropdown from "stimulus-dropdown"
+import AOS from "aos"
+
+window.Alpine = Alpine
+Alpine.plugin(collapse)
+Alpine.start()
+
+const application = Application.start()
+window.Stimulus = application
+application.register("menu", MenuController)
+application.register("view_images", ViewImagesController)
+application.register("navtree", NavtreeController)
+application.register("dropdown", Dropdown)
+application.register("swiper", SwiperController)
+application.register("ai-search-completion", AiSearchCompletionController)
+
+Turbo.start()
+
+const initLucideIcons = () => {
+  createIcons({ icons })
+}
+
+document.addEventListener("turbo:load", initLucideIcons)
+document.addEventListener("turbo:frame-load", initLucideIcons)
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initLucideIcons)
+} else {
+  initLucideIcons()
+}
+
+const AOS_options = { duration: 1200, disableMutationObserver: true }
+
+document.addEventListener("DOMContentLoaded", () => {
+  AOS.init(AOS_options)
+  const body = document.querySelector("body")
+  if (!body) return
+  AOS_options.easing = body.getAttribute("data-aos-easing")
+  AOS_options.duration = body.getAttribute("data-aos-duration")
+  AOS_options.delay = body.getAttribute("data-aos-delay")
+})
+
+document.addEventListener("turbo:load", () => {
+  const body = document.querySelector("body")
+  if (!body) return
+  body.setAttribute("data-aos-easing", AOS_options.easing)
+  body.setAttribute("data-aos-duration", AOS_options.duration)
+  body.setAttribute("data-aos-delay", AOS_options.delay)
+  AOS.refreshHard()
+})
+

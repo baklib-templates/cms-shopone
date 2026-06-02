@@ -3,11 +3,15 @@
   {%  assign first_page =  item %}
 {% endfor %}
 
+{% assign default_thumb_image = 'images/demo/product-demo.jpg' | asset_url %}
+{% assign default_hero_image = 'images/demo/hero.jpg' | asset_url %}
+{% assign thumb_image = page.settings.thumb_image_url | default: default_thumb_image %}
+
 <!-- Header -->
 <section class="relative max-w-6xl mx-auto px-4">
     <!-- Article hero thumb -->
     <header class="py-0">
-      <img src="{{ page.settings.hero_image_url | default: page.settings.thumb_image_url }}" alt="{{ page.settings.title }}" class="w-full object-cover">
+      <img src="{{ page.settings.hero_image_url | default: thumb_image | default: default_hero_image }}" alt="{{ page.settings.title }}" class="w-full object-cover">
     </header>
 
     <!-- Article header -->
@@ -17,13 +21,13 @@
       </div>
       <div class="flex justify-between">
         <div class="">
-          <h1 class="text-3xl md:text-5xl font-bold text-gray-900">{{ page.settings.title }}</h1>
-          <p class="mt-2 text-sm text-gray-500">{{ page.settings.description }}</p>
+          <h1 class="text-3xl md:text-5xl font-bold base-content">{{ page.settings.title }}</h1>
+          <p class="mt-2 text-sm base-content/80">{{ page.settings.description }}</p>
         </div>
         <div class="">
           {% if page.settings.external_url %}
             <div class="flex items-center justify-end">
-              <a href="{{ page.settings.external_url | default: '#' }}" target="_blank" rel="noopener noreferrer" class="text-white bg-secondary hover:bg-primary focus:outline-none focus:ring-4 focus:ring-primary-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Shop Now</a>
+              <a href="{{ page.settings.external_url | default: '#' }}" target="_blank" rel="noopener noreferrer" class="text-white bg-secondary hover:bg-primary focus:outline-none focus:ring-4 focus:ring-primary-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">Shop Now</a>
             </div>
           {% endif %}
         </div>
@@ -38,10 +42,10 @@
 
 <section x-data="{ activeTab: '{{ first_page.id }}' }" class="relative max-w-6xl mx-auto px-4 my-4 md:my-8">
     <!-- Article Navigation -->
-    <div class="bg-gray-100 rounded-md px-4 py-0 my-4">
+    <div class="bg-primary text-primary-content rounded-md px-4 py-0 my-4">
       <div class="max-w-3xl mx-auto">
         <nav class="flex justify-between w-full overflow-x-auto" aria-label="Tabs">
-          <!-- Current: "bg-gray-200 text-gray-800", Default: "text-gray-600 hover:text-gray-800" -->
+          <!-- Current: "bg-gray-200 base-content", Default: "text-gray-600 hover:base-content" -->
           {% for item in pages %}
             <a href="#" data-product="{{ item.id }}" @click.prevent="activeTab = '{{ item.id }}'" :class="{ 'bg-gray-800 text-white': activeTab === '{{ item.id }}' }"  class="rounded-md px-3 py-2 text-sm md:text-lg font-semibold max-w-24 md:max-w-64" aria-current="page">
               {{ item.link_text}}
@@ -57,7 +61,7 @@
         <div class="flex flex-row items-start">
           {% if false %}
             <div class="flex-none w-64">
-              <ul class="space-y-3">  
+              <ul class="space-y-3">
                 {% for sub_item in item.children_in_list %}
                   <li>
                     <a hef="#" data-product="{{ sub_item.id }}" @click.prevent="activeTab2 = '{{ sub_item.id }}'" :class="{ 'bg-gray-800 text-white': activeTab2 === '{{ sub_item.id }}' }" class="relative rounded-md bg-gray-800 border border-gray-800 text-white px-3 py-2 text-md w-52 font-semibold" aria-current="page">
@@ -66,12 +70,12 @@
                         </svg>
                         <span>{{ sub_item.link_text }}</span>
                     </a>
-                  </li> 
+                  </li>
                 {% endfor %}
               </ul>
             </div>
           {% endif %}
-          
+
           <article x-show="activeTab2 === '{{ item.id }}'" class="flex-1">
             {% render 'content', page: item %}
           </article>
@@ -96,53 +100,53 @@
 <!--/ article-->
 {% schema %}
   {
-    "name": "详情页-产品/项目页面",
-    "description": "产品/项目/案例详情页面模板",
-    "thumb_url": "images/theme/product.webp",
-    "sub_page_templates": ["faqs","videos","news"],
+    "name": "t:schema.templates.product.name",
+    "description": "t:schema.templates.product.description",
+    "thumb_url": "images/theme/${lang}/product.webp",
+    "sub_page_templates": ["faqs","videos","downloads"],
     "settings": [
       {
         "id": "title",
         "type": "text",
-        "label": "标题"
+        "label": "t:schema.templates.product.settings.title.label"
       },
       {
         "id": "description",
         "type": "textarea",
-        "label": "摘要"
+        "label": "t:schema.templates.product.settings.description.label"
       },
       {
         "id": "content",
         "type": "richtext",
-        "label": "内容"
+        "label": "t:schema.templates.product.settings.content.label"
       },
       {
         "id": "thumb_image_url",
         "type": "image_picker",
         "ratio": "4:3",
         "width": 300,
-        "label": "封面图"
+        "label": "t:schema.templates.product.settings.thumb_image_url.label"
       },
       {
         "id": "hero_image_url",
         "type": "image_picker",
         "ratio": "6:2",
         "width": 400,
-        "label": "详情页封面图"
+        "label": "t:schema.templates.product.settings.hero_image_url.label"
       },
       {
         "id": "tags",
         "type": "tag_picker",
         "multiple": true,
-        "label": "标签"
+        "label": "t:schema.templates.product.settings.tags.label"
       },
       {
           "id": "external_url",
           "type": "text",
           "placeholder": "https://",
           "default": "#",
-          "label": "外部链接(Learn More)",
-          "info": "如果添加了外链，点击会跳转到该链接，以下的内容就可以补充"
+          "label": "t:schema.templates.product.settings.external_url.label",
+          "info": "t:schema.templates.product.settings.external_url.info"
       }
     ]
   }

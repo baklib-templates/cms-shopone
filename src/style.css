@@ -4,19 +4,19 @@ h1{
 }
 
 .h1 {
-    @apply text-5xl font-semibold text-slate-800 dark:text-white;
+    @apply text-5xl font-semibold text-slate-800
 }
 
 .h2 {
-    @apply text-4xl font-semibold text-slate-800 dark:text-white;
+    @apply text-4xl font-semibold text-slate-800
 }
 
 .h3 {
-    @apply text-3xl font-semibold text-slate-800 dark:text-white;
+    @apply text-3xl font-semibold text-slate-800
 }
 
 .h4 {
-    @apply text-2xl font-semibold text-slate-800 dark:text-white;
+    @apply text-2xl font-semibold text-slate-800
 }
 
 @screen md {
@@ -111,15 +111,6 @@ input[type="search"]::-webkit-search-results-decoration {
 .no-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-}
-
-/* Light switch */
-.form-switch input[type="checkbox"].light-switch + label {
-  @apply bg-teal-500;
-}
-
-.dark .form-switch input[type="checkbox"].light-switch + label > span:first-child {
-  left: 22px;
 }
 
 /* Switch element */

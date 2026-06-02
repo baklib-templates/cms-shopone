@@ -1,12 +1,12 @@
-{% if open == 'open' %} 
+{% if open == 'open' %}
     <div class="ProseMirror border max-w-full overflow-x-auto text-gray-600 mt-2 p-2 md:p-4">
         {{ item.settings.content }}
     </div>
 {% else %}
     <details class="py-2">
-        <summary class="text-gray-900 cursor-pointer hover:bg-primary-50 hover:text-primary font-semibold px-2 py-1 rounded-md">
+        <summary class="base-content cursor-pointer hover:bg-primary-50 hover:text-primary font-semibold px-2 py-1 rounded-md">
             {{ item.settings.title }}
-        </summary> 
+        </summary>
         <div class="ProseMirror border max-w-full overflow-x-auto text-gray-600 mt-2 p-2 md:p-4">
             {{ item.settings.content }}
         </div>

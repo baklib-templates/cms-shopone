@@ -71,5 +71,178 @@
         }
       }
     }
+  },
+  "templates": {
+    "index": {
+      "name": "Startseite",
+      "description": "Startseiten-Vorlage",
+      "settings": {
+        "tags": {
+          "label": "Stichworte"
+        },
+        "description": {
+          "label": "Kurzbeschreibung",
+          "default": "Welcome to Service and Support"
+        },
+        "hero_image_url": {
+          "label": "Hero-Bild"
+        },
+        "text_color": {
+          "label": "Hero-Textfarbe"
+        }
+      }
+    },
+    "downloads": {
+      "name": "Kanal — Download-Liste",
+      "description": "Kanal für Downloads und Ressourcen",
+      "settings": {
+        "title": {
+          "label": "Titel"
+        },
+        "description": {
+          "label": "Zusammenfassung"
+        }
+      }
+    },
+    "faqs": {
+      "name": "Kanal — FAQ-Liste",
+      "description": "FAQ-Kanal mit Aufklapp-Liste",
+      "settings": {
+        "title": {
+          "label": "Titel"
+        },
+        "description": {
+          "label": "Zusammenfassung"
+        }
+      }
+    },
+    "page": {
+      "name": "Artikeldetail (mit Cover)",
+      "description": "Seitendetail mit Titelbild",
+      "settings": {
+        "title": {
+          "label": "Titel"
+        },
+        "description": {
+          "label": "Zusammenfassung"
+        },
+        "content": {
+          "label": "Inhalt"
+        },
+        "thumb_image_url": {
+          "label": "Titelbild"
+        },
+        "tags": {
+          "label": "Stichworte"
+        }
+      }
+    },
+    "post": {
+      "name": "Artikeldetail (ohne Cover)",
+      "description": "Seitendetail ohne Titelbild",
+      "settings": {
+        "title": {
+          "label": "Titel"
+        },
+        "description": {
+          "label": "Zusammenfassung"
+        },
+        "content": {
+          "label": "Inhalt"
+        },
+        "thumbnail": {
+          "label": "Titelbild"
+        },
+        "tags": {
+          "label": "Stichworte"
+        }
+      }
+    },
+    "product": {
+      "name": "Produkt-/Projektdetail",
+      "description": "Detailseite für Produkt, Projekt oder Fallstudie",
+      "settings": {
+        "title": {
+          "label": "Titel"
+        },
+        "description": {
+          "label": "Zusammenfassung"
+        },
+        "content": {
+          "label": "Inhalt"
+        },
+        "thumb_image_url": {
+          "label": "Vorschaubild"
+        },
+        "hero_image_url": {
+          "label": "Detail-Hero-Bild"
+        },
+        "tags": {
+          "label": "Stichworte"
+        },
+        "external_url": {
+          "label": "Externer Link (Mehr erfahren)",
+          "info": "Wenn gesetzt, öffnet die Hauptaktion diese URL; die Felder unten ergänzen den Seiteninhalt."
+        }
+      }
+    },
+    "products": {
+      "name": "Produktkategorie-Kanal",
+      "description": "Listenkanal für Produkt- oder Projektkategorien",
+      "settings": {
+        "title": {
+          "label": "Titel"
+        },
+        "description": {
+          "label": "Zusammenfassung"
+        }
+      }
+    },
+    "video": {
+      "name": "Video-Detail",
+      "description": "Einzelvideo-Seitenvorlage",
+      "settings": {
+        "title": {
+          "label": "Titel"
+        },
+        "youtube_id": {
+          "label": "YouTube-Video-ID",
+          "info": "YouTube → Teilen → Einbetten, ID kopieren (z. B. 6c3RXM7lK20) aus https://www.youtube.com/embed/6c3RXM7lK20"
+        },
+        "video_url": {
+          "label": "Video",
+          "info": "Video aus der Mediathek wählen. Lokales Video hat Vorrang vor YouTube."
+        },
+        "description": {
+          "label": "Zusammenfassung"
+        },
+        "content": {
+          "label": "Inhalt"
+        },
+        "tags": {
+          "label": "Stichworte"
+        }
+      }
+    },
+    "videos": {
+      "name": "Video-Kanal",
+      "description": "Video-Listenkanal",
+      "settings": {
+        "title": {
+          "label": "Titel"
+        },
+        "description": {
+          "label": "Zusammenfassung"
+        },
+        "video_type": {
+          "label": "Videoformat",
+          "info": "Cover-Bilder auf Unterseiten sollten diesem Seitenverhältnis entsprechen.",
+          "choices": {
+            "desktop": "Desktop-Breitbild (16:9)",
+            "mobile": "Mobil-Hochformat (9:16)"
+          }
+        }
+      }
+    }
   }
 }
