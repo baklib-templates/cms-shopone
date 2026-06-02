@@ -2,9 +2,10 @@
   {
     "name": "theme_info",
     "theme_name": "shop",
-    "theme_label": "t:theme_label",
-    "theme_description": "t:theme_description",
+    "theme_label": "t:schema.theme_label",
+    "theme_description": "t:schema.theme_description",
     "theme_version": "2.0.0",
+    "theme_syntax_version": "v2",
     "theme_scope": "cms",
     "theme_author": "Baklib",
     "theme_documentation_url": "https://github.com/baklib-templates/shop",
@@ -39,7 +40,7 @@
     "recommendations": {
       "color_schemas": {
         "baklib_default": {
-          "name": "Baklib Teal",
+          "name": "t:schema.settings_schema.recommendations.color_schemas.baklib_default.name",
           "colors": {
             "--theme-color-base-100": "#001e29",
             "--theme-color-base-200": "#00111d",
@@ -64,7 +65,7 @@
           }
         },
         "fashion": {
-          "name": "时尚",
+          "name": "t:schema.settings_schema.recommendations.color_schemas.fashion.name",
           "colors": {
             "--theme-color-base-100": "#ffffff",
             "--theme-color-base-200": "#f8fafc",
@@ -89,7 +90,7 @@
           }
         },
         "old_school": {
-          "name": "复古",
+          "name": "t:schema.settings_schema.recommendations.color_schemas.old_school.name",
           "colors": {
             "--theme-color-base-100": "#fffbf7",
             "--theme-color-base-200": "#fff7ed",
@@ -114,7 +115,7 @@
           }
         },
         "shop_minimal": {
-          "name": "Shop Minimal",
+          "name": "t:schema.settings_schema.recommendations.color_schemas.shop_minimal.name",
           "colors": {
             "--theme-color-base-100": "#ffffff",
             "--theme-color-base-200": "#f5f5f5",
@@ -139,7 +140,7 @@
           }
         },
         "ocean_trust": {
-          "name": "Ocean Trust",
+          "name": "t:schema.settings_schema.recommendations.color_schemas.ocean_trust.name",
           "colors": {
             "--theme-color-base-100": "#ffffff",
             "--theme-color-base-200": "#f1f5f9",
@@ -164,7 +165,7 @@
           }
         },
         "cross_border_store": {
-          "name": "Cross-border Store",
+          "name": "t:schema.settings_schema.recommendations.color_schemas.cross_border_store.name",
           "colors": {
             "--theme-color-base-100": "#fafaf9",
             "--theme-color-base-200": "#f5f5f4",
@@ -191,26 +192,26 @@
       },
       "initial_pages": {
         "default": {
-          "name": "Shop one",
+          "name": "t:schema.settings_schema.recommendations.initial_pages.default.name",
           "default": true,
           "pages": [
             {
-              "name": "Products",
+              "name": "t:schema.settings_schema.recommendations.initial_pages.default.pages.products",
               "slug": "products",
               "template": "products"
             },
             {
-              "name": "Downloads",
+              "name": "t:schema.settings_schema.recommendations.initial_pages.default.pages.downloads",
               "slug": "downloads",
               "template": "downloads"
             },
             {
-              "name": "Videos",
+              "name": "t:schema.settings_schema.recommendations.initial_pages.default.pages.videos",
               "slug": "videos",
               "template": "videos"
             },
             {
-              "name": "FAQs",
+              "name": "t:schema.settings_schema.recommendations.initial_pages.default.pages.faqs",
               "slug": "faqs",
               "template": "faqs"
             }
@@ -220,257 +221,265 @@
     }
   },
   {
-    "name": "主题默认值设置",
+    "name": "t:schema.settings_schema.theme_defaults.name",
     "settings": [
       {
         "id": "logo_url",
         "type": "image_picker",
         "ratio": "6:2",
         "width": 200,
-        "label": "站点Logo",
-        "info": "放在站点顶部导航栏位置"
+        "label": "t:schema.settings_schema.theme_defaults.settings.logo_url.label",
+        "info": "t:schema.settings_schema.theme_defaults.settings.logo_url.info"
+      },
+      {
+        "id": "avatar_url",
+        "type": "image_picker",
+        "ratio": "1:1",
+        "width": 100,
+        "label": "t:schema.settings_schema.theme_defaults.settings.avatar_url.label",
+        "info": "t:schema.settings_schema.theme_defaults.settings.avatar_url.info"
       },
       {
         "id": "request_form_url",
         "type": "text",
-        "label": "Request Form URL",
-        "info": "HTTPS URL only. When set, article pages show a Submit a request link below feedback."
+        "label": "t:schema.settings_schema.theme_defaults.settings.request_form_url.label",
+        "info": "t:schema.settings_schema.theme_defaults.settings.request_form_url.info"
       },
       {
         "id": "robot_name",
         "type": "text",
-        "label": "AI Assistant name",
+        "label": "t:schema.settings_schema.theme_defaults.settings.robot_name.label",
         "default": "AI Assistant",
-        "info": "Shown in the AI Search panel header."
+        "info": "t:schema.settings_schema.theme_defaults.settings.robot_name.info"
       },
       {
         "id": "ai_search_completed_text",
         "type": "text",
-        "label": "AI completed text",
+        "label": "t:schema.settings_schema.theme_defaults.settings.ai_search_completed_text.label",
         "default": "Done.",
-        "info": "Displayed after AI Search returns an answer."
+        "info": "t:schema.settings_schema.theme_defaults.settings.ai_search_completed_text.info"
       }
     ]
   },
   {
-    "name": "首页FAQs版块(FAQs)",
+    "name": "t:schema.settings_schema.home_faqs.name",
     "settings": [
       {
         "id": "section_faqs_on",
         "type": "checkbox",
-        "label": "是否显示FAQs版块",
-        "info": "如果选中，则在首页显示FAQs版块；否则不显示",
+        "label": "t:schema.settings_schema.home_faqs.settings.section_faqs_on.label",
+        "info": "t:schema.settings_schema.home_faqs.settings.section_faqs_on.info",
         "default": true
       },
       {
         "id": "section_faqs_title",
         "type": "text",
-        "label": "版块名称",
+        "label": "t:schema.settings_schema.home_faqs.settings.section_faqs_title.label",
         "default": "Browse by FAQs"
       },
       {
         "id": "section_faqs_menu",
         "type": "textarea",
-        "label": "FAQs导航设置",
+        "label": "t:schema.settings_schema.home_faqs.settings.section_faqs_menu.label",
         "rows": 10,
-        "info": "格式：name[slug[description，每行一个分栏。",
+        "info": "t:schema.settings_schema.home_faqs.settings.section_faqs_menu.info",
         "default": "Downloads[/downloads{Catalog1[/|Catalog2[/\nVideos[/videos{Catalog1[/|Catalog2[/\nProducts[/products{Catalog1[/|Catalog2[/\nFAQs[/faqs{Catalog1[/|Catalog2[/\nSitemap[/s/sitemap{Catalog1[/|Catalog2[/\n"
       }
     ]
   },
   {
-    "name": "首页产品版块(Products)",
+    "name": "t:schema.settings_schema.home_products.name",
     "settings": [
       {
         "id": "section_products_on",
         "type": "checkbox",
-        "label": "是否显示Products版块",
-        "info": "如果选中，则在首页显示Products版块；否则不显示",
+        "label": "t:schema.settings_schema.home_products.settings.section_products_on.label",
+        "info": "t:schema.settings_schema.home_products.settings.section_products_on.info",
         "default": true
       },
       {
         "id": "section_product_type",
         "type": "checkbox",
-        "label": "产品列表按分类显示",
-        "info": "如果选中，则在首页产品列表按分类显示；否则显示所有",
+        "label": "t:schema.settings_schema.home_products.settings.section_product_type.label",
+        "info": "t:schema.settings_schema.home_products.settings.section_product_type.info",
         "default": false
       },
       {
         "id": "section_product_title",
         "type": "text",
-        "label": "版块名称",
+        "label": "t:schema.settings_schema.home_products.settings.section_product_title.label",
         "default": "Browse by Product"
       },
       {
         "id": "product_categories",
         "type": "text",
-        "label": "产品大分类设置",
-        "info": "格式：电子产品|医疗器械|工业设备|厨房电器；同时在[标签管理]中添加对应的标签。",
+        "label": "t:schema.settings_schema.home_products.settings.product_categories.label",
+        "info": "t:schema.settings_schema.home_products.settings.product_categories.info",
         "default": "Eyes|Lips|Face & Body|Sets & Kits|Pencils|Brushes|Accessories & Tools"
       }
     ]
   },
   {
-    "name": "首页话题版块(Topics)",
+    "name": "t:schema.settings_schema.home_topics.name",
     "settings": [
       {
         "id": "section_topics_on",
         "type": "checkbox",
-        "label": "是否显示Topics版块",
-        "info": "如果选中，则在首页显示Topics版块；否则不显示",
+        "label": "t:schema.settings_schema.home_topics.settings.section_topics_on.label",
+        "info": "t:schema.settings_schema.home_topics.settings.section_topics_on.info",
         "default": true
       },
       {
         "id": "section_topic_title",
         "type": "text",
-        "label": "版块名称",
+        "label": "t:schema.settings_schema.home_topics.settings.section_topic_title.label",
         "default": "Browse by Topic"
       },
       {
         "id": "topics_menu",
         "type": "textarea",
-        "label": "首页话题导航设置",
+        "label": "t:schema.settings_schema.home_topics.settings.topics_menu.label",
         "rows": 10,
-        "info": "格式：name[slug[description，每行一个分栏。",
+        "info": "t:schema.settings_schema.home_topics.settings.topics_menu.info",
         "default": "FAQs[/faqs[some Q&A for all products\nVideos[/videos[the how-to video manuals\nDownloads[/downloads[product downloads and updates"
       }
     ]
   },
   {
-    "name": "首页下载版块(Downloads)",
+    "name": "t:schema.settings_schema.home_downloads.name",
     "settings": [
       {
         "id": "section_downloads_on",
         "type": "checkbox",
-        "label": "是否显示Downloads版块",
-        "info": "如果选中，则在首页显示Downloads版块；否则不显示",
+        "label": "t:schema.settings_schema.home_downloads.settings.section_downloads_on.label",
+        "info": "t:schema.settings_schema.home_downloads.settings.section_downloads_on.info",
         "default": true
       },
       {
         "id": "section_downloads_title",
         "type": "text",
-        "label": "版块名称",
+        "label": "t:schema.settings_schema.home_downloads.settings.section_downloads_title.label",
         "default": "Browse by Downloads"
       },
       {
         "id": "section_downloads_description",
         "type": "text",
-        "label": "Section description",
+        "label": "t:schema.settings_schema.home_downloads.settings.section_downloads_description.label",
         "default": "Latest product launches, partnerships, and channel updates."
       },
       {
         "id": "section_downloads_slug",
         "type": "text",
-        "label": "Downloads channel path",
+        "label": "t:schema.settings_schema.home_downloads.settings.section_downloads_slug.label",
         "default": "/downloads",
-        "info": "Path of the channel whose list-visible child pages appear as homepage download cards (e.g. /downloads)."
+        "info": "t:schema.settings_schema.home_downloads.settings.section_downloads_slug.info"
       }
     ]
   },
   {
-    "name": "首页联系版块(Contact US)",
+    "name": "t:schema.settings_schema.home_contact.name",
     "settings": [
       {
         "id": "section_contact_on",
         "type": "checkbox",
-        "label": "是否显示Contact版块",
-        "info": "如果选中，则在首页显示Contact版块；否则不显示",
+        "label": "t:schema.settings_schema.home_contact.settings.section_contact_on.label",
+        "info": "t:schema.settings_schema.home_contact.settings.section_contact_on.info",
         "default": true
       },
       {
         "id": "section_contact_title",
         "type": "text",
-        "label": "版块名称",
+        "label": "t:schema.settings_schema.home_contact.settings.section_contact_title.label",
         "default": "Contact Us"
       },
       {
         "id": "email",
         "type": "text",
-        "label": "Email",
+        "label": "t:schema.settings_schema.home_contact.settings.email.label",
         "default": "some@example.com"
       },
       {
         "id": "phone",
         "type": "text",
-        "label": "Phone",
+        "label": "t:schema.settings_schema.home_contact.settings.phone.label",
         "default": "1234567890"
       },
       {
         "id": "phone_name",
         "type": "text",
-        "label": "Phone Name",
+        "label": "t:schema.settings_schema.home_contact.settings.phone_name.label",
         "default": "Monday-Friday, 10:00 AM - 6:00 PM EST"
       },
       {
         "id": "chat_url",
         "type": "text",
-        "label": "Chat 链接",
+        "label": "t:schema.settings_schema.home_contact.settings.chat_url.label",
         "default": "#"
       },
       {
         "id": "chat_name",
         "type": "text",
-        "label": "Chat Name",
+        "label": "t:schema.settings_schema.home_contact.settings.chat_name.label",
         "default": "@google"
       },
       {
         "id": "contact_url",
         "type": "text",
-        "label": "Contact Form 链接",
+        "label": "t:schema.settings_schema.home_contact.settings.contact_url.label",
         "default": "#"
       },
       {
         "id": "contact_name",
         "type": "text",
-        "label": "Contact Name",
+        "label": "t:schema.settings_schema.home_contact.settings.contact_name.label",
         "default": ""
       }
     ]
   },
   {
-    "name": "页头页脚菜单设计",
+    "name": "t:schema.settings_schema.header_footer.name",
     "settings": [
       {
         "id": "header_menu",
         "type": "textarea",
-        "label": "页头导航菜单设置",
+        "label": "t:schema.settings_schema.header_footer.settings.header_menu.label",
         "rows": 10,
-        "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个分栏。",
+        "info": "t:schema.settings_schema.header_footer.settings.header_menu.info",
         "default": "Home[/\nDownloads[/downloads\nVideos[/videos\nProducts[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nFAQs[/faqs\nSitemap[/s/sitemap"
       },
       {
         "id": "footer_menu",
         "type": "textarea",
-        "label": "页脚菜单设置",
+        "label": "t:schema.settings_schema.header_footer.settings.footer_menu.label",
         "rows": 10,
-        "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个分栏。",
+        "info": "t:schema.settings_schema.header_footer.settings.footer_menu.info",
         "default": "Products[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nVideos[/videos\nDownloads[/downloads"
       },
       {
         "id": "company_info",
         "type": "text",
-        "label": "页脚版权公司信息",
+        "label": "t:schema.settings_schema.header_footer.settings.company_info.label",
         "default": "&copy; 2025 Google Inc. All Rights Reserved."
       },
       {
         "id": "friend_links",
         "type": "html",
-        "label": "页脚社交媒体",
+        "label": "t:schema.settings_schema.header_footer.settings.friend_links.label",
         "rows": 10,
-        "info": "格式：<a href=''>svg icon</a>; ICON图标下载地址： https://www.bootstrapmb.com/icon"
+        "info": "t:schema.settings_schema.header_footer.settings.friend_links.info"
       },
       {
         "id": "font_html",
         "type": "html",
-        "label": "自定义字体",
-        "info": "请按照默认值格式替换字体名称和字体路径，注意必须用.font-custom类定义字体",
+        "label": "t:schema.settings_schema.header_footer.settings.font_html.label",
+        "info": "t:schema.settings_schema.header_footer.settings.font_html.info",
         "rows": 10,
         "default": "<style>\n  @font-face {\n    font-family: 'Helvetica Now Display';\n    font-style: normal;\n    font-weight: normal;\n    font-display: swap;\n    src: url('{{ 'images/font/HelveticaNowDisplay-Bold.otf' | asset_url }}') format('otf'),url('{{ 'images/font/HelveticaNowDisplay-Medium.otf' | asset_url }}') format('otf'),url('{{ 'images/font/HelveticaNowDisplay-Regular.otf' | asset_url }}') format('otf');\n  }\n  .font-custom {\n      font-family: 'Helvetica Now Display';\n    }\n</style>\n"
       },
       {
         "id": "head_html",
         "type": "html",
-        "label": "<head>标签内 HTML 代码",
+        "label": "t:schema.settings_schema.header_footer.settings.head_html.label",
         "rows": 10
       }
     ]

@@ -1,73 +1,193 @@
 {
+  "theme_label": "Shop",
+  "theme_description": "电商产品知识库，帮助中心，视频、下载、FAQ 等在线教程。",
   "settings_schema": {
-    "generic": {
-      "name": "站点基本信息设置",
-      "help_center_index_description": "功能丰富的产品知识库样式",
-      "list_index_description": "首页目录列表样式",
-      "header_name": "页头页尾导航菜单",
-      "head_title": "Head HTML 配置",
-      "settings": {
-        "hero_image_url": {
-          "label": "首页背景大图",
-          "info": "用于部分主题首页的背景横幅，建议1900*600px的深色图片"
+    "recommendations": {
+      "color_schemas": {
+        "baklib_default": {
+          "name": "Baklib 青绿"
         },
-        "title": {
-          "label": "站点标题"
+        "fashion": {
+          "name": "时尚"
         },
-        "description": {
-          "label": "站点描述"
+        "old_school": {
+          "name": "复古"
         },
-        "hot_tags": {
-            "label": "热搜关键词（请用英文逗号「,」分隔）"
+        "shop_minimal": {
+          "name": "极简商城"
         },
-        "copyright_info": {
-          "label": "备案/版权信息",
-          "default": "蜀ICP备15035023号"
+        "ocean_trust": {
+          "name": "海洋信赖"
         },
-        "company_name": {
-          "label": "公司名称",
-          "default": "Baklib.cn"
-        },
-        "header_menu_html": {
-          "label": "Header页头导航菜单",
-          "info": "支持HTML标签和TailwindCss样式代码"
-        },
-        "features_one": {
-          "label": "自定义HTML块(features_one)",
-          "info": "支持HTML标签和TailwindCss样式代码"
-        },
-        "features_two": {
-          "label": "自定义HTML块(features_two)",
-          "info": "支持HTML标签和TailwindCss样式代码"
-        },
-        "footer_menu_html": {
-          "label": "Footer页尾导航菜单",
-          "info": "支持HTML标签和TailwindCss样式代码"
-        },
-        "head_html": {
-          "label": "Head Meta HTML代码",
-          "info": "这部分内容会植入到站点的<head>标签内，请使用标准的 HTML 格式",
-          "placeholder": "<meta name='author' content='Baklib' />"
+        "cross_border_store": {
+          "name": "跨境商城"
+        }
+      },
+      "initial_pages": {
+        "default": {
+          "name": "商城示例一",
+          "pages": {
+            "products": "产品",
+            "downloads": "下载",
+            "videos": "视频",
+            "faqs": "常见问题"
+          }
         }
       }
     },
-    "page": {
-      "name": "页面",
-      "description": "文档内容页面",
+    "theme_defaults": {
+      "name": "主题默认值设置",
       "settings": {
-        "description":{
-          "label": "页面描述"
+        "logo_url": {
+          "label": "站点 Logo",
+          "info": "显示在站点顶部导航栏"
         },
-        "content":{
-          "label": "内容",
-          "info": "同步自数据源，不可编辑"
+        "avatar_url": {
+          "label": "默认头像",
+          "info": "显示在 AI 搜索面板中"
         },
-        "icon": {
-          "label": "页面图标",
-          "info": "用于显示页面图标，建议1:1比例"
+        "request_form_url": {
+          "label": "请求表单链接",
+          "info": "仅支持 HTTPS。填写后，文章页反馈区下方会显示「提交请求」链接。"
         },
-        "tags":{
-          "label": "标签"
+        "robot_name": {
+          "label": "AI 助手名称",
+          "info": "显示在 AI 搜索面板标题栏"
+        },
+        "ai_search_completed_text": {
+          "label": "AI 完成提示文案",
+          "info": "AI 搜索返回答案后显示的文案"
+        }
+      }
+    },
+    "home_faqs": {
+      "name": "首页 FAQs 版块",
+      "settings": {
+        "section_faqs_on": {
+          "label": "显示 FAQs 版块",
+          "info": "勾选后在首页显示 FAQs 版块，否则隐藏"
+        },
+        "section_faqs_title": {
+          "label": "版块标题"
+        },
+        "section_faqs_menu": {
+          "label": "FAQs 导航配置",
+          "info": "格式：name[slug{description，每行一个栏目。"
+        }
+      }
+    },
+    "home_products": {
+      "name": "首页产品版块",
+      "settings": {
+        "section_products_on": {
+          "label": "显示产品版块",
+          "info": "勾选后在首页显示产品版块，否则隐藏"
+        },
+        "section_product_type": {
+          "label": "产品列表按分类显示",
+          "info": "勾选后首页产品按分类展示；否则显示全部"
+        },
+        "section_product_title": {
+          "label": "版块标题"
+        },
+        "product_categories": {
+          "label": "产品大类设置",
+          "info": "格式：电子产品|医疗器械|工业设备；同时在「标签管理」中添加对应标签。"
+        }
+      }
+    },
+    "home_topics": {
+      "name": "首页话题版块",
+      "settings": {
+        "section_topics_on": {
+          "label": "显示话题版块",
+          "info": "勾选后在首页显示话题版块，否则隐藏"
+        },
+        "section_topic_title": {
+          "label": "版块标题"
+        },
+        "topics_menu": {
+          "label": "首页话题导航配置",
+          "info": "格式：name[slug[description，每行一个栏目。"
+        }
+      }
+    },
+    "home_downloads": {
+      "name": "首页下载版块",
+      "settings": {
+        "section_downloads_on": {
+          "label": "显示下载版块",
+          "info": "勾选后在首页显示下载版块，否则隐藏"
+        },
+        "section_downloads_title": {
+          "label": "版块标题"
+        },
+        "section_downloads_description": {
+          "label": "版块描述"
+        },
+        "section_downloads_slug": {
+          "label": "下载栏目路径",
+          "info": "列表可见子页面作为首页下载卡片的栏目路径（如 /downloads）。"
+        }
+      }
+    },
+    "home_contact": {
+      "name": "首页联系版块",
+      "settings": {
+        "section_contact_on": {
+          "label": "显示联系版块",
+          "info": "勾选后在首页显示联系版块，否则隐藏"
+        },
+        "section_contact_title": {
+          "label": "版块标题"
+        },
+        "email": {
+          "label": "邮箱"
+        },
+        "phone": {
+          "label": "电话"
+        },
+        "phone_name": {
+          "label": "电话说明"
+        },
+        "chat_url": {
+          "label": "在线聊天链接"
+        },
+        "chat_name": {
+          "label": "聊天显示名称"
+        },
+        "contact_url": {
+          "label": "联系表单链接"
+        },
+        "contact_name": {
+          "label": "联系表单显示名称"
+        }
+      }
+    },
+    "header_footer": {
+      "name": "页头页脚菜单",
+      "settings": {
+        "header_menu": {
+          "label": "页头导航菜单",
+          "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个栏目。"
+        },
+        "footer_menu": {
+          "label": "页脚菜单",
+          "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个栏目。"
+        },
+        "company_info": {
+          "label": "页脚版权信息"
+        },
+        "friend_links": {
+          "label": "页脚社交媒体",
+          "info": "格式：<a href=''>svg icon</a>；图标可参考 https://www.bootstrapmb.com/icon"
+        },
+        "font_html": {
+          "label": "自定义字体",
+          "info": "按默认值格式替换字体名与路径；须用 .font-custom 类应用字体。"
+        },
+        "head_html": {
+          "label": "<head> 内 HTML"
         }
       }
     }
@@ -82,7 +202,7 @@
         },
         "description": {
           "label": "一句话描述",
-          "default": "Welcome to Service and Support"
+          "default": "欢迎使用服务与支持中心"
         },
         "hero_image_url": {
           "label": "Hero 图片"
@@ -181,8 +301,8 @@
           "label": "标签"
         },
         "external_url": {
-          "label": "外部链接（Learn More）",
-          "info": "如果添加了外链，点击会跳转到该链接，以下的内容可作为补充"
+          "label": "外部链接（了解更多）",
+          "info": "填写后点击将跳转外链；下方字段可作为页面补充内容。"
         }
       }
     },

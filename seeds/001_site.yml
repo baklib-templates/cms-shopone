@@ -2,7 +2,7 @@ site:
   language: "en"
   time_zone: "Beijing"
   settings:
-    logo_url: "images/logo.png"
+    logo_url: "images/avatar.svg"
     request_form_url: "https://www.baklib.cn/forms/request-support"
     section_faqs_on: true
     section_faqs_title: "Browse by FAQs"

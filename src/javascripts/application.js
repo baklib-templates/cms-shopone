@@ -4,12 +4,8 @@ import collapse from "@alpinejs/collapse"
 import { Application } from "@hotwired/stimulus"
 import { createIcons, icons } from "lucide"
 
-import MenuController from "../menu_controller"
-import ViewImagesController from "../view_images_controller"
-import NavtreeController from "../navtree_controller"
-import SwiperController from "../swiper_controller"
-import AiSearchCompletionController from "../ai_search_completion_controller"
-import Dropdown from "stimulus-dropdown"
+import MenuController from "../controllers/menu_controller"
+import AiSearchCompletionController from "../controllers/ai_search_completion_controller"
 import AOS from "aos"
 
 window.Alpine = Alpine
@@ -19,10 +15,6 @@ Alpine.start()
 const application = Application.start()
 window.Stimulus = application
 application.register("menu", MenuController)
-application.register("view_images", ViewImagesController)
-application.register("navtree", NavtreeController)
-application.register("dropdown", Dropdown)
-application.register("swiper", SwiperController)
 application.register("ai-search-completion", AiSearchCompletionController)
 
 Turbo.start()
@@ -59,4 +51,3 @@ document.addEventListener("turbo:load", () => {
   body.setAttribute("data-aos-delay", AOS_options.delay)
   AOS.refreshHard()
 })
-

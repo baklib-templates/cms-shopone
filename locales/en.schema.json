@@ -1,73 +1,193 @@
 {
+  "theme_label": "Shop",
+  "theme_description": "building product help centers, product manuals, operating instructions, video tutorials and FAQs.",
   "settings_schema": {
-    "generic": {
-      "name": "Basic Setting",
-      "help_center_index_description": "Ideal for feature-rich product user manuals",
-      "list_index_description": "list dictionary style",
-      "header_name": "Header and footer menu",
-      "head_title": "Head HTML Settings",
-      "settings": {
-        "hero_image_url": {
-          "label": "Hero Banner",
-          "info": "For the help center index theme, size of 1900*600px is recommended."
+    "recommendations": {
+      "color_schemas": {
+        "baklib_default": {
+          "name": "Baklib Teal"
         },
-        "title": {
-          "label": "site title"
+        "fashion": {
+          "name": "Fashion"
         },
-        "description": {
-          "label": "site description"
+        "old_school": {
+          "name": "Vintage"
         },
-        "hot_tags": {
-            "label": "Hot search keywords (please separate them with English comma: ,)"
+        "shop_minimal": {
+          "name": "Shop Minimal"
         },
-        "company_name": {
-          "label": "Company Name",
-          "default": "Tanmer Inc."
+        "ocean_trust": {
+          "name": "Ocean Trust"
         },
-        "copyright_info": {
-          "label": "Copyright Info",
-          "default": "All copyright served"
-        },
-        "header_menu_html": {
-          "label": "Header navigation menu",
-          "info": "Supports HTML、Javascript and TailwindCss code"
-        },
-        "features_one": {
-          "label": "HTML Section 1(features_one)",
-          "info": "Supports HTML、Javascript and TailwindCss code"
-        },
-        "features_two": {
-          "label": "HTML Section 2(features_two)",
-          "info": "Supports HTML、Javascript and TailwindCss code"
-        },
-        "footer_menu_html": {
-          "label": "Footer navigation menu",
-          "info": "Supports HTML、Javascript and TailwindCss code"
-        },
-        "head_html": {
-          "label": "Head HTML Code",
-          "info": "This part of the content will be embedded in the <head> tag of the site. Please use standard HTML format.",
-          "placeholder": "<meta name='author' content='Baklib' />"
+        "cross_border_store": {
+          "name": "Cross-border Store"
+        }
+      },
+      "initial_pages": {
+        "default": {
+          "name": "Shop one",
+          "pages": {
+            "products": "Products",
+            "downloads": "Downloads",
+            "videos": "Videos",
+            "faqs": "FAQs"
+          }
         }
       }
     },
-    "page": {
-      "name": "Page",
-      "description": "Document content page",
+    "theme_defaults": {
+      "name": "Theme defaults",
       "settings": {
-        "description":{
-          "label": "Description"
+        "logo_url": {
+          "label": "Site logo",
+          "info": "Shown in the site header navigation bar."
         },
-        "content":{
-          "label": "Content",
-          "info": "Synchronized from data source, cannot be edited"
+        "avatar_url": {
+          "label": "Default avatar",
+          "info": "Shown in the AI Search panel."
         },
-        "icon": {
-          "label": "ICON",
-          "info": "1:1 ratio is recommended"
+        "request_form_url": {
+          "label": "Request form URL",
+          "info": "HTTPS URL only. When set, article pages show a Submit a request link below feedback."
         },
-        "tags":{
-          "label": "Tags"
+        "robot_name": {
+          "label": "AI assistant name",
+          "info": "Shown in the AI Search panel header."
+        },
+        "ai_search_completed_text": {
+          "label": "AI completed text",
+          "info": "Displayed after AI Search returns an answer."
+        }
+      }
+    },
+    "home_faqs": {
+      "name": "Homepage FAQs section",
+      "settings": {
+        "section_faqs_on": {
+          "label": "Show FAQs section",
+          "info": "When enabled, the FAQs section appears on the homepage."
+        },
+        "section_faqs_title": {
+          "label": "Section title"
+        },
+        "section_faqs_menu": {
+          "label": "FAQs navigation",
+          "info": "Format: name[slug{description — one column per line."
+        }
+      }
+    },
+    "home_products": {
+      "name": "Homepage products section",
+      "settings": {
+        "section_products_on": {
+          "label": "Show products section",
+          "info": "When enabled, the products section appears on the homepage."
+        },
+        "section_product_type": {
+          "label": "Group products by category",
+          "info": "When enabled, homepage products are grouped by category; otherwise all products are shown."
+        },
+        "section_product_title": {
+          "label": "Section title"
+        },
+        "product_categories": {
+          "label": "Product categories",
+          "info": "Format: Category A|Category B|Category C. Add matching tags in Tag management."
+        }
+      }
+    },
+    "home_topics": {
+      "name": "Homepage topics section",
+      "settings": {
+        "section_topics_on": {
+          "label": "Show topics section",
+          "info": "When enabled, the topics section appears on the homepage."
+        },
+        "section_topic_title": {
+          "label": "Section title"
+        },
+        "topics_menu": {
+          "label": "Homepage topics navigation",
+          "info": "Format: name[slug[description — one column per line."
+        }
+      }
+    },
+    "home_downloads": {
+      "name": "Homepage downloads section",
+      "settings": {
+        "section_downloads_on": {
+          "label": "Show downloads section",
+          "info": "When enabled, the downloads section appears on the homepage."
+        },
+        "section_downloads_title": {
+          "label": "Section title"
+        },
+        "section_downloads_description": {
+          "label": "Section description"
+        },
+        "section_downloads_slug": {
+          "label": "Downloads channel path",
+          "info": "Path of the channel whose list-visible child pages appear as homepage download cards (e.g. /downloads)."
+        }
+      }
+    },
+    "home_contact": {
+      "name": "Homepage contact section",
+      "settings": {
+        "section_contact_on": {
+          "label": "Show contact section",
+          "info": "When enabled, the contact section appears on the homepage."
+        },
+        "section_contact_title": {
+          "label": "Section title"
+        },
+        "email": {
+          "label": "Email"
+        },
+        "phone": {
+          "label": "Phone"
+        },
+        "phone_name": {
+          "label": "Phone label"
+        },
+        "chat_url": {
+          "label": "Chat URL"
+        },
+        "chat_name": {
+          "label": "Chat label"
+        },
+        "contact_url": {
+          "label": "Contact form URL"
+        },
+        "contact_name": {
+          "label": "Contact form label"
+        }
+      }
+    },
+    "header_footer": {
+      "name": "Header & footer menus",
+      "settings": {
+        "header_menu": {
+          "label": "Header navigation",
+          "info": "Format: menu_name[slug]{sub_menu[slug|sub_menu[slug — one column per line."
+        },
+        "footer_menu": {
+          "label": "Footer menu",
+          "info": "Format: menu_name[slug]{sub_menu[slug|sub_menu[slug — one column per line."
+        },
+        "company_info": {
+          "label": "Footer copyright"
+        },
+        "friend_links": {
+          "label": "Footer social links",
+          "info": "Format: <a href=''>svg icon</a>. Icon reference: https://www.bootstrapmb.com/icon"
+        },
+        "font_html": {
+          "label": "Custom fonts",
+          "info": "Replace font family and paths like the default. Apply fonts with the .font-custom class."
+        },
+        "head_html": {
+          "label": "HTML inside <head>"
         }
       }
     }

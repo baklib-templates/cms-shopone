@@ -1,7 +1,7 @@
 {% assign chat_messages = site.chat_messages | order_by: '-created_at' | limit: 10 %}
 {% assign avatar = site.default.avatar_url %}
 {% unless avatar %}
-  {% assign avatar = 'images/logo.png' | asset_url %}
+  {% assign avatar = 'images/avatar.svg' | asset_url %}
 {% endunless %}
 {% assign extends_size = search.extends | size %}
 {% assign items_size = search.pages | size %}

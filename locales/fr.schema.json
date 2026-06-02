@@ -1,73 +1,193 @@
 {
+  "theme_label": "Boutique",
+  "theme_description": "Un thème moderne de vitrine et centre d’aide produit : manuels, tutoriels vidéo, FAQ et téléchargements.",
   "settings_schema": {
-    "generic": {
-      "name": "Réglage de base",
-      "help_center_index_description": "Idéal pour les manuels d'utilisation de produits riches en fonctionnalités",
-      "list_index_description": "style de dictionnaire de liste",
-      "header_name": "Menu d'en-tête et de pied de page",
-      "head_title": "Paramètres HTML de la tête",
-      "settings": {
-        "hero_image_url": {
-          "label": "Bannière de héros",
-          "info": "Pour le thème d’index du centre d’aide, une taille de 1 900 x 600 px est recommandée."
+    "recommendations": {
+      "color_schemas": {
+        "baklib_default": {
+          "name": "Baklib Sarcelle"
         },
-        "title": {
-          "label": "Titre du site"
+        "fashion": {
+          "name": "Mode"
         },
-        "description": {
-          "label": "Description du site"
+        "old_school": {
+          "name": "Vintage"
         },
-        "hot_tags": {
-          "label": "Mots-clés de recherche chauds (veuillez les séparer par une virgule anglaise : ,)"
+        "shop_minimal": {
+          "name": "Shop Minimal"
         },
-        "company_name": {
-          "label": "Nom de l'entreprise",
-          "default": "Tanmer inc."
+        "ocean_trust": {
+          "name": "Ocean Trust"
         },
-        "copyright_info": {
-          "label": "Informations sur les droits d'auteur",
-          "default": "Tous les droits d'auteur sont respectés"
-        },
-        "header_menu_html": {
-          "label": "Menu de navigation de l'en-tête",
-          "info": "Prend en charge le code HTML、Javascript et TailwindCss"
-        },
-        "features_one": {
-          "label": "HTML Section 1(features_one)",
-          "info": "Supports HTML、Javascript and TailwindCss code"
-        },
-        "features_two": {
-          "label": "HTML Section 2(features_two)",
-          "info": "Supports HTML、Javascript and TailwindCss code"
-        },
-        "footer_menu_html": {
-          "label": "Menu de navigation en pied de page",
-          "info": "Prend en charge le code HTML、Javascript et TailwindCss"
-        },
-        "head_html": {
-          "label": "Tête Code HTML",
-          "info": "Cette partie du contenu sera intégrée dans le <head> balise du site. ",
-          "placeholder": "<meta name='author' content='Baklib' />"
+        "cross_border_store": {
+          "name": "Boutique transfrontalière"
+        }
+      },
+      "initial_pages": {
+        "default": {
+          "name": "Boutique un",
+          "pages": {
+            "products": "Produits",
+            "downloads": "Téléchargements",
+            "videos": "Vidéos",
+            "faqs": "FAQ"
+          }
         }
       }
     },
-    "page": {
-      "name": "Page",
-      "description": "Page de contenu du document",
+    "theme_defaults": {
+      "name": "Valeurs par défaut du thème",
       "settings": {
-        "description": {
-          "label": "Description"
+        "logo_url": {
+          "label": "Logo du site",
+          "info": "Affiché dans la barre de navigation en en-tête."
         },
-        "content": {
-          "label": "Contenu",
-          "info": "Synchronisé à partir de la source de données, ne peut pas être modifié"
+        "avatar_url": {
+          "label": "Avatar par défaut",
+          "info": "Affiché dans le panneau de recherche IA."
         },
-        "icon": {
-          "label": "ICÔNE",
-          "info": "Un rapport 1:1 est recommandé"
+        "request_form_url": {
+          "label": "URL du formulaire de demande",
+          "info": "HTTPS uniquement. Si renseigné, un lien « Soumettre une demande » apparaît sous le feedback des articles."
         },
-        "tags": {
-          "label": "Mots clés"
+        "robot_name": {
+          "label": "Nom de l'assistant IA",
+          "info": "Affiché dans l'en-tête du panneau de recherche IA."
+        },
+        "ai_search_completed_text": {
+          "label": "Texte de fin de recherche IA",
+          "info": "Affiché après que la recherche IA a renvoyé une réponse."
+        }
+      }
+    },
+    "home_faqs": {
+      "name": "Page d'accueil — section FAQ",
+      "settings": {
+        "section_faqs_on": {
+          "label": "Afficher la section FAQ",
+          "info": "Si activé, la section FAQ s'affiche sur la page d'accueil."
+        },
+        "section_faqs_title": {
+          "label": "Titre de section"
+        },
+        "section_faqs_menu": {
+          "label": "Navigation FAQ",
+          "info": "Format : name[slug{description — une colonne par ligne."
+        }
+      }
+    },
+    "home_products": {
+      "name": "Page d'accueil — section produits",
+      "settings": {
+        "section_products_on": {
+          "label": "Afficher la section produits",
+          "info": "Si activé, la section produits s'affiche sur la page d'accueil."
+        },
+        "section_product_type": {
+          "label": "Grouper les produits par catégorie",
+          "info": "Si activé, les produits sont groupés par catégorie ; sinon tous les produits sont affichés."
+        },
+        "section_product_title": {
+          "label": "Titre de section"
+        },
+        "product_categories": {
+          "label": "Catégories de produits",
+          "info": "Format : Catégorie A|Catégorie B|Catégorie C. Ajoutez les tags correspondants dans la gestion des tags."
+        }
+      }
+    },
+    "home_topics": {
+      "name": "Page d'accueil — section sujets",
+      "settings": {
+        "section_topics_on": {
+          "label": "Afficher la section sujets",
+          "info": "Si activé, la section sujets s'affiche sur la page d'accueil."
+        },
+        "section_topic_title": {
+          "label": "Titre de section"
+        },
+        "topics_menu": {
+          "label": "Navigation des sujets",
+          "info": "Format : name[slug[description — une colonne par ligne."
+        }
+      }
+    },
+    "home_downloads": {
+      "name": "Page d'accueil — section téléchargements",
+      "settings": {
+        "section_downloads_on": {
+          "label": "Afficher la section téléchargements",
+          "info": "Si activé, la section téléchargements s'affiche sur la page d'accueil."
+        },
+        "section_downloads_title": {
+          "label": "Titre de section"
+        },
+        "section_downloads_description": {
+          "label": "Description de section"
+        },
+        "section_downloads_slug": {
+          "label": "Chemin du canal téléchargements",
+          "info": "Chemin du canal dont les pages enfants visibles apparaissent comme cartes de téléchargement (ex. /downloads)."
+        }
+      }
+    },
+    "home_contact": {
+      "name": "Page d'accueil — section contact",
+      "settings": {
+        "section_contact_on": {
+          "label": "Afficher la section contact",
+          "info": "Si activé, la section contact s'affiche sur la page d'accueil."
+        },
+        "section_contact_title": {
+          "label": "Titre de section"
+        },
+        "email": {
+          "label": "E-mail"
+        },
+        "phone": {
+          "label": "Téléphone"
+        },
+        "phone_name": {
+          "label": "Libellé du téléphone"
+        },
+        "chat_url": {
+          "label": "URL du chat"
+        },
+        "chat_name": {
+          "label": "Libellé du chat"
+        },
+        "contact_url": {
+          "label": "URL du formulaire de contact"
+        },
+        "contact_name": {
+          "label": "Libellé du formulaire de contact"
+        }
+      }
+    },
+    "header_footer": {
+      "name": "Menus en-tête et pied de page",
+      "settings": {
+        "header_menu": {
+          "label": "Navigation en-tête",
+          "info": "Format : menu_name[slug]{sub_menu[slug|sub_menu[slug — une colonne par ligne."
+        },
+        "footer_menu": {
+          "label": "Menu pied de page",
+          "info": "Format : menu_name[slug]{sub_menu[slug|sub_menu[slug — une colonne par ligne."
+        },
+        "company_info": {
+          "label": "Copyright pied de page"
+        },
+        "friend_links": {
+          "label": "Liens sociaux pied de page",
+          "info": "Format : <a href=''>svg icon</a>. Référence d'icônes : https://www.bootstrapmb.com/icon"
+        },
+        "font_html": {
+          "label": "Polices personnalisées",
+          "info": "Remplacez la famille et les chemins comme la valeur par défaut. Appliquez les polices avec la classe .font-custom."
+        },
+        "head_html": {
+          "label": "HTML dans <head>"
         }
       }
     }
@@ -78,11 +198,11 @@
       "description": "Modèle de page d'accueil",
       "settings": {
         "tags": {
-          "label": "Mots clés"
+          "label": "Tags"
         },
         "description": {
-          "label": "Description courte",
-          "default": "Welcome to Service and Support"
+          "label": "Courte description",
+          "default": "Bienvenue au service et à l'assistance"
         },
         "hero_image_url": {
           "label": "Image hero"
@@ -93,8 +213,8 @@
       }
     },
     "downloads": {
-      "name": "Canal — liste des téléchargements",
-      "description": "Canal de liste des téléchargements et ressources",
+      "name": "Canal — liste de téléchargements",
+      "description": "Canal de téléchargements et ressources",
       "settings": {
         "title": {
           "label": "Titre"
@@ -117,8 +237,8 @@
       }
     },
     "page": {
-      "name": "Article (avec couverture)",
-      "description": "Page de détail avec image de couverture",
+      "name": "Détail d'article (avec couverture)",
+      "description": "Modèle de page avec image de couverture",
       "settings": {
         "title": {
           "label": "Titre"
@@ -133,13 +253,13 @@
           "label": "Image de couverture"
         },
         "tags": {
-          "label": "Mots clés"
+          "label": "Tags"
         }
       }
     },
     "post": {
-      "name": "Article (sans couverture)",
-      "description": "Page de détail sans image de couverture",
+      "name": "Détail d'article (sans couverture)",
+      "description": "Modèle de page sans image de couverture",
       "settings": {
         "title": {
           "label": "Titre"
@@ -154,7 +274,7 @@
           "label": "Image de couverture"
         },
         "tags": {
-          "label": "Mots clés"
+          "label": "Tags"
         }
       }
     },
@@ -178,17 +298,17 @@
           "label": "Image hero de détail"
         },
         "tags": {
-          "label": "Mots clés"
+          "label": "Tags"
         },
         "external_url": {
           "label": "Lien externe (En savoir plus)",
-          "info": "Si renseigné, l'action principale ouvre cette URL ; les champs ci-dessous complètent le contenu."
+          "info": "Si renseigné, l'action principale ouvre cette URL ; les champs ci-dessous complètent le contenu de la page."
         }
       }
     },
     "products": {
       "name": "Canal catégories produits",
-      "description": "Liste des catégories produits ou projets",
+      "description": "Liste de catégories produits ou projets",
       "settings": {
         "title": {
           "label": "Titre"
@@ -207,11 +327,11 @@
         },
         "youtube_id": {
           "label": "ID vidéo YouTube",
-          "info": "YouTube → Partager → Intégrer, copier l'ID (ex. 6c3RXM7lK20) depuis https://www.youtube.com/embed/6c3RXM7lK20"
+          "info": "YouTube → Partager → Intégrer, copiez l'ID (ex. 6c3RXM7lK20) depuis https://www.youtube.com/embed/6c3RXM7lK20"
         },
         "video_url": {
           "label": "Vidéo",
-          "info": "Choisir une vidéo dans la bibliothèque. La vidéo locale est prioritaire sur YouTube."
+          "info": "Choisissez une vidéo dans la bibliothèque. La vidéo locale est prioritaire sur YouTube."
         },
         "description": {
           "label": "Résumé"
@@ -220,7 +340,7 @@
           "label": "Contenu"
         },
         "tags": {
-          "label": "Mots clés"
+          "label": "Tags"
         }
       }
     },
@@ -236,10 +356,10 @@
         },
         "video_type": {
           "label": "Format vidéo",
-          "info": "Les couvertures des sous-pages doivent correspondre à ce ratio.",
+          "info": "Les pages vidéo enfants doivent utiliser des couvertures au même format.",
           "choices": {
-            "desktop": "Vidéo large bureau (16:9)",
-            "mobile": "Vidéo portrait mobile (9:16)"
+            "desktop": "Écran large bureau (16:9)",
+            "mobile": "Portrait mobile (9:16)"
           }
         }
       }
