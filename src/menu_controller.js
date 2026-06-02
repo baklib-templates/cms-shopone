@@ -61,7 +61,7 @@ export default class extends Controller {
     }
 
     const ul = document.createElement("ul");
-    ul.classList="max-h-[380px] bg-white dark:bg-slate-900 space-y-3 overflow-y-scroll no-scrollbar"
+    ul.classList="max-h-[380px] bg-white space-y-3 overflow-y-scroll no-scrollbar"
 
     // 创建dom元素
     directory.children.forEach((node) => {

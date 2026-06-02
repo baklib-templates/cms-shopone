@@ -6,7 +6,6 @@ module.exports = {
     "./templates/**/*.liquid",
     "./statics/**/*.liquid"
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: () => {

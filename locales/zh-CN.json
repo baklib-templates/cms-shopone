@@ -1,5 +1,5 @@
 {
-  "theme_label": "Shopone",
+  "theme_label": "Shop",
   "theme_description": "电商产品知识库，帮助中心，视频、下载、FAQ 等在线教程。",
   "generic": {
     "close": "关闭",
@@ -20,6 +20,8 @@
     "empty": "内容为空",
     "sub_page_list": "子页面列表",
     "prev_page": "上一页",
+    "feedback": "这篇文章有帮助吗?",
+    "feedbacked": "已经提交反馈！",
     "next_page": "下一页",
     "copyright": "版权所有",
     "published_at": "发布于",
@@ -48,5 +50,28 @@
   "feedback": {
     "title": "提交反馈",
     "input_placeholder": "请输入反馈内容"
+  },
+  "templates": {
+    "search": {
+      "eyebrow": "搜索",
+      "title": "AI 搜索",
+      "subtitle": "在站点内容中搜索，并继续与 AI 助手对话。",
+      "empty_state": "输入关键词开始搜索。",
+      "no_results": "没有匹配的内容，请尝试其他关键词。",
+      "ai": {
+        "thinking": "AI 正在思考...",
+        "canceled": "已取消回答",
+        "completed": "完成。",
+        "assistant_name": "AI 助手",
+        "input_placeholder": "继续提问..."
+      },
+      "empty": {
+        "title": "输入关键词开始搜索。",
+        "hint": "或在 AI 输入框提问，获得即时回答。"
+      },
+      "results": {
+        "count_label": "找到 %{count} 条相关结果"
+      }
+    }
   }
 }

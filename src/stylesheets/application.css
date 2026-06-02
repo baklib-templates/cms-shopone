@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@import "aos/dist/aos.css";
+@import "swiper/swiper-bundle.css";
+
+/**
+ * DaisyUI theme strategy: themes: false
+ * - All daisyUI color variables (--color-*) are injected at runtime via
+ *   layout/theme.liquid <head> <style> from hsl(var(--theme-color-*)).
+ * - This file only keeps non-customizable brand static tokens (radius, size, border, depth, noise).
+ */
+@plugin "daisyui" {
+  themes: false;
+  exclude: scrollbar, rootcolor;
+  logs: false;
+}
+
+/* Brand static tokens */
+:root {
+  --radius-selector: 2rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 2px;
+  --depth: 1;
+  --noise: 0;
+}
+
+@source "../../layout/*.liquid";
+@source "../../snippets/*.liquid";
+@source "../../statics/*.liquid";
+@source "../../templates/*.liquid";
+@source "../../src/javascripts/**/*.js";
+
+@layer base {
+  a {
+    @apply decoration-primary decoration-2 underline-offset-4 hover:underline;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply mx-auto w-full max-w-6xl px-4;
+  }
+
+  .section-head {
+    @apply mx-auto max-w-2xl text-center;
+  }
+
+  .section-title {
+    @apply flex items-center justify-center gap-2 text-2xl font-semibold tracking-tight text-base-content md:text-3xl;
+  }
+
+  .section-desc {
+    @apply mt-2 text-sm text-base-content/60;
+  }
+
+  .surface-card {
+    @apply rounded-box border border-base-300 bg-base-100;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-medium;
+  }
+
+  /* Header search: compact pill on primary, expands on focus */
+  .header-ai-search {
+    @apply relative flex shrink-0 items-center;
+    @apply w-[7.5rem] transition-[width] duration-300 ease-out;
+    @apply focus-within:w-52 md:focus-within:w-72;
+  }
+
+  .header-ai-search--expanded {
+    @apply w-52 md:w-72;
+  }
+
+  .header-ai-search__field {
+    @apply w-full rounded-full border py-1.5 text-sm leading-tight;
+    @apply border-primary-content/25 bg-primary-content/10 text-primary-content;
+    @apply placeholder:text-primary-content/45;
+    @apply pl-9 pr-9 shadow-sm backdrop-blur-sm;
+    @apply outline-none;
+    @apply focus:border-primary-content/40 focus:bg-base-100 focus:text-base-content;
+    @apply focus:placeholder:text-base-content/40;
+    @apply focus:shadow-md focus:ring-2 focus:ring-primary-content/30;
+  }
+
+  .header-ai-search__icon {
+    @apply pointer-events-none absolute top-1/2 -translate-y-1/2 text-primary-content/60;
+    @apply transition-colors duration-300;
+  }
+
+  .header-ai-search:focus-within .header-ai-search__icon--ai {
+    @apply text-primary;
+  }
+
+  .header-ai-search:focus-within .header-ai-search__icon--submit {
+    @apply text-base-content/50;
+  }
+}
+

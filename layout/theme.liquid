@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html lang="{{ site.language }}" class="scroll-smooth">
+<html class="scroll-smooth bg-base-100" lang="{{ site.language }}">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="Baklib">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% meta_tags %}
-    {{ 'css/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
-    {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
-    {%# TIPS：在低代码平台开发时，请打开下一行代码注释 %}
-    {% if true %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
+
+    {%- comment -%}
+      Runtime color injection for admin customization.
+    {%- endcomment -%}
+    {% render 'theme_runtime_colors' %}
+
+    {{ 'stylesheets/application.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
+    {{ 'javascripts/application.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
+    {%# Enable for low-code platform dev: uncomment the line below %}
+    {% if false %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
     
     {{ site.settings.font_html }}
     {{ site.settings.head_html }}
   </head>
-  <body class="flex flex-col min-h-screen font-custom" id="js-body">
+  <body class="flex min-h-screen flex-col bg-base-100 font-custom text-base-content antialiased" id="js-body">
       {% render 'header' %}
       
       <main class="flex-grow">

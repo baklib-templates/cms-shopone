@@ -6,10 +6,10 @@
 {% if site.settings.section_faqs_on %}
     {% assign section_faqs_menu = site.settings.section_faqs_menu | newline_to_br | split: '<br />' %}
     {% assign parent_faqs_menu_count = section_faqs_menu | size %}
-    <section class="bg-white py-4 sm:py-8">
+    <section class="bg-base-100 py-4 sm:py-8">
         <div class="mx-auto max-w-6xl px-4">
             <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
-                <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center mb-4">
+                <h2 class="font-semibold tracking-tight text-base-content md:text-3xl text-2xl flex items-center mb-4">
                     {{ site.settings.section_faqs_title }} </h2>
             </div>
             <!-- Cards Container -->
@@ -21,7 +21,7 @@
                 {%  assign sub_menus_count =  sub_menus | size %}
 
                 {% if sub_menus_count > 0 %}
-                    <div class="flex flex-col rounded-md border border-gray-200 bg-gray-100 px-6 py-5 shadow-sm">
+                    <div class="flex flex-col rounded-box border border-base-300 bg-base-200 px-6 py-5 shadow-sm">
                         <div class="py-2 text-lg font-semibold">{{ parent_menu[0] }}</div>
                         <!-- 2nd level menu -->
                         <ul class="space-y-2">
@@ -51,10 +51,10 @@
 {% if site.settings.section_products_on %}
     {% assign first_tag_name = site.settings.product_categories | split: '|' | first %}
 
-    <section class="bg-white py-4 sm:py-8">
+    <section class="bg-base-100 py-4 sm:py-8">
         <div class="mx-auto max-w-6xl px-4">
             <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
-                <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
+                <h2 class="font-semibold tracking-tight text-base-content md:text-3xl text-2xl flex items-center">
                     {{ site.settings.section_product_title }} </h2>
             </div>
             {% if site.settings.section_product_type == true %}
@@ -73,7 +73,7 @@
     <section class=" py-4 sm:py-8">
         <div class="mx-auto max-w-6xl px-4">
             <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
-                <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center">
+                <h2 class="font-semibold tracking-tight text-base-content md:text-3xl text-2xl flex items-center">
                     {{ site.settings.section_topic_title }}</h2><a name="topics"></a>
             </div>
 
@@ -82,17 +82,15 @@
                 <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
                     {% for menu_line in topics_menu %}
                         {%  assign arr = menu_line | split: '[' %}
-                        <a href="{{ arr[1] }}" class="relative group flex items-center space-x-3 rounded-md border border-gray-200 bg-gray-100 px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:bg-secondary/10 hover:no-underline hover:border-gray-400">
+                        <a href="{{ arr[1] }}" class="relative group flex items-center space-x-3 rounded-box border border-base-300 bg-base-200 px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 hover:bg-secondary/10 hover:no-underline hover:border-base-300">
                             <div class="min-w-0 flex-1">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
-                                <p class="text-sm font-medium text-gray-900">{{ arr[0] }}</p>
-                                <p class="truncate text-sm text-gray-500">{{ arr[2] }}</p>
+                                <p class="text-sm font-medium text-base-content">{{ arr[0] }}</p>
+                                <p class="truncate text-sm text-base-content/60">{{ arr[2] }}</p>
                             </div>
                             <div>
-                                <button type="button" class="inline-flex items-center px-1.5 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm bg-gray-400 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white w-4 h-4">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                    </svg>
+                                <button type="button" class="inline-flex items-center px-1.5 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                                    <i data-lucide="chevron-right" class="h-4 w-4 text-primary-content"></i>
                                 </button>
                             </div>
                         </a>
@@ -104,52 +102,9 @@
     </section>
 {% endif %}
 
-<!-- News Section -->
-{% if site.settings.section_news_on %}
-    {% assign section_news_menu = site.settings.section_news_menu | newline_to_br | split: '<br />' %}
-    {% assign parent_news_menu_count = section_news_menu | size %}
-    <section class="bg-white py-4 sm:py-8">
-        <div class="mx-auto max-w-6xl px-4">
-            <div class="mx-auto max-w-2xl md:flex flex-col items-center justify-center">
-                <h2 class="font-semibold tracking-tight text-gray-900 md:text-3xl text-2xl flex items-center mb-4">
-                    {{ site.settings.section_news_title }} </h2>
-            </div>
-            <!-- Cards Container -->
-            <div class="grid grid-cols-2 md:grid-cols-{{ parent_news_menu_count | default: 3 }} gag-4 xl:gap-8">
-                {% for menu_line in section_news_menu %}
-                {%  assign p_menu_arr = menu_line | split: '{' %}
-                {%  assign parent_menu = p_menu_arr[0] | split: '[' %}
-                {%  assign sub_menus = p_menu_arr[1] | split: '|' %}
-                {%  assign sub_menus_count =  sub_menus | size %}
-
-                {% if sub_menus_count > 0 %}
-                    <div class="flex flex-col ">
-                        <div class="py-2 text-lg font-semibold">{{ parent_menu[0] }}</div>
-                        <!-- 2nd level menu -->
-                        <ul class="space-y-2">
-                        {% assign i =  0 %}
-                        {% for second_menu in sub_menus %}
-                            {% assign i = i | plus: 1 %}
-                            {%  assign second_menu_arr = second_menu | split: '[' %}
-                            <li>
-                                <a class=" hover:no-underline" href="{{ second_menu_arr[1] | default: '#'}}">
-                                    <span class="bg-gray-100 border-gray-300 rounded-full px-2 py-0">{{ i }}</span>
-                                    <span class="whitespace-wrap hover:underline">{{ second_menu_arr[0] }}</span>
-                                </a>
-                            </li>
-                        {% endfor %}
-                        </ul>
-                    </div>
-                {% else %}
-                    <div class="">
-                        <a class="" href="{{ parent_menu[1] | default: '#'}}">{{ parent_menu[0] }}</a>
-                    </div>
-                {% endif %}
-                {% endfor %}
-
-            </div>
-        </div>
-    </section>
+<!-- Downloads Section -->
+{% if site.settings.section_downloads_on %}
+    {% render 'content_downloads_cards' %}
 {% endif %}
 
 
@@ -160,35 +115,35 @@
 
 {% schema %}
     {
-        "name": "index",
-        "description": "首页模板",
-        "thumb_url": "images/theme/index.png",
-        "sub_page_templates": ["products","news","faqs","videos"],
+        "name": "t:schema.templates.index.name",
+        "description": "t:schema.templates.index.description",
+        "thumb_url": "images/theme/${lang}/index.webp",
+        "sub_page_templates": ["products","downloads","faqs","videos"],
         "settings": [
             {
                 "id": "tags",
                 "type": "tag_picker",
                 "multiple": true,
-                "label": "标签"
+                "label": "t:schema.templates.index.settings.tags.label"
             },
             {
                 "id": "description",
                 "type": "text",
-                "label": "一句话描述",
-                "default": "Welcome to Service and Support"
+                "label": "t:schema.templates.index.settings.description.label",
+                "default": "t:schema.templates.index.settings.description.default"
             },
             {
                 "id": "hero_image_url",
                 "type": "image_picker",
                 "ratio": "6:2",
                 "width": 300,
-                "label": "Hero 图片"
+                "label": "t:schema.templates.index.settings.hero_image_url.label"
             },
             {
                 "id": "text_color",
                 "type": "color",
                 "default": "#ffffff",
-                "label": "Hero 字体颜色"
+                "label": "t:schema.templates.index.settings.text_color.label"
             }
         ]
     }

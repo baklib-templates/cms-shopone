@@ -1,0 +1,9 @@
+Minimal Liquid Glass app icon for a modern storefront + product help center theme.
+
+Style: iOS 26 Liquid Glass, translucent layered glass, subtle refraction highlights, soft teal and warm orange accents, clean geometry, centered composition.
+
+Subject: abstract shopping + documentation motif (shopping bag + folded manual page), simplified shapes, no text, no logo, no brand marks.
+
+Background: light neutral with gentle gradient, high contrast, crisp edges.
+
+Constraints: do NOT include any Baklib logo or wordmark; no UI screenshots; no watermarks.

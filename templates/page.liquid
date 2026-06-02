@@ -2,7 +2,7 @@
 <!-- Blog post -->
 
 <section class="">
-  <div class="relative max-w-6xl mx-auto pt-4 md:pt-6 px-4 dark:bg-slate-900">
+  <div class="relative max-w-6xl mx-auto pt-4 md:pt-6 px-4">
     <div>
       {% # 面包屑导航 %}
       <div class="mb-4">
@@ -12,7 +12,7 @@
       <header class="py-2">
           <!-- Title and excerpt -->
           <div class="">
-            <h1 class="text-2xl md:text-3xl mb-4 text-gray-700">
+            <h1 class="text-2xl md:text-3xl mb-4 base-content">
                 {{ page.settings.title }}
             </h1>
           </div>
@@ -21,8 +21,8 @@
               <div>&nbsp;</div>
               <div class="">
                   <div class="space-x-2">
-                    <span class="text-gray-500 dark:text-slate-400"> {{ 'generic.published_at' | t}}：{{ page.published_at | date: "%Y-%m-%d" }}</span>
-                    <span class="text-gray-500 dark:text-slate-400"> ·  {{ 'generic.visits' | t }}：{{ page.visits_count  }}</span>
+                    <span class="base-content/80"> {{ 'generic.published_at' | t}}：{{ page.published_at | date: "%Y-%m-%d" }}</span>
+                    <span class="base-content/80"> ·  {{ 'generic.visits' | t }}：{{ page.visits_count  }}</span>
                   </div>
               </div>
           </div>
@@ -55,6 +55,7 @@
         <!-- Feedback -->
         <div class="max-w-2xl mx-auto mt-8">
           {%# render "feedback_form", page: page %}
+          {% render "feedback_btn", page: page %}
         </div>
       </div>
 
@@ -73,7 +74,7 @@
               class="block w-full p-3 text-left border rounded-md lg:w-1/2 border-slate-200"
             >
               <div class="mb-2">{{ 'generic.prev_page' | t }}</div>
-              <div class="text-primary dark:text-slate-200">
+              <div class="text-primary">
                 <div
                   class="flex items-center space-x-2 line-clamp-1"
                 >
@@ -100,7 +101,7 @@
               class="block w-full p-3 text-left border rounded-md lg:text-right lg:w-1/2 border-slate-200"
             >
               <div class="mb-2">{{ 'generic.next_page' | t }}</div>
-              <div class="text-primary dark:text-slate-200">
+              <div class="text-primary">
                 <div
                   class="flex items-center space-x-2 lg:justify-end line-clamp-1"
                 >
@@ -134,38 +135,38 @@
 <!--/ article-->
 {% schema %}
   {
-    "name": "详情页-文章详情页(带封面)",
-    "description": "带封面图的页面详情页模板",
-    "thumb_url": "images/theme/page.webp",
+    "name": "t:schema.templates.page.name",
+    "description": "t:schema.templates.page.description",
+    "thumb_url": "images/theme/${lang}/page.webp",
     "sub_page_templates": [],
     "settings": [
       {
         "id": "title",
         "type": "text",
-        "label": "标题"
+        "label": "t:schema.templates.page.settings.title.label"
       },
       {
         "id": "description",
         "type": "textarea",
-        "label": "摘要"
+        "label": "t:schema.templates.page.settings.description.label"
       },
       {
         "id": "content",
         "type": "richtext",
-        "label": "内容"
+        "label": "t:schema.templates.page.settings.content.label"
       },
       {
         "id": "thumb_image_url",
         "type": "image_picker",
         "ratio": "16:9",
         "width": 300,
-        "label": "封面图"
+        "label": "t:schema.templates.page.settings.thumb_image_url.label"
       },
       {
         "id": "tags",
         "type": "tag_picker",
         "multiple": true,
-        "label": "标签"
+        "label": "t:schema.templates.page.settings.tags.label"
       }
     ]
   }

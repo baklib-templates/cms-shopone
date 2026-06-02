@@ -1,0 +1,56 @@
+site:
+  language: "en"
+  time_zone: "Beijing"
+  settings:
+    logo_url: "images/logo.png"
+    request_form_url: "https://www.baklib.cn/forms/request-support"
+    section_faqs_on: true
+    section_faqs_title: "Browse by FAQs"
+    section_faqs_menu: |
+      Downloads[/downloads{Spring launch[/downloads/spring-beauty-2025|Partnership update[/downloads/flowbeauty-partnership
+      Videos[/videos{LumiGlow unboxing[/videos/lumiglow-unboxing|Brush care guide[/videos/silktouch-care
+      Products[/products{LumiGlow device[/products/lumiglow-device|ProBlend palette[/products/problend-palette
+      FAQs[/faqs{Device guide[/faqs/device-guide|Service & warranty[/faqs/service-support
+      Sitemap[/s/sitemap{Full navigation[/s/sitemap
+    section_products_on: true
+    section_product_type: true
+    section_product_title: "Browse by Product"
+    product_categories: "Smart Beauty Devices|Professional Makeup Tools"
+    section_topics_on: true
+    section_topic_title: "Browse by Topic"
+    topics_menu: |
+      Device guides[/faqs/device-guide[Setup and daily care workflows
+      Service & warranty[/faqs/service-support[Support policies and booking
+      Video tutorials[/videos[Watch step-by-step guides
+    section_downloads_on: true
+    section_downloads_title: "Browse by Downloads"
+    section_downloads_description: "Latest product launches, partnerships, and channel updates."
+    section_downloads_slug: "/downloads"
+    section_contact_on: true
+    section_contact_title: "Contact Us"
+    email: "support@Shop.demo"
+    phone: "+1-800-555-0199"
+    phone_name: "Mon–Fri, 10:00 AM – 6:00 PM EST"
+    chat_url: "https://www.baklib.cn/chat"
+    chat_name: "@Shop"
+    contact_url: "/s/about"
+    contact_name: "About & contact"
+    header_menu: |
+      Home[/
+      Downloads[/downloads
+      Videos[/videos
+      Products[/products{LumiGlow[/products/lumiglow-device|ProBlend[/products/problend-palette
+      FAQs[/faqs
+      Sitemap[/s/sitemap
+    footer_menu: |
+      Products[/products{LumiGlow[/products/lumiglow-device|ProBlend[/products/problend-palette
+      Videos[/videos{LumiGlow unboxing[/videos/lumiglow-unboxing|Brush care[/videos/silktouch-care
+      Downloads[/downloads{Spring launch[/downloads/spring-beauty-2025|Partnership[/downloads/flowbeauty-partnership
+    company_info: "© 2025 Shop Demo. All rights reserved."
+    friend_links: |
+      <div class="flex flex-wrap justify-center gap-4 text-sm">
+        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.baklib.cn" target="_blank" rel="noopener noreferrer">Baklib</a>
+      </div>
+    font_html: "<style>\n  @font-face {\n    font-family: 'Helvetica Now Display';\n    font-style: normal;\n    font-weight: normal;\n    font-display: swap;\n    src: url('{{ 'images/font/HelveticaNowDisplay-Bold.otf' | asset_url }}') format('otf'),url('{{ 'images/font/HelveticaNowDisplay-Medium.otf' | asset_url }}') format('otf'),url('{{ 'images/font/HelveticaNowDisplay-Regular.otf' | asset_url }}') format('otf');\n  }\n  .font-custom {\n      font-family: 'Helvetica Now Display';\n    }\n</style>\n"

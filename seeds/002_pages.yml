@@ -1,0 +1,847 @@
+pages:
+  name: "Shop Support Hub"
+  slug: "index"
+  template_name: "index"
+  settings:
+    description: "Welcome to the Shop product support and learning center."
+    hero_image_url: "images/demo/hero.jpg"
+    text_color: "#ffffff"
+  children:
+    - name: "Products"
+      slug: "products"
+      template_name: "products"
+      settings:
+        title: "Product catalog"
+        description: "Browse smart beauty devices and professional makeup tools with specs, guides, and downloads."
+      children:
+        - name: "LumiGlow Smart Light Therapy Device"
+          slug: "lumiglow-device"
+          template_name: "product"
+          settings:
+            title: "LumiGlow Smart Light Therapy Device"
+            tags:
+              - "Smart Beauty Devices"
+            description: "Three-spectrum skin care with AI skin-type detection and personalized routines."
+            thumb_image_url: "images/demo/product1.png"
+            hero_image_url: "images/demo/product1_banner.png"
+            external_url: "https://example.com/shop/lumiglow"
+            content: |
+              <h2>Highlights</h2>
+              <ul>
+                <li><strong>AI skin scan</strong> — analyzes oil, moisture, and sensitivity.</li>
+                <li><strong>Three light modes</strong> — blue purify, yellow brighten, red repair.</li>
+                <li><strong>360° hood</strong> — keeps temperature and humidity stable during sessions.</li>
+              </ul>
+              <p>Pair with the Shop app to log sessions and view weekly skin reports.</p>
+          children:
+            - name: "FAQs"
+              slug: "faqs"
+              template_name: "faqs"
+              settings:
+                title: "FAQs"
+                description: "Answers about smart beauty devices and professional makeup tools."
+              children:
+                - name: "Device guides"
+                  slug: "device-guide"
+                  template_name: "faqs"
+                  settings:
+                    title: "Smart device guides"
+                    description: "From unboxing to daily care workflows."
+                  children:
+                    - name: "First-time LumiGlow activation"
+                      slug: "lumiglow-activation"
+                      template_name: "post"
+                      settings:
+                        title: "What are the steps to activate LumiGlow for the first time?"
+                        content: |
+                          <p>Install the Shop app, charge the device, complete the face scan, then start with the recommended 8-minute program.</p>
+                          <p>Increase spectrum intensity gradually after you observe how your skin responds.</p>
+                    - name: "HydraMist water types"
+                      slug: "hydramist-water-guide"
+                      template_name: "post"
+                      settings:
+                        title: "What water can I use with HydraMist?"
+                        content: |
+                          <p>Use purified or mineral water only. Do not add oils, perfume, or thick serums in the tank.</p>
+                          <p>Apply serums with DermaWave first, then finish with a cold mist to soothe skin.</p>
+                - name: "Service & warranty"
+                  slug: "service-support"
+                  template_name: "faqs"
+                  settings:
+                    title: "Service and warranty"
+                    description: "Support channels, extended warranty, and bookings."
+                  children:
+                    - name: "Device warranty policy"
+                      slug: "device-warranty"
+                      template_name: "post"
+                      settings:
+                        title: "Smart device warranty policy"
+                        content: |
+                          <p>LumiGlow, HydraMist, and DermaWave include 12 months of coverage. Register as a Shop member to extend to 18 months with annual calibration.</p>
+                    - name: "Book a makeup consultant"
+                      slug: "book-makeup-consultant"
+                      template_name: "post"
+                      settings:
+                        title: "How do I book a Shop makeup consultant?"
+                        content: |
+                          <p>Use <strong>Contact Us</strong> at the bottom of the site, choose makeup consultant service, and submit your details. A consultant confirms within 24 hours.</p>
+            - name: "Downloads"
+              slug: "downloads"
+              template_name: "downloads"
+              settings:
+                title: "Downloads"
+                description: "Product launches, partnerships, and channel updates from Shop."
+              children:
+                - name: "Spring 2025 skin-care launch"
+                  slug: "spring-beauty-2025"
+                  template_name: "post"
+                  settings:
+                    title: "Spring 2025 launch: LumiGlow series goes global"
+                    description: "LumiGlow and HydraMist debut with AI skin scanning at the spring launch event."
+                    content: |
+                      <p>Shop unveiled the LumiGlow light therapy device and HydraMist steamer with live AI skin scanning and spectrum demos.</p>
+                      <p>The <strong>Skin Journey</strong> lab in the app shows care data and upgrade suggestions after each session.</p>
+                - name: "FlowBeauty ecosystem partnership"
+                  slug: "flowbeauty-partnership"
+                  template_name: "post"
+                  settings:
+                    title: "Shop partners with FlowBeauty on smart beauty ecosystem"
+                    description: "Joint membership, device leasing, and pro artist training across the ecosystem."
+                    content: |
+                      <p>The teams will co-develop hardware, tools, and cloud data services, including a joint membership and service network.</p>
+                      <p>Plans cover device leasing, on-site maintenance, and pro artist training.</p>
+            - name: "Videos"
+              slug: "videos"
+              template_name: "videos"
+              settings:
+                title: "Video tutorials"
+                description: "Official guides for devices and makeup tools."
+                video_type: "0"
+              children:
+                - name: "LumiGlow unboxing and modes"
+                  slug: "lumiglow-unboxing"
+                  template_name: "video"
+                  settings:
+                    title: "LumiGlow unboxing and mode switching"
+                    youtube_id: "6c3RXM7lK20"
+                    description: "Activation, app pairing, skin scan, and three light programs."
+                    content: |
+                      <p>Covers first-time setup, care plan selection, and post-session cleaning for new owners.</p>
+                - name: "SilkTouch brush care"
+                  slug: "silktouch-care"
+                  template_name: "video"
+                  settings:
+                    title: "SilkTouch brush care guide"
+                    youtube_id: "X9l9Qw5Hv2U"
+                    description: "Daily cleaning, deep care, and travel storage tips."
+                    content: |
+                      <p>Demonstrates a 3-minute wash with SilkTouch cleaner and how to keep brushes dry on the go.</p>
+
+        - name: "HydraMist Hot & Cold Steamer"
+          slug: "hydramist-steam"
+          template_name: "product"
+          settings:
+            title: "HydraMist Hot & Cold Steamer"
+            tags:
+              - "Smart Beauty Devices"
+            description: "Dual hot/cold mist modes to refresh skin in 30 seconds."
+            thumb_image_url: "images/demo/product2.png"
+            content: |
+              <h2>Use cases</h2>
+              <p>Use cold mist in the morning and warm mist at night with serum infusion mode.</p>
+              <ul>
+                <li>Dual-chip temperature control for even particle size.</li>
+                <li>280 ml tank for up to 15 minutes of continuous mist.</li>
+                <li>UV purification cycle before each session.</li>
+              </ul>
+          children:
+            - name: "FAQs"
+              slug: "faqs"
+              template_name: "faqs"
+              settings:
+                title: "FAQs"
+                description: "Answers about smart beauty devices and professional makeup tools."
+              children:
+                - name: "Device guides"
+                  slug: "device-guide"
+                  template_name: "faqs"
+                  settings:
+                    title: "Smart device guides"
+                    description: "From unboxing to daily care workflows."
+                  children:
+                    - name: "First-time LumiGlow activation"
+                      slug: "lumiglow-activation"
+                      template_name: "post"
+                      settings:
+                        title: "What are the steps to activate LumiGlow for the first time?"
+                        content: |
+                          <p>Install the Shop app, charge the device, complete the face scan, then start with the recommended 8-minute program.</p>
+                          <p>Increase spectrum intensity gradually after you observe how your skin responds.</p>
+                    - name: "HydraMist water types"
+                      slug: "hydramist-water-guide"
+                      template_name: "post"
+                      settings:
+                        title: "What water can I use with HydraMist?"
+                        content: |
+                          <p>Use purified or mineral water only. Do not add oils, perfume, or thick serums in the tank.</p>
+                          <p>Apply serums with DermaWave first, then finish with a cold mist to soothe skin.</p>
+                - name: "Service & warranty"
+                  slug: "service-support"
+                  template_name: "faqs"
+                  settings:
+                    title: "Service and warranty"
+                    description: "Support channels, extended warranty, and bookings."
+                  children:
+                    - name: "Device warranty policy"
+                      slug: "device-warranty"
+                      template_name: "post"
+                      settings:
+                        title: "Smart device warranty policy"
+                        content: |
+                          <p>LumiGlow, HydraMist, and DermaWave include 12 months of coverage. Register as a Shop member to extend to 18 months with annual calibration.</p>
+                    - name: "Book a makeup consultant"
+                      slug: "book-makeup-consultant"
+                      template_name: "post"
+                      settings:
+                        title: "How do I book a Shop makeup consultant?"
+                        content: |
+                          <p>Use <strong>Contact Us</strong> at the bottom of the site, choose makeup consultant service, and submit your details. A consultant confirms within 24 hours.</p>
+            - name: "Downloads"
+              slug: "downloads"
+              template_name: "downloads"
+              settings:
+                title: "Downloads"
+                description: "Product launches, partnerships, and channel updates from Shop."
+              children:
+                - name: "Spring 2025 skin-care launch"
+                  slug: "spring-beauty-2025"
+                  template_name: "post"
+                  settings:
+                    title: "Spring 2025 launch: LumiGlow series goes global"
+                    description: "LumiGlow and HydraMist debut with AI skin scanning at the spring launch event."
+                    content: |
+                      <p>Shop unveiled the LumiGlow light therapy device and HydraMist steamer with live AI skin scanning and spectrum demos.</p>
+                      <p>The <strong>Skin Journey</strong> lab in the app shows care data and upgrade suggestions after each session.</p>
+                - name: "FlowBeauty ecosystem partnership"
+                  slug: "flowbeauty-partnership"
+                  template_name: "post"
+                  settings:
+                    title: "Shop partners with FlowBeauty on smart beauty ecosystem"
+                    description: "Joint membership, device leasing, and pro artist training across the ecosystem."
+                    content: |
+                      <p>The teams will co-develop hardware, tools, and cloud data services, including a joint membership and service network.</p>
+                      <p>Plans cover device leasing, on-site maintenance, and pro artist training.</p>
+            - name: "Videos"
+              slug: "videos"
+              template_name: "videos"
+              settings:
+                title: "Video tutorials"
+                description: "Official guides for devices and makeup tools."
+                video_type: "0"
+              children:
+                - name: "LumiGlow unboxing and modes"
+                  slug: "lumiglow-unboxing"
+                  template_name: "video"
+                  settings:
+                    title: "LumiGlow unboxing and mode switching"
+                    youtube_id: "6c3RXM7lK20"
+                    description: "Activation, app pairing, skin scan, and three light programs."
+                    content: |
+                      <p>Covers first-time setup, care plan selection, and post-session cleaning for new owners.</p>
+                - name: "SilkTouch brush care"
+                  slug: "silktouch-care"
+                  template_name: "video"
+                  settings:
+                    title: "SilkTouch brush care guide"
+                    youtube_id: "X9l9Qw5Hv2U"
+                    description: "Daily cleaning, deep care, and travel storage tips."
+                    content: |
+                      <p>Demonstrates a 3-minute wash with SilkTouch cleaner and how to keep brushes dry on the go.</p>
+
+        - name: "DermaWave Nano Infusion Wand"
+          slug: "dermawave-infusion"
+          template_name: "product"
+          settings:
+            title: "DermaWave Nano Infusion Wand"
+            tags:
+              - "Smart Beauty Devices"
+            description: "Up to 12,000 pulses per minute to help serums absorb into the stratum corneum."
+            thumb_image_url: "images/demo/product3.png"
+            content: |
+              <h2>How to use</h2>
+              <ol>
+                <li>Apply serum evenly after cleansing, then turn on infusion mode.</li>
+                <li>Glide along facial contours; hold 5 seconds on focus areas.</li>
+                <li>Switch to soothe mode to calm skin after treatment.</li>
+              </ol>
+              <p>USB-C charging; travel mode supports up to 12 sessions per charge.</p>
+          children:
+            - name: "FAQs"
+              slug: "faqs"
+              template_name: "faqs"
+              settings:
+                title: "FAQs"
+                description: "Answers about smart beauty devices and professional makeup tools."
+              children:
+                - name: "Device guides"
+                  slug: "device-guide"
+                  template_name: "faqs"
+                  settings:
+                    title: "Smart device guides"
+                    description: "From unboxing to daily care workflows."
+                  children:
+                    - name: "First-time LumiGlow activation"
+                      slug: "lumiglow-activation"
+                      template_name: "post"
+                      settings:
+                        title: "What are the steps to activate LumiGlow for the first time?"
+                        content: |
+                          <p>Install the Shop app, charge the device, complete the face scan, then start with the recommended 8-minute program.</p>
+                          <p>Increase spectrum intensity gradually after you observe how your skin responds.</p>
+                    - name: "HydraMist water types"
+                      slug: "hydramist-water-guide"
+                      template_name: "post"
+                      settings:
+                        title: "What water can I use with HydraMist?"
+                        content: |
+                          <p>Use purified or mineral water only. Do not add oils, perfume, or thick serums in the tank.</p>
+                          <p>Apply serums with DermaWave first, then finish with a cold mist to soothe skin.</p>
+                - name: "Service & warranty"
+                  slug: "service-support"
+                  template_name: "faqs"
+                  settings:
+                    title: "Service and warranty"
+                    description: "Support channels, extended warranty, and bookings."
+                  children:
+                    - name: "Device warranty policy"
+                      slug: "device-warranty"
+                      template_name: "post"
+                      settings:
+                        title: "Smart device warranty policy"
+                        content: |
+                          <p>LumiGlow, HydraMist, and DermaWave include 12 months of coverage. Register as a Shop member to extend to 18 months with annual calibration.</p>
+                    - name: "Book a makeup consultant"
+                      slug: "book-makeup-consultant"
+                      template_name: "post"
+                      settings:
+                        title: "How do I book a Shop makeup consultant?"
+                        content: |
+                          <p>Use <strong>Contact Us</strong> at the bottom of the site, choose makeup consultant service, and submit your details. A consultant confirms within 24 hours.</p>
+            - name: "Downloads"
+              slug: "downloads"
+              template_name: "downloads"
+              settings:
+                title: "Downloads"
+                description: "Product launches, partnerships, and channel updates from Shop."
+              children:
+                - name: "Spring 2025 skin-care launch"
+                  slug: "spring-beauty-2025"
+                  template_name: "post"
+                  settings:
+                    title: "Spring 2025 launch: LumiGlow series goes global"
+                    description: "LumiGlow and HydraMist debut with AI skin scanning at the spring launch event."
+                    content: |
+                      <p>Shop unveiled the LumiGlow light therapy device and HydraMist steamer with live AI skin scanning and spectrum demos.</p>
+                      <p>The <strong>Skin Journey</strong> lab in the app shows care data and upgrade suggestions after each session.</p>
+                - name: "FlowBeauty ecosystem partnership"
+                  slug: "flowbeauty-partnership"
+                  template_name: "post"
+                  settings:
+                    title: "Shop partners with FlowBeauty on smart beauty ecosystem"
+                    description: "Joint membership, device leasing, and pro artist training across the ecosystem."
+                    content: |
+                      <p>The teams will co-develop hardware, tools, and cloud data services, including a joint membership and service network.</p>
+                      <p>Plans cover device leasing, on-site maintenance, and pro artist training.</p>
+            - name: "Videos"
+              slug: "videos"
+              template_name: "videos"
+              settings:
+                title: "Video tutorials"
+                description: "Official guides for devices and makeup tools."
+                video_type: "0"
+              children:
+                - name: "LumiGlow unboxing and modes"
+                  slug: "lumiglow-unboxing"
+                  template_name: "video"
+                  settings:
+                    title: "LumiGlow unboxing and mode switching"
+                    youtube_id: "6c3RXM7lK20"
+                    description: "Activation, app pairing, skin scan, and three light programs."
+                    content: |
+                      <p>Covers first-time setup, care plan selection, and post-session cleaning for new owners.</p>
+                - name: "SilkTouch brush care"
+                  slug: "silktouch-care"
+                  template_name: "video"
+                  settings:
+                    title: "SilkTouch brush care guide"
+                    youtube_id: "X9l9Qw5Hv2U"
+                    description: "Daily cleaning, deep care, and travel storage tips."
+                    content: |
+                      <p>Demonstrates a 3-minute wash with SilkTouch cleaner and how to keep brushes dry on the go.</p>
+
+        - name: "ProBlend Smart Palette"
+          slug: "problend-palette"
+          template_name: "product"
+          settings:
+            title: "ProBlend Smart Palette"
+            tags:
+              - "Professional Makeup Tools"
+            description: "Color algorithms remember your custom skin-tone formulas."
+            thumb_image_url: "images/demo/product4.png"
+            hero_image_url: "images/demo/product4_banner.png"
+            content: |
+              <h2>Why ProBlend</h2>
+              <p>Four magnetic zones for foundation, blush, highlight, and contour — recipes save automatically.</p>
+              <ul>
+                <li>Antimicrobial surface coating for easy cleaning.</li>
+                <li>NFC sync with the app for history and look suggestions.</li>
+                <li>Includes travel case and touch-up mirror.</li>
+              </ul>
+          children:
+            - name: "FAQs"
+              slug: "faqs"
+              template_name: "faqs"
+              settings:
+                title: "FAQs"
+                description: "Answers about smart beauty devices and professional makeup tools."
+              children:
+                - name: "Device guides"
+                  slug: "device-guide"
+                  template_name: "faqs"
+                  settings:
+                    title: "Smart device guides"
+                    description: "From unboxing to daily care workflows."
+                  children:
+                    - name: "First-time LumiGlow activation"
+                      slug: "lumiglow-activation"
+                      template_name: "post"
+                      settings:
+                        title: "What are the steps to activate LumiGlow for the first time?"
+                        content: |
+                          <p>Install the Shop app, charge the device, complete the face scan, then start with the recommended 8-minute program.</p>
+                          <p>Increase spectrum intensity gradually after you observe how your skin responds.</p>
+                    - name: "HydraMist water types"
+                      slug: "hydramist-water-guide"
+                      template_name: "post"
+                      settings:
+                        title: "What water can I use with HydraMist?"
+                        content: |
+                          <p>Use purified or mineral water only. Do not add oils, perfume, or thick serums in the tank.</p>
+                          <p>Apply serums with DermaWave first, then finish with a cold mist to soothe skin.</p>
+                - name: "Service & warranty"
+                  slug: "service-support"
+                  template_name: "faqs"
+                  settings:
+                    title: "Service and warranty"
+                    description: "Support channels, extended warranty, and bookings."
+                  children:
+                    - name: "Device warranty policy"
+                      slug: "device-warranty"
+                      template_name: "post"
+                      settings:
+                        title: "Smart device warranty policy"
+                        content: |
+                          <p>LumiGlow, HydraMist, and DermaWave include 12 months of coverage. Register as a Shop member to extend to 18 months with annual calibration.</p>
+                    - name: "Book a makeup consultant"
+                      slug: "book-makeup-consultant"
+                      template_name: "post"
+                      settings:
+                        title: "How do I book a Shop makeup consultant?"
+                        content: |
+                          <p>Use <strong>Contact Us</strong> at the bottom of the site, choose makeup consultant service, and submit your details. A consultant confirms within 24 hours.</p>
+            - name: "Downloads"
+              slug: "downloads"
+              template_name: "downloads"
+              settings:
+                title: "Downloads"
+                description: "Product launches, partnerships, and channel updates from Shop."
+              children:
+                - name: "Spring 2025 skin-care launch"
+                  slug: "spring-beauty-2025"
+                  template_name: "post"
+                  settings:
+                    title: "Spring 2025 launch: LumiGlow series goes global"
+                    description: "LumiGlow and HydraMist debut with AI skin scanning at the spring launch event."
+                    content: |
+                      <p>Shop unveiled the LumiGlow light therapy device and HydraMist steamer with live AI skin scanning and spectrum demos.</p>
+                      <p>The <strong>Skin Journey</strong> lab in the app shows care data and upgrade suggestions after each session.</p>
+                - name: "FlowBeauty ecosystem partnership"
+                  slug: "flowbeauty-partnership"
+                  template_name: "post"
+                  settings:
+                    title: "Shop partners with FlowBeauty on smart beauty ecosystem"
+                    description: "Joint membership, device leasing, and pro artist training across the ecosystem."
+                    content: |
+                      <p>The teams will co-develop hardware, tools, and cloud data services, including a joint membership and service network.</p>
+                      <p>Plans cover device leasing, on-site maintenance, and pro artist training.</p>
+            - name: "Videos"
+              slug: "videos"
+              template_name: "videos"
+              settings:
+                title: "Video tutorials"
+                description: "Official guides for devices and makeup tools."
+                video_type: "0"
+              children:
+                - name: "LumiGlow unboxing and modes"
+                  slug: "lumiglow-unboxing"
+                  template_name: "video"
+                  settings:
+                    title: "LumiGlow unboxing and mode switching"
+                    youtube_id: "6c3RXM7lK20"
+                    description: "Activation, app pairing, skin scan, and three light programs."
+                    content: |
+                      <p>Covers first-time setup, care plan selection, and post-session cleaning for new owners.</p>
+                - name: "SilkTouch brush care"
+                  slug: "silktouch-care"
+                  template_name: "video"
+                  settings:
+                    title: "SilkTouch brush care guide"
+                    youtube_id: "X9l9Qw5Hv2U"
+                    description: "Daily cleaning, deep care, and travel storage tips."
+                    content: |
+                      <p>Demonstrates a 3-minute wash with SilkTouch cleaner and how to keep brushes dry on the go.</p>
+
+        - name: "SilkTouch Precision Brush Set"
+          slug: "silktouch-brush"
+          template_name: "product"
+          settings:
+            title: "SilkTouch Precision Brush Set"
+            tags:
+              - "Professional Makeup Tools"
+            description: "Seven brushes for base, eyes, and detail work."
+            thumb_image_url: "images/demo/product5.png"
+            content: |
+              <h2>Kit contents</h2>
+              <ul>
+                <li>Foundation, concealer, and blush brushes for different finishes.</li>
+                <li>Synthetic fibers that stay soft and shed less powder.</li>
+                <li>Drying sleeve and stand to keep brush shape.</li>
+              </ul>
+          children:
+            - name: "FAQs"
+              slug: "faqs"
+              template_name: "faqs"
+              settings:
+                title: "FAQs"
+                description: "Answers about smart beauty devices and professional makeup tools."
+              children:
+                - name: "Device guides"
+                  slug: "device-guide"
+                  template_name: "faqs"
+                  settings:
+                    title: "Smart device guides"
+                    description: "From unboxing to daily care workflows."
+                  children:
+                    - name: "First-time LumiGlow activation"
+                      slug: "lumiglow-activation"
+                      template_name: "post"
+                      settings:
+                        title: "What are the steps to activate LumiGlow for the first time?"
+                        content: |
+                          <p>Install the Shop app, charge the device, complete the face scan, then start with the recommended 8-minute program.</p>
+                          <p>Increase spectrum intensity gradually after you observe how your skin responds.</p>
+                    - name: "HydraMist water types"
+                      slug: "hydramist-water-guide"
+                      template_name: "post"
+                      settings:
+                        title: "What water can I use with HydraMist?"
+                        content: |
+                          <p>Use purified or mineral water only. Do not add oils, perfume, or thick serums in the tank.</p>
+                          <p>Apply serums with DermaWave first, then finish with a cold mist to soothe skin.</p>
+                - name: "Service & warranty"
+                  slug: "service-support"
+                  template_name: "faqs"
+                  settings:
+                    title: "Service and warranty"
+                    description: "Support channels, extended warranty, and bookings."
+                  children:
+                    - name: "Device warranty policy"
+                      slug: "device-warranty"
+                      template_name: "post"
+                      settings:
+                        title: "Smart device warranty policy"
+                        content: |
+                          <p>LumiGlow, HydraMist, and DermaWave include 12 months of coverage. Register as a Shop member to extend to 18 months with annual calibration.</p>
+                    - name: "Book a makeup consultant"
+                      slug: "book-makeup-consultant"
+                      template_name: "post"
+                      settings:
+                        title: "How do I book a Shop makeup consultant?"
+                        content: |
+                          <p>Use <strong>Contact Us</strong> at the bottom of the site, choose makeup consultant service, and submit your details. A consultant confirms within 24 hours.</p>
+            - name: "Downloads"
+              slug: "downloads"
+              template_name: "downloads"
+              settings:
+                title: "Downloads"
+                description: "Product launches, partnerships, and channel updates from Shop."
+              children:
+                - name: "Spring 2025 skin-care launch"
+                  slug: "spring-beauty-2025"
+                  template_name: "post"
+                  settings:
+                    title: "Spring 2025 launch: LumiGlow series goes global"
+                    description: "LumiGlow and HydraMist debut with AI skin scanning at the spring launch event."
+                    content: |
+                      <p>Shop unveiled the LumiGlow light therapy device and HydraMist steamer with live AI skin scanning and spectrum demos.</p>
+                      <p>The <strong>Skin Journey</strong> lab in the app shows care data and upgrade suggestions after each session.</p>
+                - name: "FlowBeauty ecosystem partnership"
+                  slug: "flowbeauty-partnership"
+                  template_name: "post"
+                  settings:
+                    title: "Shop partners with FlowBeauty on smart beauty ecosystem"
+                    description: "Joint membership, device leasing, and pro artist training across the ecosystem."
+                    content: |
+                      <p>The teams will co-develop hardware, tools, and cloud data services, including a joint membership and service network.</p>
+                      <p>Plans cover device leasing, on-site maintenance, and pro artist training.</p>
+            - name: "Videos"
+              slug: "videos"
+              template_name: "videos"
+              settings:
+                title: "Video tutorials"
+                description: "Official guides for devices and makeup tools."
+                video_type: "0"
+              children:
+                - name: "LumiGlow unboxing and modes"
+                  slug: "lumiglow-unboxing"
+                  template_name: "video"
+                  settings:
+                    title: "LumiGlow unboxing and mode switching"
+                    youtube_id: "6c3RXM7lK20"
+                    description: "Activation, app pairing, skin scan, and three light programs."
+                    content: |
+                      <p>Covers first-time setup, care plan selection, and post-session cleaning for new owners.</p>
+                - name: "SilkTouch brush care"
+                  slug: "silktouch-care"
+                  template_name: "video"
+                  settings:
+                    title: "SilkTouch brush care guide"
+                    youtube_id: "X9l9Qw5Hv2U"
+                    description: "Daily cleaning, deep care, and travel storage tips."
+                    content: |
+                      <p>Demonstrates a 3-minute wash with SilkTouch cleaner and how to keep brushes dry on the go.</p>
+
+        - name: "AeroMist Airbrush Foundation"
+          slug: "aeromist-foundation"
+          template_name: "product"
+          settings:
+            title: "AeroMist Airbrush Foundation"
+            tags:
+              - "Professional Makeup Tools"
+            description: "Micro-mist application for a natural satin finish."
+            thumb_image_url: "images/demo/product6.png"
+            hero_image_url: "images/demo/product6_banner.png"
+            content: |
+              <h2>Features</h2>
+              <p>High-pressure atomization turns foundation into fine particles for buildable coverage.</p>
+              <ul>
+                <li>Three mist levels for daily, stage, and studio lighting.</li>
+                <li>Swappable pods for different formulas.</li>
+                <li>Built-in UV nozzle cleaning after each use.</li>
+              </ul>
+          children:
+            - name: "FAQs"
+              slug: "faqs"
+              template_name: "faqs"
+              settings:
+                title: "FAQs"
+                description: "Answers about smart beauty devices and professional makeup tools."
+              children:
+                - name: "Device guides"
+                  slug: "device-guide"
+                  template_name: "faqs"
+                  settings:
+                    title: "Smart device guides"
+                    description: "From unboxing to daily care workflows."
+                  children:
+                    - name: "First-time LumiGlow activation"
+                      slug: "lumiglow-activation"
+                      template_name: "post"
+                      settings:
+                        title: "What are the steps to activate LumiGlow for the first time?"
+                        content: |
+                          <p>Install the Shop app, charge the device, complete the face scan, then start with the recommended 8-minute program.</p>
+                          <p>Increase spectrum intensity gradually after you observe how your skin responds.</p>
+                    - name: "HydraMist water types"
+                      slug: "hydramist-water-guide"
+                      template_name: "post"
+                      settings:
+                        title: "What water can I use with HydraMist?"
+                        content: |
+                          <p>Use purified or mineral water only. Do not add oils, perfume, or thick serums in the tank.</p>
+                          <p>Apply serums with DermaWave first, then finish with a cold mist to soothe skin.</p>
+                - name: "Service & warranty"
+                  slug: "service-support"
+                  template_name: "faqs"
+                  settings:
+                    title: "Service and warranty"
+                    description: "Support channels, extended warranty, and bookings."
+                  children:
+                    - name: "Device warranty policy"
+                      slug: "device-warranty"
+                      template_name: "post"
+                      settings:
+                        title: "Smart device warranty policy"
+                        content: |
+                          <p>LumiGlow, HydraMist, and DermaWave include 12 months of coverage. Register as a Shop member to extend to 18 months with annual calibration.</p>
+                    - name: "Book a makeup consultant"
+                      slug: "book-makeup-consultant"
+                      template_name: "post"
+                      settings:
+                        title: "How do I book a Shop makeup consultant?"
+                        content: |
+                          <p>Use <strong>Contact Us</strong> at the bottom of the site, choose makeup consultant service, and submit your details. A consultant confirms within 24 hours.</p>
+            - name: "Downloads"
+              slug: "downloads"
+              template_name: "downloads"
+              settings:
+                title: "Downloads"
+                description: "Product launches, partnerships, and channel updates from Shop."
+              children:
+                - name: "Spring 2025 skin-care launch"
+                  slug: "spring-beauty-2025"
+                  template_name: "post"
+                  settings:
+                    title: "Spring 2025 launch: LumiGlow series goes global"
+                    description: "LumiGlow and HydraMist debut with AI skin scanning at the spring launch event."
+                    content: |
+                      <p>Shop unveiled the LumiGlow light therapy device and HydraMist steamer with live AI skin scanning and spectrum demos.</p>
+                      <p>The <strong>Skin Journey</strong> lab in the app shows care data and upgrade suggestions after each session.</p>
+                - name: "FlowBeauty ecosystem partnership"
+                  slug: "flowbeauty-partnership"
+                  template_name: "post"
+                  settings:
+                    title: "Shop partners with FlowBeauty on smart beauty ecosystem"
+                    description: "Joint membership, device leasing, and pro artist training across the ecosystem."
+                    content: |
+                      <p>The teams will co-develop hardware, tools, and cloud data services, including a joint membership and service network.</p>
+                      <p>Plans cover device leasing, on-site maintenance, and pro artist training.</p>
+            - name: "Videos"
+              slug: "videos"
+              template_name: "videos"
+              settings:
+                title: "Video tutorials"
+                description: "Official guides for devices and makeup tools."
+                video_type: "0"
+              children:
+                - name: "LumiGlow unboxing and modes"
+                  slug: "lumiglow-unboxing"
+                  template_name: "video"
+                  settings:
+                    title: "LumiGlow unboxing and mode switching"
+                    youtube_id: "6c3RXM7lK20"
+                    description: "Activation, app pairing, skin scan, and three light programs."
+                    content: |
+                      <p>Covers first-time setup, care plan selection, and post-session cleaning for new owners.</p>
+                - name: "SilkTouch brush care"
+                  slug: "silktouch-care"
+                  template_name: "video"
+                  settings:
+                    title: "SilkTouch brush care guide"
+                    youtube_id: "X9l9Qw5Hv2U"
+                    description: "Daily cleaning, deep care, and travel storage tips."
+                    content: |
+                      <p>Demonstrates a 3-minute wash with SilkTouch cleaner and how to keep brushes dry on the go.</p>
+
+    - name: "Downloads"
+      slug: "downloads"
+      template_name: "downloads"
+      settings:
+        title: "Downloads"
+        description: "Product launches, partnerships, and channel updates from Shop."
+      children:
+        - name: "Spring 2025 skin-care launch"
+          slug: "spring-beauty-2025"
+          template_name: "post"
+          settings:
+            title: "Spring 2025 launch: LumiGlow series goes global"
+            description: "LumiGlow and HydraMist debut with AI skin scanning at the spring launch event."
+            content: |
+              <p>Shop unveiled the LumiGlow light therapy device and HydraMist steamer with live AI skin scanning and spectrum demos.</p>
+              <p>The <strong>Skin Journey</strong> lab in the app shows care data and upgrade suggestions after each session.</p>
+        - name: "FlowBeauty ecosystem partnership"
+          slug: "flowbeauty-partnership"
+          template_name: "post"
+          settings:
+            title: "Shop partners with FlowBeauty on smart beauty ecosystem"
+            description: "Joint membership, device leasing, and pro artist training across the ecosystem."
+            content: |
+              <p>The teams will co-develop hardware, tools, and cloud data services, including a joint membership and service network.</p>
+              <p>Plans cover device leasing, on-site maintenance, and pro artist training.</p>
+    - name: "Videos"
+      slug: "videos"
+      template_name: "videos"
+      settings:
+        title: "Video tutorials"
+        description: "Official guides for devices and makeup tools."
+        video_type: "0"
+      children:
+        - name: "LumiGlow unboxing and modes"
+          slug: "lumiglow-unboxing"
+          template_name: "video"
+          settings:
+            title: "LumiGlow unboxing and mode switching"
+            youtube_id: "6c3RXM7lK20"
+            description: "Activation, app pairing, skin scan, and three light programs."
+            content: |
+              <p>Covers first-time setup, care plan selection, and post-session cleaning for new owners.</p>
+        - name: "SilkTouch brush care"
+          slug: "silktouch-care"
+          template_name: "video"
+          settings:
+            title: "SilkTouch brush care guide"
+            youtube_id: "X9l9Qw5Hv2U"
+            description: "Daily cleaning, deep care, and travel storage tips."
+            content: |
+              <p>Demonstrates a 3-minute wash with SilkTouch cleaner and how to keep brushes dry on the go.</p>
+    - name: "FAQs"
+      slug: "faqs"
+      template_name: "faqs"
+      settings:
+        title: "FAQs"
+        description: "Answers about smart beauty devices and professional makeup tools."
+      children:
+        - name: "Device guides"
+          slug: "device-guide"
+          template_name: "faqs"
+          settings:
+            title: "Smart device guides"
+            description: "From unboxing to daily care workflows."
+          children:
+            - name: "First-time LumiGlow activation"
+              slug: "lumiglow-activation"
+              template_name: "post"
+              settings:
+                title: "What are the steps to activate LumiGlow for the first time?"
+                content: |
+                  <p>Install the Shop app, charge the device, complete the face scan, then start with the recommended 8-minute program.</p>
+                  <p>Increase spectrum intensity gradually after you observe how your skin responds.</p>
+            - name: "HydraMist water types"
+              slug: "hydramist-water-guide"
+              template_name: "post"
+              settings:
+                title: "What water can I use with HydraMist?"
+                content: |
+                  <p>Use purified or mineral water only. Do not add oils, perfume, or thick serums in the tank.</p>
+                  <p>Apply serums with DermaWave first, then finish with a cold mist to soothe skin.</p>
+        - name: "Service & warranty"
+          slug: "service-support"
+          template_name: "faqs"
+          settings:
+            title: "Service and warranty"
+            description: "Support channels, extended warranty, and bookings."
+          children:
+            - name: "Device warranty policy"
+              slug: "device-warranty"
+              template_name: "post"
+              settings:
+                title: "Smart device warranty policy"
+                content: |
+                  <p>LumiGlow, HydraMist, and DermaWave include 12 months of coverage. Register as a Shop member to extend to 18 months with annual calibration.</p>
+            - name: "Book a makeup consultant"
+              slug: "book-makeup-consultant"
+              template_name: "post"
+              settings:
+                title: "How do I book a Shop makeup consultant?"
+                content: |
+                  <p>Use <strong>Contact Us</strong> at the bottom of the site, choose makeup consultant service, and submit your details. A consultant confirms within 24 hours.</p>

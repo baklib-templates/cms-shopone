@@ -2,9 +2,9 @@
 {% when 'videos' %}
   {% assign pages = page.children_in_list %}
   {% render 'content_videos', page: page, pages: pages %}
-{% when 'news' %}
+{% when 'downloads' %}
   {% assign pages = page.children_in_list %}
-  {% render 'content_news', page: page, pages: pages %}
+  {% render 'content_downloads', page: page, pages: pages %}
 {% when 'products' %}
   {% assign pages = page.children_in_list %}
   {% render 'content_products', page: page, pages: pages %}

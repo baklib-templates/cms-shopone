@@ -1,20 +1,22 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "shopone",
+    "theme_name": "shop",
     "theme_label": "t:theme_label",
     "theme_description": "t:theme_description",
-    "theme_version": "1.0.0",
+    "theme_version": "2.0.0",
     "theme_scope": "cms",
     "theme_author": "Baklib",
-    "theme_documentation_url": "https://help.baklib.cn/cms/",
-    "theme_support_url": "https://help.baklib.cn/cms/",
-    "theme_thumb_url": "images/theme/index.webp",
+    "theme_documentation_url": "https://github.com/baklib-templates/shop",
+    "theme_support_url": "https://github.com/baklib-templates/shop",
+    "theme_thumb_url": "images/theme/thumb.png",
     "theme_preview_images": [
-      "images/demo/index.webp",
-      "images/demo/index1.webp",
-      "images/demo/products.webp",
-      "images/demo/product.webp"
+      "images/theme/${lang}/cover.png",
+      "images/theme/${lang}/index.webp",
+      "images/theme/${lang}/product.webp",
+      "images/theme/${lang}/faqs.webp",
+      "images/theme/${lang}/downloads.webp",
+      "images/theme/${lang}/videos.webp"
     ],
     "theme_languages": [
       {
@@ -23,31 +25,167 @@
       },
       {
         "name": "English",
-        "value": "en-US"
+        "value": "en"
+      },
+      {
+        "name": "Deutsch",
+        "value": "de"
+      },
+      {
+        "name": "Français",
+        "value": "fr"
       }
     ],
     "recommendations": {
       "color_schemas": {
+        "baklib_default": {
+          "name": "Baklib Teal",
+          "colors": {
+            "--theme-color-base-100": "#001e29",
+            "--theme-color-base-200": "#00111d",
+            "--theme-color-base-300": "#000611",
+            "--theme-color-base-content": "#ffd6a7",
+            "--theme-color-primary": "#bdff00",
+            "--theme-color-primary-content": "#427600",
+            "--theme-color-secondary": "#cebef4",
+            "--theme-color-secondary-content": "#564775",
+            "--theme-color-accent": "#505050",
+            "--theme-color-accent-content": "#f8f8f8",
+            "--theme-color-neutral": "#003843",
+            "--theme-color-neutral-content": "#ffd6a7",
+            "--theme-color-info": "#00bafe",
+            "--theme-color-info-content": "#042e49",
+            "--theme-color-success": "#01df72",
+            "--theme-color-success-content": "#022d14",
+            "--theme-color-warning": "#ffbf00",
+            "--theme-color-warning-content": "#854200",
+            "--theme-color-error": "#f04e4f",
+            "--theme-color-error-content": "#690000"
+          }
+        },
         "fashion": {
           "name": "时尚",
           "colors": {
+            "--theme-color-base-100": "#ffffff",
+            "--theme-color-base-200": "#f8fafc",
+            "--theme-color-base-300": "#e2e8f0",
+            "--theme-color-base-content": "#0f172a",
             "--theme-color-primary": "#3D50E0",
+            "--theme-color-primary-content": "#ffffff",
             "--theme-color-secondary": "#E91E63",
-            "--theme-color-accent": "#AAAAAA",
+            "--theme-color-secondary-content": "#ffffff",
+            "--theme-color-accent": "#9ca3af",
+            "--theme-color-accent-content": "#0f172a",
+            "--theme-color-neutral": "#111827",
+            "--theme-color-neutral-content": "#ffffff",
             "--theme-color-info": "#2196F3",
+            "--theme-color-info-content": "#ffffff",
             "--theme-color-success": "#4CAF50",
-            "--theme-color-warning": "#FFC107"
+            "--theme-color-success-content": "#ffffff",
+            "--theme-color-warning": "#FFC107",
+            "--theme-color-warning-content": "#0f172a",
+            "--theme-color-error": "#ef4444",
+            "--theme-color-error-content": "#ffffff"
           }
         },
         "old_school": {
           "name": "复古",
           "colors": {
+            "--theme-color-base-100": "#fffbf7",
+            "--theme-color-base-200": "#fff7ed",
+            "--theme-color-base-300": "#fed7aa",
+            "--theme-color-base-content": "#431407",
             "--theme-color-primary": "#9C27B0",
+            "--theme-color-primary-content": "#ffffff",
             "--theme-color-secondary": "#673AB7",
-            "--theme-color-accent": "#AAAAAA",
+            "--theme-color-secondary-content": "#ffffff",
+            "--theme-color-accent": "#c2410c",
+            "--theme-color-accent-content": "#ffffff",
+            "--theme-color-neutral": "#292524",
+            "--theme-color-neutral-content": "#ffffff",
             "--theme-color-info": "#418CC8",
+            "--theme-color-info-content": "#ffffff",
             "--theme-color-success": "#29B52F",
-            "--theme-color-warning": "#FFC107"
+            "--theme-color-success-content": "#ffffff",
+            "--theme-color-warning": "#FFC107",
+            "--theme-color-warning-content": "#431407",
+            "--theme-color-error": "#b91c1c",
+            "--theme-color-error-content": "#ffffff"
+          }
+        },
+        "shop_minimal": {
+          "name": "Shop Minimal",
+          "colors": {
+            "--theme-color-base-100": "#ffffff",
+            "--theme-color-base-200": "#f5f5f5",
+            "--theme-color-base-300": "#e5e5e5",
+            "--theme-color-base-content": "#171717",
+            "--theme-color-primary": "#111827",
+            "--theme-color-primary-content": "#ffffff",
+            "--theme-color-secondary": "#6b7280",
+            "--theme-color-secondary-content": "#ffffff",
+            "--theme-color-accent": "#d97706",
+            "--theme-color-accent-content": "#ffffff",
+            "--theme-color-neutral": "#0f172a",
+            "--theme-color-neutral-content": "#ffffff",
+            "--theme-color-info": "#2563eb",
+            "--theme-color-info-content": "#ffffff",
+            "--theme-color-success": "#059669",
+            "--theme-color-success-content": "#ffffff",
+            "--theme-color-warning": "#f59e0b",
+            "--theme-color-warning-content": "#0f172a",
+            "--theme-color-error": "#dc2626",
+            "--theme-color-error-content": "#ffffff"
+          }
+        },
+        "ocean_trust": {
+          "name": "Ocean Trust",
+          "colors": {
+            "--theme-color-base-100": "#ffffff",
+            "--theme-color-base-200": "#f1f5f9",
+            "--theme-color-base-300": "#e2e8f0",
+            "--theme-color-base-content": "#0f172a",
+            "--theme-color-primary": "#0f766e",
+            "--theme-color-primary-content": "#ffffff",
+            "--theme-color-secondary": "#1e3a8a",
+            "--theme-color-secondary-content": "#ffffff",
+            "--theme-color-accent": "#06b6d4",
+            "--theme-color-accent-content": "#0f172a",
+            "--theme-color-neutral": "#0f172a",
+            "--theme-color-neutral-content": "#ffffff",
+            "--theme-color-info": "#0284c7",
+            "--theme-color-info-content": "#ffffff",
+            "--theme-color-success": "#16a34a",
+            "--theme-color-success-content": "#ffffff",
+            "--theme-color-warning": "#f59e0b",
+            "--theme-color-warning-content": "#0f172a",
+            "--theme-color-error": "#dc2626",
+            "--theme-color-error-content": "#ffffff"
+          }
+        },
+        "cross_border_store": {
+          "name": "Cross-border Store",
+          "colors": {
+            "--theme-color-base-100": "#fafaf9",
+            "--theme-color-base-200": "#f5f5f4",
+            "--theme-color-base-300": "#e7e5e4",
+            "--theme-color-base-content": "#0f172a",
+            "--theme-color-primary": "#1e3a5f",
+            "--theme-color-primary-content": "#ffffff",
+            "--theme-color-secondary": "#111827",
+            "--theme-color-secondary-content": "#ffffff",
+            "--theme-color-accent": "#c9a227",
+            "--theme-color-accent-content": "#0f172a",
+            "--theme-color-neutral": "#0f172a",
+            "--theme-color-neutral-content": "#ffffff",
+            "--theme-color-info": "#2563eb",
+            "--theme-color-info-content": "#ffffff",
+            "--theme-color-success": "#059669",
+            "--theme-color-success-content": "#ffffff",
+            "--theme-color-warning": "#f59e0b",
+            "--theme-color-warning-content": "#0f172a",
+            "--theme-color-error": "#dc2626",
+            "--theme-color-error-content": "#ffffff"
           }
         }
       },
@@ -62,9 +200,9 @@
               "template": "products"
             },
             {
-              "name": "News",
-              "slug": "news",
-              "template": "news"
+              "name": "Downloads",
+              "slug": "downloads",
+              "template": "downloads"
             },
             {
               "name": "Videos",
@@ -91,6 +229,26 @@
         "width": 200,
         "label": "站点Logo",
         "info": "放在站点顶部导航栏位置"
+      },
+      {
+        "id": "request_form_url",
+        "type": "text",
+        "label": "Request Form URL",
+        "info": "HTTPS URL only. When set, article pages show a Submit a request link below feedback."
+      },
+      {
+        "id": "robot_name",
+        "type": "text",
+        "label": "AI Assistant name",
+        "default": "AI Assistant",
+        "info": "Shown in the AI Search panel header."
+      },
+      {
+        "id": "ai_search_completed_text",
+        "type": "text",
+        "label": "AI completed text",
+        "default": "Done.",
+        "info": "Displayed after AI Search returns an answer."
       }
     ]
   },
@@ -116,7 +274,7 @@
         "label": "FAQs导航设置",
         "rows": 10,
         "info": "格式：name[slug[description，每行一个分栏。",
-        "default": "News[/news{Catalog1[/|Catalog2[/\nVideos[/videos{Catalog1[/|Catalog2[/\nProducts[/products{Catalog1[/|Catalog2[/\nFAQs[/faqs{Catalog1[/|Catalog2[/\nSitemap[/s/sitemap{Catalog1[/|Catalog2[/\n"
+        "default": "Downloads[/downloads{Catalog1[/|Catalog2[/\nVideos[/videos{Catalog1[/|Catalog2[/\nProducts[/products{Catalog1[/|Catalog2[/\nFAQs[/faqs{Catalog1[/|Catalog2[/\nSitemap[/s/sitemap{Catalog1[/|Catalog2[/\n"
       }
     ]
   },
@@ -135,7 +293,7 @@
         "type": "checkbox",
         "label": "产品列表按分类显示",
         "info": "如果选中，则在首页产品列表按分类显示；否则显示所有",
-        "default": true
+        "default": false
       },
       {
         "id": "section_product_title",
@@ -174,33 +332,38 @@
         "label": "首页话题导航设置",
         "rows": 10,
         "info": "格式：name[slug[description，每行一个分栏。",
-        "default": "FAQs[/faqs[some Q&A for all products\nVideos[/videos[the how-to video manuals\nNews[/news[the company news&events"
+        "default": "FAQs[/faqs[some Q&A for all products\nVideos[/videos[the how-to video manuals\nDownloads[/downloads[product downloads and updates"
       }
     ]
   },
   {
-    "name": "首页新闻版块(News)",
+    "name": "首页下载版块(Downloads)",
     "settings": [
       {
-        "id": "section_news_on",
+        "id": "section_downloads_on",
         "type": "checkbox",
-        "label": "是否显示News版块",
-        "info": "如果选中，则在首页显示News版块；否则不显示",
+        "label": "是否显示Downloads版块",
+        "info": "如果选中，则在首页显示Downloads版块；否则不显示",
         "default": true
       },
       {
-        "id": "section_news_title",
+        "id": "section_downloads_title",
         "type": "text",
         "label": "版块名称",
-        "default": "Browse by News"
+        "default": "Browse by Downloads"
       },
       {
-        "id": "section_news_menu",
-        "type": "textarea",
-        "label": "首页话题导航设置",
-        "rows": 10,
-        "info": "格式：name[slug[description，每行一个分栏。",
-        "default": "General FAQ[/#{What is the trading session?[/|How do I login system?[/|How to change password in my profile?|How do I sync my knowledge base to wiki site?\nProducts FAQ[/{What is Content Security Policy (CSP)?[/|How to set up SSO for your institution?[/|What is the guaranteed uptime of the service?[/|What is the DXP Tool?[/"
+        "id": "section_downloads_description",
+        "type": "text",
+        "label": "Section description",
+        "default": "Latest product launches, partnerships, and channel updates."
+      },
+      {
+        "id": "section_downloads_slug",
+        "type": "text",
+        "label": "Downloads channel path",
+        "default": "/downloads",
+        "info": "Path of the channel whose list-visible child pages appear as homepage download cards (e.g. /downloads)."
       }
     ]
   },
@@ -273,7 +436,7 @@
         "label": "页头导航菜单设置",
         "rows": 10,
         "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个分栏。",
-        "default": "Home[/\nNews[/news\nVideos[/videos\nProducts[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nFAQs[/faqs\nSitemap[/s/sitemap"
+        "default": "Home[/\nDownloads[/downloads\nVideos[/videos\nProducts[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nFAQs[/faqs\nSitemap[/s/sitemap"
       },
       {
         "id": "footer_menu",
@@ -281,7 +444,7 @@
         "label": "页脚菜单设置",
         "rows": 10,
         "info": "格式：menu_name[slug]{sub_menu[slug|sub_menu[slug，每行一个分栏。",
-        "default": "Products[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nVideos[/videos\nNews[/news"
+        "default": "Products[/products{Catalog1[/products/pro1|Catalog2[/products/pro2\nVideos[/videos\nDownloads[/downloads"
       },
       {
         "id": "company_info",

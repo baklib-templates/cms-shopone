@@ -1,6 +1,6 @@
 {
-  "theme_label": "Wiki",
-  "theme_description": "Utilisé pour créer des wikis, de la documentation d'aide et des portails de contenu.",
+  "theme_label": "Boutique",
+  "theme_description": "Un thème moderne de vitrine et centre d’aide produit : manuels, tutoriels vidéo, FAQ et téléchargements.",
   "generic": {
     "403": "403 Aucune autorisation d'accès",
     "404": "404 introuvable",
@@ -21,6 +21,8 @@
     "copyright": "Tous droits réservés",
     "published_at": "Posté sur",
     "prev_page": "page précédente",
+    "feedback": "Was this article helpful?",
+    "feedbacked": "Thanks for your feedback!",
     "next_page": "page suivante",
     "hot_pages": "Articles de visite chauds",
     "newest_pages": "Articles les plus récents",
@@ -46,5 +48,28 @@
   "feedback": {
     "title": "Soumettre des commentaires",
     "input_placeholder": "Veuillez saisir vos commentaires"
+  },
+  "templates": {
+    "search": {
+      "eyebrow": "Recherche",
+      "title": "AI Search",
+      "subtitle": "Search across site content and continue the conversation with AI assistance.",
+      "empty_state": "Type a keyword to start searching.",
+      "no_results": "No results match your search. Try another keyword.",
+      "ai": {
+        "thinking": "AI is thinking...",
+        "canceled": "Answer canceled",
+        "completed": "Done.",
+        "assistant_name": "AI Assistant",
+        "input_placeholder": "Continue asking..."
+      },
+      "empty": {
+        "title": "Type a keyword to start searching.",
+        "hint": "Or ask a question in the AI input and get an instant answer."
+      },
+      "results": {
+        "count_label": "%{count} relevant results found"
+      }
+    }
   }
 }
