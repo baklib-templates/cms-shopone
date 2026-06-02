@@ -13,7 +13,7 @@ site:
       FAQs[/faqs{Device guide[/faqs/device-guide|Service & warranty[/faqs/service-support
       Sitemap[/s/sitemap{Full navigation[/s/sitemap
     section_products_on: true
-    section_product_type: true
+    section_product_type: false
     section_product_title: "Browse by Product"
     product_categories: "Smart Beauty Devices|Professional Makeup Tools"
     section_topics_on: true
