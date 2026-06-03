@@ -5,14 +5,14 @@
 {% endcomment %}
 {%- assign local = page.settings.video_url -%}
 {%- if video_type == "1" -%}
-  {% assign thumb_class = "aspect-[9/16] mx-auto max-h-screen rounded-xl bg-gray-100 object-cover" %}
+  {% assign thumb_class = "aspect-[9/16] mx-auto max-h-screen rounded-box bg-gray-100 object-cover" %}
 {%- else -%}
-  {% assign thumb_class = "aspect-[16/9] mx-auto max-h-screen rounded-xl bg-gray-100 object-cover" %}
+  {% assign thumb_class = "aspect-[16/9] mx-auto max-h-screen rounded-box bg-gray-100 object-cover" %}
 {%- endif -%}
 
 <div class="[&_[x-cloak]]:hidden" x-data="{ modalOpen: false }">
   <button
-    class="relative flex justify-center items-center focus:outline-none focus-visible:ring focus-visible:ring-indigo-300 rounded-3xl group"
+    class="relative flex justify-center items-center focus:outline-none focus-visible:ring focus-visible:ring-indigo-300 rounded-box group"
     type="button"
     @click="modalOpen = true"
     aria-controls="modal-local-video"
@@ -60,7 +60,7 @@
   >
     <div class="max-w-6xl mx-auto flex items-center">
       <div
-        class="max-h-full bg-primary rounded-xl overflow-hidden p-2"
+        class="max-h-full bg-primary rounded-box overflow-hidden p-2"
         @click.outside="modalOpen = false"
         @keydown.escape.window="modalOpen = false"
       >

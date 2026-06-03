@@ -6,6 +6,7 @@ import { createIcons, icons } from "lucide"
 
 import MenuController from "../controllers/menu_controller"
 import AiSearchCompletionController from "../controllers/ai_search_completion_controller"
+import AiAssistantPanelController from "../controllers/ai_assistant_panel_controller"
 import AOS from "aos"
 
 window.Alpine = Alpine
@@ -16,6 +17,7 @@ const application = Application.start()
 window.Stimulus = application
 application.register("menu", MenuController)
 application.register("ai-search-completion", AiSearchCompletionController)
+application.register("ai-assistant-panel", AiAssistantPanelController)
 
 Turbo.start()
 

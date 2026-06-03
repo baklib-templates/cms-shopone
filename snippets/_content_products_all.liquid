@@ -52,14 +52,14 @@
   <div class="flex justify-center gap-4 w-full overflow-x-auto">
     <a
       href="{{ all_products_url }}"
-      class="flex-none px-4 py-1 text-sm font-medium border rounded-md focus:outline-none {% if show_all_products %}bg-primary text-white border-primary{% else %}border-gray-300{% endif %}"
+      class="flex-none px-4 py-1 text-sm font-medium border rounded-lg focus:outline-none {% if show_all_products %}bg-primary text-white border-primary{% else %}border-gray-300{% endif %}"
     >{{ 'generic.all' | t }}</a>
     {% for item in product_categories %}
       {% assign category_name = item | strip %}
       {% if category_name != blank %}
         <a
           href="/-/tags/{{ category_name }}"
-          class="flex-none px-4 py-1 text-sm font-medium border border-gray-300 rounded-md focus:outline-none {% unless show_all_products %}{% if category_name == active_tag_name %}bg-primary text-white border-primary{% endif %}{% endunless %}"
+          class="flex-none px-4 py-1 text-sm font-medium border border-gray-300 rounded-lg focus:outline-none {% unless show_all_products %}{% if category_name == active_tag_name %}bg-primary text-white border-primary{% endif %}{% endunless %}"
         >{{ category_name }}</a>
       {% endif %}
     {% endfor %}

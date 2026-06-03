@@ -17,7 +17,7 @@
 <section class="my-4">
     <div class="flex justify-center gap-4 w-full overflow-x-auto">
         {% for item in product_categories %}
-            <a href="/-/tags/{{ item }}" :class="{ 'bg-primary text-white': '{{ item }}' === '{{ tag.name }}' }" class="flex-none px-4 py-1 text-sm font-medium border border-gray-300 rounded-md focus:outline-none">{{ item }}</a>
+            <a href="/-/tags/{{ item }}" :class="{ 'bg-primary text-white': '{{ item }}' === '{{ tag.name }}' }" class="flex-none px-4 py-1 text-sm font-medium border border-gray-300 rounded-lg focus:outline-none">{{ item }}</a>
         {% endfor %}
     </div>
     {% paginate_tag tag_pages, per: 32 %}

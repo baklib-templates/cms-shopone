@@ -15,7 +15,7 @@
     {% for item2 in items %}
         <!-- Card product -->
         {% if item2.template_name == 'video' %}
-            <article class="flex flex-col border rounded-xl bg-gray-100">
+            <article class="flex flex-col border rounded-box bg-gray-100">
                 <div class="relative w-full flex flex-col items-center justify-center">
                     {% assign video_show = item2.settings.video_show.value %}
                     {% if video_show == "0" %}

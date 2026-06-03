@@ -8,7 +8,7 @@
           <div class="flex flex-wrap items-center justify-center space-x-5">
             {% for useful_type in site.plugins.feedback.useful_types %}
               <label
-                class="flex items-center p-1 space-x-1 border rounded"
+                class="flex items-center p-1 space-x-1 border rounded-lg"
                 :class="{ 'bg-gray-200': selected === '{{ useful_type.emoji }}' }"
                 @click="selected = '{{ useful_type.emoji }}'">
                 <input

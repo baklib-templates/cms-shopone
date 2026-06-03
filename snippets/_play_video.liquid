@@ -12,9 +12,9 @@
 
 {% assign youtube_id = page.settings.youtube_id | strip %}
 {%- if video_type == "1" -%}
-  {%  assign thumb_class = "aspect-[9/16] mx-auto max-h-screen rounded-xl bg-base-200 object-cover" %}
+  {%  assign thumb_class = "aspect-[9/16] mx-auto max-h-screen rounded-box bg-base-200 object-cover" %}
 {%- else -%}
-  {%  assign thumb_class = "aspect-[16/9] mx-auto max-h-screen rounded-xl bg-base-200 object-cover" %}
+  {%  assign thumb_class = "aspect-[16/9] mx-auto max-h-screen rounded-box bg-base-200 object-cover" %}
 {%- endif -%}
 
 {% if local_src != blank %}
@@ -26,7 +26,7 @@
 
   <div class="[&_[x-cloak]]:hidden" x-data="{ modalOpen: false }">
     <button
-        class="relative flex justify-center items-center focus:outline-none focus-visible:ring focus-visible:ring-primary rounded-3xl group"
+        class="relative flex justify-center items-center focus:outline-none focus-visible:ring focus-visible:ring-primary rounded-box group"
         @click="modalOpen = true"
         aria-controls="modal"
         aria-label="Watch the video"
@@ -72,7 +72,7 @@
     >
         <div class="max-w-6xl mx-auto flex items-center">
             <div
-                class="max-h-full bg-primary rounded-xl overflow-hidden"
+                class="max-h-full bg-primary rounded-box overflow-hidden"
                 @click.outside="modalOpen = false"
                 @keydown.escape.window="modalOpen = false"
             >
@@ -93,7 +93,7 @@
 
     <!-- 1. Video thumbnail -->
     <button
-        class="relative flex justify-center items-center focus:outline-none focus-visible:ring focus-visible:ring-primary rounded-3xl group"
+        class="relative flex justify-center items-center focus:outline-none focus-visible:ring focus-visible:ring-primary rounded-box group"
         @click="modalOpen = true"
         aria-controls="modal"
         aria-label="Watch the video"
@@ -135,7 +135,7 @@
     >
         <div class="max-w-6xl mx-auto flex items-center">
             <div
-                class="max-h-full bg-primary rounded-xl overflow-hidden"
+                class="max-h-full bg-primary rounded-box overflow-hidden"
                 @click.outside="modalOpen = false"
                 @keydown.escape.window="modalOpen = false"
             >

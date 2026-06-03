@@ -63,7 +63,9 @@
         "canceled": "Answer canceled",
         "completed": "Done.",
         "assistant_name": "AI Assistant",
-        "input_placeholder": "Continue asking..."
+        "input_placeholder": "Continue asking...",
+        "expand": "Expand panel",
+        "collapse": "Collapse panel"
       },
       "empty": {
         "title": "Type a keyword to start searching.",

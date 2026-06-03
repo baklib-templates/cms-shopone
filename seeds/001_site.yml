@@ -15,7 +15,7 @@ site:
     section_products_on: true
     section_product_type: false
     section_product_title: "Browse by Product"
-    product_categories: "Smart Beauty Devices|Professional Makeup Tools"
+    product_categories: "Tag-CategoryA|Tag-CategoryB|Tag-CategoryC"
     section_topics_on: true
     section_topic_title: "Browse by Topic"
     topics_menu: |
@@ -31,7 +31,7 @@ site:
     email: "support@Shop.demo"
     phone: "+1-800-555-0199"
     phone_name: "Mon–Fri, 10:00 AM – 6:00 PM EST"
-    chat_url: "https://www.baklib.cn/chat"
+    chat_url: "https://www.baklib.ai/chat"
     chat_name: "@Shop"
     contact_url: "/s/about"
     contact_name: "About & contact"

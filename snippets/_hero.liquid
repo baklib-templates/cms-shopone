@@ -14,7 +14,7 @@
 
         <div class="z-0 flex flex-col items-center justify-center w-full md:w-1/2">
           {% form_tag 'search', class: 'w-full' %}
-            <div class="relative rounded-2xl shadow-sm">
+            <div class="relative rounded-box shadow-sm">
               <button type="submit" class="absolute inset-y-0 right-0 flex items-center pl-4 pr-3 sm:right-auto">
                 <i data-lucide="search" class="h-5 w-5 text-primary"></i>
               </button>
@@ -23,7 +23,7 @@
                 name="{{form.keywords_field_name}}" value="{{ search.keywords | escape_once }}"
                 placeholder="{{ "placeholders.search" | t }}"
                 autocomplete="off"
-                class="block text-primary w-full h-10 md:h-12 lg:h-14 pl-3 pr-10 transition duration-300 ease-in-out bg-white bg-opacity-75 border border-transparent rounded outline-none focus:ring-0 focus:border-primary sm:pl-12 sm:text-lg focus:bg-opacity-90"
+                class="block text-primary w-full h-10 md:h-12 lg:h-14 pl-3 pr-10 transition duration-300 ease-in-out bg-white bg-opacity-75 border border-transparent rounded-lg outline-none focus:ring-0 focus:border-primary sm:pl-12 sm:text-lg focus:bg-opacity-90"
               >
             </div>
           {% endform_tag %}

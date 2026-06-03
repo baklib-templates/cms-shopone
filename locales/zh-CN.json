@@ -63,7 +63,9 @@
         "canceled": "已取消回答",
         "completed": "完成。",
         "assistant_name": "AI 助手",
-        "input_placeholder": "继续提问..."
+        "input_placeholder": "继续提问...",
+        "expand": "放大对话框",
+        "collapse": "缩小对话框"
       },
       "empty": {
         "title": "输入关键词开始搜索。",

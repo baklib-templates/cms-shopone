@@ -98,5 +98,52 @@
   .header-ai-search:focus-within .header-ai-search__icon--submit {
     @apply text-base-content/50;
   }
+
+  .ai-assistant-panel__backdrop {
+    @apply pointer-events-none fixed inset-x-0 bottom-0 z-40 bg-base-content/20 opacity-0 backdrop-blur-sm transition-opacity duration-300 ease-out;
+    top: var(--header-height, 4rem);
+  }
+
+  .ai-assistant-panel--expanded .ai-assistant-panel__backdrop {
+    @apply pointer-events-auto inset-0 z-[9999] opacity-100;
+  }
+
+  .ai-assistant-panel__panel {
+    @apply transition-[box-shadow,transform] duration-300 ease-out;
+  }
+
+  .ai-assistant-panel--expanded .ai-assistant-panel__panel {
+    @apply fixed top-24 right-0 bottom-0 z-[10000] flex flex-col shadow-2xl;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .ai-assistant-panel--expanded .ai-assistant-panel__panel {
+      width: 50vw;
+    }
+  }
+
+  .ai-assistant-panel--expanded #js--ai-search-completion {
+    @apply flex min-h-0 flex-1 flex-col;
+  }
+
+  .ai-assistant-panel--expanded .ai-assistant-panel__dialog {
+    @apply min-h-0 flex-1 rounded-none border-l md:rounded-l-box;
+  }
+
+  .ai-assistant-panel--expanded [data-ai-search-scroll-container] {
+    @apply min-h-0 max-h-none flex-1 overflow-y-auto;
+    padding-bottom: 5.5rem;
+  }
+
+  .ai-assistant-panel--expanded .ai-assistant-panel__footer {
+    @apply fixed bottom-0 right-0 z-[10001] w-full shrink-0 border-t border-base-300 bg-base-100 p-4;
+  }
+
+  @media (min-width: 768px) {
+    .ai-assistant-panel--expanded .ai-assistant-panel__footer {
+      width: 50vw;
+    }
+  }
 }
 

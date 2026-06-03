@@ -1,7 +1,7 @@
 {%- if page.parent.settings.video_type.value == "1" -%}
-  {%  assign thumb_class = "aspect-[9/16] mx-auto h-full rounded-xl bg-base-200 object-cover" %}
+  {%  assign thumb_class = "aspect-[9/16] mx-auto h-full rounded-box bg-base-200 object-cover" %}
 {%- else -%}
-  {%  assign thumb_class = "aspect-[16/9] mx-auto h-full rounded-xl bg-base-200 object-cover" %}
+  {%  assign thumb_class = "aspect-[16/9] mx-auto h-full rounded-box bg-base-200 object-cover" %}
 {%- endif -%}
 
 <!-- Blog post -->
@@ -78,7 +78,7 @@
               <a
                 href="{{ page.prev_page.path }}"
                 data-turbo="false"
-                class="block w-full p-3 text-left border rounded-md lg:w-1/2 border-base-300 bg-base-100 hover:bg-base-200"
+                class="block w-full p-3 text-left border rounded-lg lg:w-1/2 border-base-300 bg-base-100 hover:bg-base-200"
               >
                 <div class="mb-2">{{ 'generic.prev_page' | t }}</div>
                 <div class="text-primary">
@@ -96,7 +96,7 @@
               <a
                 href="{{ page.next_page.path }}"
                 data-turbo="false"
-                class="block w-full p-3 text-left border rounded-md lg:text-right lg:w-1/2 border-base-300 bg-base-100 hover:bg-base-200"
+                class="block w-full p-3 text-left border rounded-lg lg:text-right lg:w-1/2 border-base-300 bg-base-100 hover:bg-base-200"
               >
                 <div class="mb-2">{{ 'generic.next_page' | t }}</div>
                 <div class="text-primary">
@@ -131,35 +131,43 @@
       {
         "id": "title",
         "type": "text",
+        "to_markdown": true,
         "label": "t:schema.templates.video.settings.title.label"
       },
       {
         "id": "youtube_id",
         "type": "text",
         "placeholder": "6c3RXM7lK20",
+        "to_markdown": true,
         "label": "t:schema.templates.video.settings.youtube_id.label",
         "info": "t:schema.templates.video.settings.youtube_id.info"
       },
       {
         "id": "video_url",
         "type": "video_picker",
+        "ratio": "16:9",
+        "width": 400,
+        "to_markdown": true,
         "label": "t:schema.templates.video.settings.video_url.label",
         "info": "t:schema.templates.video.settings.video_url.info"
       },
       {
         "id": "description",
         "type": "textarea",
+        "to_markdown": true,
         "label": "t:schema.templates.video.settings.description.label"
       },
       {
         "id": "content",
         "type": "richtext",
+        "to_markdown": true,
         "label": "t:schema.templates.video.settings.content.label"
       },
       {
         "id": "tags",
         "type": "tag_picker",
         "multiple": true,
+        "to_markdown": true,
         "label": "t:schema.templates.video.settings.tags.label"
       }
     ]

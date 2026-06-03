@@ -1,6 +1,6 @@
 {% comment %} 只有一条记录的情况下，直接展开显示内容 {% endcomment %}
 {% assign page_count = page.pages_in_list | size %}
-{% if page_count < 3 %}
+{% if page_count < 2 %}
     {% for item in pages  %}
         {% if item.template_name == 'faqs' %}
             {% for item2 in item.children_in_list %}
