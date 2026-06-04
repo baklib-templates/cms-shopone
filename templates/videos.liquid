@@ -28,7 +28,7 @@
             <section>
                 {% for item in pages %}
                     {% if item.template_name == 'videos' %}
-                        {% render 'content_videos', page: item %}
+                        {% render 'content_videos', page: item, show_header: true %}
                     {% else %}
                         {% if item.template_name == 'video' %}
                             {% render 'content_video', page: item %}

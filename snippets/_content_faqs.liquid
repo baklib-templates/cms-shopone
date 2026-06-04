@@ -1,30 +1,52 @@
-{% comment %} 只有一条记录的情况下，直接展开显示内容 {% endcomment %}
-{% assign page_count = page.pages_in_list | size %}
-{% if page_count < 2 %}
-    {% for item in pages  %}
-        {% if item.template_name == 'faqs' %}
-            {% for item2 in item.children_in_list %}
-                {% render 'content_faq', open: 'open', item: item2 %}
-            {% endfor %}
-        {% else %}
-            {% render 'content_faq', open: 'open', item: item %}
-        {% endif %}
-    {% endfor %}
-{% else %}
-    {% paginate_tag pages, per: 24 %}
-        {% for item in pages  %}
-            {% if item.template_name == 'faqs' %}
+{% comment %}
+  Nested FAQ sections: when a child has sub-items, render section title + questions (product / faqs page layout).
+  Flat list: accordion list with optional pagination.
+{% endcomment %}
 
-                {% for item2 in item.children_in_list %}
-                    {% render 'content_faq', item: item2 %}
-                {% endfor %}
-            {% else %}
-                {% render 'content_faq', item: item %}
-            {% endif %}
-        {% endfor %}
-        <!-- Pagination -->
-        <div class="w-full text-right block mt-12">
-            {% render 'paginate', paginate: paginate %}
+{% assign has_nested_sections = false %}
+{% for item in pages %}
+  {% assign sub_items_count = item.children_in_list | size %}
+  {% if sub_items_count > 0 %}
+    {% assign has_nested_sections = true %}
+  {% endif %}
+{% endfor %}
+
+{% if has_nested_sections %}
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
+    {% for item in pages %}
+      {% assign sub_items_count = item.children_in_list | size %}
+      {% if sub_items_count > 0 %}
+        <div>
+          <h3 class="border-b border-primary pb-2 text-2xl font-semibold text-base-content">
+            {{ item.settings.title | default: item.link_text }}
+          </h3>
+          <div class="mt-2">
+            {% for item2 in item.children_in_list %}
+              {% render 'content_faq', item: item2 %}
+            {% endfor %}
+          </div>
         </div>
+      {% else %}
+        <div>
+          {% render 'content_faq', item: item %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% else %}
+  {% assign page_count = page.pages_in_list | size %}
+  {% if page_count < 2 %}
+    {% for item in pages %}
+      {% render 'content_faq', open: 'open', item: item %}
+    {% endfor %}
+  {% else %}
+    {% paginate_tag pages, per: 24 %}
+      {% for item in pages %}
+        {% render 'content_faq', item: item %}
+      {% endfor %}
+      <div class="mt-12 block w-full text-right">
+        {% render 'paginate', paginate: paginate %}
+      </div>
     {% endpaginate_tag %}
+  {% endif %}
 {% endif %}

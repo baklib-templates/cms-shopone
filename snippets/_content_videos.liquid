@@ -1,65 +1,71 @@
-{%  assign items =  page.children_in_list | limit: 6 %}
-<section class="py-2">
-    <div class="max-w-6xl mx-auto border-b border-gray-200 pb-4 mb-4">
-        <div class="">
-            <h3 class="text-lg md:text-2xl font-semibold base-content">
-                {{ page.settings.title }}
-            </h3>
-            <p class="text-sm text-gray-500">{{ page.settings.description }}</p>
-        </div>
-    </div>
-</section>
+{% comment %}
+  Nested sections: sub-category title + video cards (product tab / videos channel layout).
+  Flat list: video card grid with optional pagination.
+  pages: defaults to page.children_in_list; show_header: subsection title on videos.liquid channel pages.
+{% endcomment %}
 
-{% assign video_type = page.settings.video_type.value %}
-<div class="grid grid-cols-1 gap-4 md:gap-8 sm:grid-cols-3">
-    {% for item2 in items %}
-        <!-- Card product -->
-        {% if item2.template_name == 'video' %}
-            <article class="flex flex-col border rounded-box bg-gray-100">
-                <div class="relative w-full flex flex-col items-center justify-center">
-                    {% assign video_show = item2.settings.video_show.value %}
-                    {% if video_show == "0" %}
-                      {% if item2.settings.video_url %}
-                        {% render 'play_local_video', page: item2 %}
-                      {% else %}
-                        <p class="text-gray-500 text-sm py-8">无视频</p>
-                      {% endif %}
-                    {% elsif video_show == "1" %}
-                      {% if item2.settings.youtube_id != blank %}
-                        {% render 'play_video', page: item2 %}
-                      {% else %}
-                        <p class="text-gray-500 text-sm py-8">无视频</p>
-                      {% endif %}
-                    {% else %}
-                      {% if item2.settings.youtube_id != blank %}
-                        {% render 'play_video', page: item2 %}
-                      {% elsif item2.settings.video_url %}
-                        {% render 'play_local_video', page: item2 %}
-                      {% else %}
-                        <p class="text-gray-500 text-sm py-8">无视频</p>
-                      {% endif %}
-                    {% endif %}
-                </div>
-                <div class="w-full px-2">
-                    <div class="group relative">
-                        <a href="{{ item2.path }}" class="mt-2 line-clamp-2 text-md leading-6 group-hover:text-gray-600">
-                            {{ item2.settings.title }}
-                        </a>
-                    </div>
-                    <div class="text-sm text-gray-600 my-2">
-                        {{ item.settings.description }}
-                    </div>
-                </div>
-            </article>
-        {% endif %}
-    {% endfor %}
-</div>
-<!-- Pagination -->
-{%  assign count =  page.children_in_list | size %}
-{% if count > 6 %}
-    <div class="w-full text-right block mt-4">
-        <a href="{{ page.url }}" class="inline-block px-4 py-2 border border-transparent text-base font-medium rounded-full text-white bg-secondary hover:bg-secondary/80">
-            {{ 'general.view_all' | t }}
-        </a>
+{% unless pages %}
+  {% assign pages = page.children_in_list %}
+{% endunless %}
+
+{% assign video_type = page.settings.video_type.value | default: '0' %}
+
+{% assign has_nested_sections = false %}
+{% for item in pages %}
+  {% assign sub_items_count = item.children_in_list | size %}
+  {% if sub_items_count > 0 %}
+    {% assign has_nested_sections = true %}
+  {% endif %}
+{% endfor %}
+
+{% if show_header %}
+  <section class="py-2">
+    <div class="mb-4 border-b border-base-300 pb-4">
+      <h3 class="text-lg font-semibold text-base-content md:text-2xl">{{ page.settings.title | default: page.link_text }}</h3>
+      {% if page.settings.description != blank %}
+        <p class="text-sm text-base-content/60">{{ page.settings.description }}</p>
+      {% endif %}
     </div>
+  </section>
+{% endif %}
+
+{% if has_nested_sections %}
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+    {% for item in pages %}
+      {% assign sub_items_count = item.children_in_list | size %}
+      {% if sub_items_count > 0 %}
+        <div>
+          <h3 class="border-b border-primary pb-2 text-2xl font-semibold text-base-content">
+            {{ item.settings.title | default: item.link_text }}
+          </h3>
+          <div class="mt-4 space-y-2">
+            {% for item2 in item.children_in_list %}
+              {% if item2.template_name == 'video' %}
+                {% render 'content_video_card', item: item2, video_type: video_type %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% else %}
+        <div>
+          {% if item.template_name == 'video' %}
+            {% render 'content_video_card', item: item, video_type: video_type %}
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% else %}
+  {% paginate_tag pages, per: 12 %}
+    <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
+      {% for item in pages %}
+        {% if item.template_name == 'video' %}
+          {% render 'content_video_card', item: item, video_type: video_type %}
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="mt-12 block w-full text-right">
+      {% render 'paginate', paginate: paginate %}
+    </div>
+  {% endpaginate_tag %}
 {% endif %}

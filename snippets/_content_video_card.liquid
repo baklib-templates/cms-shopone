@@ -1,0 +1,36 @@
+{% comment %} Video list card. Expects: item, video_type (optional, from parent videos page). {% endcomment %}
+{% assign card_video_type = video_type | default: '0' %}
+<article class="my-4 flex flex-col overflow-hidden rounded-box border border-base-300 bg-base-100">
+  <div class="relative flex w-full flex-col items-center justify-center">
+    {% assign video_show = item.settings.video_show.value %}
+    {% if video_show == '0' %}
+      {% if item.settings.video_url %}
+        {% render 'play_local_video', page: item %}
+      {% else %}
+        <p class="py-8 text-sm text-base-content/50">No video</p>
+      {% endif %}
+    {% elsif video_show == '1' %}
+      {% if item.settings.youtube_id != blank %}
+        {% render 'play_video', page: item, video_type: card_video_type %}
+      {% else %}
+        <p class="py-8 text-sm text-base-content/50">No video</p>
+      {% endif %}
+    {% else %}
+      {% if item.settings.youtube_id != blank %}
+        {% render 'play_video', page: item, video_type: card_video_type %}
+      {% elsif item.settings.video_url %}
+        {% render 'play_local_video', page: item %}
+      {% else %}
+        <p class="py-8 text-sm text-base-content/50">No video</p>
+      {% endif %}
+    {% endif %}
+  </div>
+  <div class="w-full px-2 pb-2">
+    <a href="{{ item.path }}" class="mt-2 line-clamp-2 text-base leading-6 text-base-content hover:text-primary">
+      {{ item.settings.title | default: item.link_text }}
+    </a>
+    {% if item.settings.description != blank %}
+      <p class="my-2 text-sm text-base-content/60">{{ item.settings.description }}</p>
+    {% endif %}
+  </div>
+</article>

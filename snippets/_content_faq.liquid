@@ -1,13 +1,16 @@
 {% if open == 'open' %}
-    <div class="ProseMirror border max-w-full overflow-x-auto text-gray-600 mt-2 p-2 md:p-4">
+    <div class="ProseMirror mt-2 max-w-full overflow-x-auto border border-base-300 p-2 text-base-content/80 md:p-4">
         {{ item.settings.content }}
     </div>
 {% else %}
-    <details class="py-2">
-        <summary class="base-content cursor-pointer hover:bg-primary-50 hover:text-primary font-semibold px-2 py-1 rounded-lg">
-            {{ item.settings.title }}
+    <details class="group py-2">
+        <summary class="cursor-pointer list-none px-2 py-1 font-semibold text-base-content marker:hidden hover:bg-base-200/50 hover:text-primary [&::-webkit-details-marker]:hidden">
+            <span class="inline-flex items-start gap-2">
+                <i data-lucide="chevron-right" class="mt-0.5 h-4 w-4 shrink-0 text-base-content transition group-open:rotate-90"></i>
+                <span>{{ item.settings.title | default: item.link_text }}</span>
+            </span>
         </summary>
-        <div class="ProseMirror border rounded-lg max-w-full overflow-x-auto text-gray-600 mt-2 p-2 md:p-4">
+        <div class="ProseMirror mt-2 max-w-full overflow-x-auto rounded-box border border-base-300 p-2 text-base-content/80 md:p-4">
             {{ item.settings.content }}
         </div>
     </details>

@@ -26,7 +26,7 @@
             <section>
                 {% for item in pages %}
                     {% if item.template_name == 'downloads' %}
-                        {% render 'content_downloads', page: item %}
+                        {% render 'content_downloads', page: item, show_header: true %}
                     {% else %}
                         {% render 'content_post', page: item %}
                     {% endif %}
